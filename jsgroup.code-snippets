@@ -24,7 +24,7 @@
   "My Declare Let": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "l",
-    "body": "l ${1:name} = $2;"
+    "body": "let ${1:name} = $2;"
   },
   "My Declare Function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -128,10 +128,20 @@
     "prefix": "eaf",
     "body": "export async function ${1:name}($2) {$0}"
   },
+  "My Export Default Async Function": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "edaf",
+    "body": "export default async function ${1:name}($2) {$0}"
+  },
   "My Export Async Generator Function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "eagf",
     "body": "export async function* ${1:name}($2) {$0}"
+  },
+  "My Export Default Async Generator Function": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "edagf",
+    "body": "export default async function* ${1:name}($2) {$0}"
   },
   "My Export Class": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -150,6 +160,11 @@
     "body": ["${1:field}: async ($2) => {$0},"]
   },
   // Class members
+  "My Constructor": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ctor",
+    "body": ["constructor($1) {$0}"]
+  },
   "My Class Fields": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "field",
@@ -182,9 +197,39 @@
     "prefix": "it",
     "body": ["it('${1:testCase}', () => {", "\t$0", "});"]
   },
+  "My Async Test": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ta",
+    "body": ["test('${1:testCase}', async () => {", "\t$0", "});"]
+  },
+  "My Async It": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ita",
+    "body": ["it('${1:testCase}', async () => {", "\t$0", "});"]
+  },
   "My Expect": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "e",
     "body": ["expect(${1:actual}).$2;"]
+  },
+  "My beforeAll": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ba",
+    "body": ["beforeAll(() => {", "\t$0", "});"]
+  },
+  "My beforeEach": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "be",
+    "body": ["beforeEach(() => {", "\t$0", "});"]
+  },
+  "My afterAll": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "aa",
+    "body": ["afterAll(() => {", "\t$0", "});"]
+  },
+  "My afterEach": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ae",
+    "body": ["afterEach(() => {", "\t$0", "});"]
   }
 }
