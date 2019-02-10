@@ -88,67 +88,72 @@
     "body": "import ${2:module} = require('${1:path}');"
   },
   // Exports
-  "My Export Const": {
+  "My export default": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ed",
+    "body": ["export default $1;"]
+  },
+  "My export const": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ec",
     "body": "export const ${1:name} = $2;"
   },
-  "My Export Default Const": {
+  "My export default const": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edc",
-    "body": ["const ${1:name} = $2;$0\n", "export default $1;"]
+    "body": ["const ${1:name} = $0;\n", "export default $1;"]
   },
-  "My Export Function": {
+  "My export function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ef",
     "body": "export function ${1:name}($2) {$0}"
   },
-  "My Export Default Function": {
+  "My export default function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edf",
     "body": "export default function ${1:name}($2) {$0}"
   },
-  "My Export Function Variable": {
+  "My export function variable": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "efv",
     "body": "export const ${1:name} = ($2) => {$0};"
   },
-  "My Export Default Function Variable": {
+  "My export default function variable": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edfv",
     "body": "export default const ${1:name} = ($2) => {$0};"
   },
-  "My Export Generator Function": {
+  "My export generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "egf",
     "body": "export function* ${1:name}($2) {$0}"
   },
-  "My Export Async Function": {
+  "My export async function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "eaf",
     "body": "export async function ${1:name}($2) {$0}"
   },
-  "My Export Default Async Function": {
+  "My export default async function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edaf",
     "body": "export default async function ${1:name}($2) {$0}"
   },
-  "My Export Async Generator Function": {
+  "My export async generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "eagf",
     "body": "export async function* ${1:name}($2) {$0}"
   },
-  "My Export Default Async Generator Function": {
+  "My export default async generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edagf",
     "body": "export default async function* ${1:name}($2) {$0}"
   },
-  "My Export Class": {
+  "My export class": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ecl",
     "body": "export class ${1:name} {$0}"
   },
-  "My Export Default Class": {
+  "My export default class": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edcl",
     "body": "export default class ${1:name} {$0}"
