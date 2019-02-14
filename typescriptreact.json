@@ -64,16 +64,17 @@
       "export interface $1State {$5}\n"
     ]
   },
-  "My Functional Component": {
+  "My Function Component": {
     "prefix": "rfc",
     "body": [
-      "import React from 'react';\n\n",
-      "export default function ${1:MyComponent}(${3:props}: $1Props) {",
+      "import React, { FunctionComponent } from 'react';\n",
+      "const ${1:MyComponent}: FunctionComponent<$1Props> = ({$3}) => {",
       "\treturn (",
       "\t\t$0",
       "\t);",
-      "}\n\n",
-      "export interface $1Props {$2}\n"
+      "};\n",
+      "export interface $1Props {$2}\n",
+      "export default $1;\n"
     ]
   },
   "My Higher Order Component": {
