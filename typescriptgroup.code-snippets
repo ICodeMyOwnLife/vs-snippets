@@ -16,17 +16,17 @@
   // 	"description": "Log output to console"
   // }
   // Exports
-  "My Export Interface": {
+  "My export interface": {
     "scope": "typescript,typescriptreact",
     "prefix": "ei",
     "body": "export interface ${1:name} {$2}"
   },
-  "My Export Type": {
+  "My export type": {
     "scope": "typescript,typescriptreact",
     "prefix": "et",
     "body": "export type ${1:name} = $0;"
   },
-  // Class memebers
+  // Class members
   "My get property": {
     "scope": "typescript,typescriptreact",
     "prefix": "get",
