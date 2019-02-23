@@ -15,8 +15,8 @@
   /**
    *	Component Declarations
    */
-  "My Class Component": {
-    "prefix": "rcc",
+  "My class component": {
+    "prefix": ["rcc", "reactClassComponent"],
     "body": [
       "import React, { Component } from 'react';\n\n",
       "export default class ${1:MyComponent} extends Component<$1Props, $1State> {",
@@ -31,8 +31,8 @@
       "export interface $1State {$3}\n"
     ]
   },
-  "My Pure Component": {
-    "prefix": "rpc",
+  "My pure component": {
+    "prefix": ["rpc", "reactPureComponent"],
     "body": [
       "import React, { PureComponent } from 'react';\n\n",
       "export default class ${1:MyComponent} extends PureComponent<$1Props, $1State> {",
@@ -47,8 +47,8 @@
       "export interface $1State {$3}\n"
     ]
   },
-  "My Inherited Component": {
-    "prefix": "ric",
+  "My inherited component": {
+    "prefix": ["ric", "reactInheritedComponent"],
     "body": [
       "import React from 'react';",
       "import ${3:BaseComponent} from '$2';\n\n",
@@ -64,15 +64,16 @@
       "export interface $1State {$5}\n"
     ]
   },
-  "My Function Component": {
-    "prefix": "rfc",
+  "My function component": {
+    "prefix": ["rfc", "reactFunctionComponent"],
     "body": [
       "import React, { FunctionComponent } from 'react';\n",
-      "const ${1:MyComponent}: FunctionComponent<$1Props> = ({$3}) => {",
+      "const ${1:MyComponent}: FunctionComponent<$1Props> = ({$4}) => {",
       "\treturn (",
       "\t\t$0",
       "\t);",
       "};\n",
+      "$1.propTypes = {$3};\n",
       "export interface $1Props {$2}\n",
       "export default $1;\n"
     ]

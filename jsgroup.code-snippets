@@ -69,22 +69,22 @@
   // Imports
   "My import": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "i",
+    "prefix": ["i", "import"],
     "body": "import ${2:moduleName} from '${1:module}';"
   },
   "My import destructuring": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "id",
+    "prefix": ["id", "importDestructuring"],
     "body": "import {$2} from '${1:module}';"
   },
   "My import all": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "i*",
+    "prefix": ["i*", "importAll"],
     "body": "import * as ${2:moduleName} from '${1:module}';"
   },
   "My import require": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "req",
+    "prefix": ["req", "importRequire"],
     "body": "import ${2:module} = require('${1:path}');"
   },
   // Exports
@@ -99,7 +99,7 @@
     "body": "export const ${1:name} = $2;"
   },
   "My export default const": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "scope": "javascript,javascriptreact",
     "prefix": "edc",
     "body": ["const ${1:name} = $0;\n", "export default $1;"]
   },
@@ -174,6 +174,28 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "field",
     "body": ["${1:field} = ($2) => {$0},"]
+  },
+  "My get property": {
+    "scope": "javascript,javascriptreact",
+    "prefix": "get",
+    "body": ["get ${1:name}() {", "\treturn this.$2;", "}"]
+  },
+  "My set property": {
+    "scope": "javascript,javascriptreact",
+    "prefix": "set",
+    "body": ["set ${1:name}($2) {", "\tthis.$3 = $2;", "}"]
+  },
+  "My get-set": {
+    "scope": "javascript,javascriptreact",
+    "prefix": ["getset"],
+    "body": [
+      "get ${1:name}() {",
+      "\treturn this.$3;",
+      "}\n",
+      "set $1($2) {",
+      "\tthis.$3 = $2;",
+      "}"
+    ]
   },
   // Loops
   "My for loop": {
