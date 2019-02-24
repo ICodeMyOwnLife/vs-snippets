@@ -138,6 +138,16 @@
     "prefix": "edaf",
     "body": "export default async function ${1:name}($2) {$0}"
   },
+  "My export async function expression": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "eafe",
+    "body": "export const ${1:name} = async ($2) => {$0};\n"
+  },
+  "My export default async function expression": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "edaf",
+    "body": ["const ${1:name} = async ($2) => {$0};\n", "export default $1;\n"]
+  },
   "My export async generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "eagf",
@@ -167,22 +177,22 @@
   // Class members
   "My constructor": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "ctor",
+    "prefix": ["ctor", "constructor"],
     "body": ["constructor($1) {$0}"]
   },
   "My class field": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "field",
-    "body": ["${1:field} = ($2) => {$0},"]
+    "scope": "javascript,javascriptreact",
+    "prefix": ["field"],
+    "body": ["${1:field} = ($2) => {$0};"]
   },
   "My get property": {
     "scope": "javascript,javascriptreact",
-    "prefix": "get",
+    "prefix": ["get"],
     "body": ["get ${1:name}() {", "\treturn this.$2;", "}"]
   },
   "My set property": {
     "scope": "javascript,javascriptreact",
-    "prefix": "set",
+    "prefix": ["set"],
     "body": ["set ${1:name}($2) {", "\tthis.$3 = $2;", "}"]
   },
   "My get-set": {
