@@ -15,50 +15,102 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-  // Exports
-  "My Export Interface": {
+  // Declarations
+  "My enum": {
     "scope": "typescript,typescriptreact",
-    "prefix": "ei",
+    "prefix": ["enum"],
+    "body": "enum ${1:name} {\n\t$0\n}\n"
+  },
+  "My const enum": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["constEnum"],
+    "body": "const enum ${1:name} {\n\t$0\n}\n"
+  },
+  // Exports
+  "My export interface": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["ei", "exportInterface"],
     "body": "export interface ${1:name} {$2}"
   },
-  "My Export Type": {
+  "My export type": {
     "scope": "typescript,typescriptreact",
-    "prefix": "et",
+    "prefix": ["et", "exportType"],
     "body": "export type ${1:name} = $0;"
   },
-  // Class memebers
+  "My export default const": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "edc",
+    "body": ["const ${1:name}: ${2:type} = $0;\n", "export default $1;"]
+  },
+  "My export string": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["estr", "exportString"],
+    "body": [
+      "export const ${1:name} = `$2$1`;",
+      "export type $1 = typeof $1;\n"
+    ]
+  },
+  // Class members
   "My get property": {
     "scope": "typescript,typescriptreact",
-    "prefix": "get",
+    "prefix": ["get"],
     "body": ["public get ${1:name}() {", "\t$0", "}"]
   },
   "My set property": {
     "scope": "typescript,typescriptreact",
-    "prefix": "set",
+    "prefix": ["set"],
     "body": [
       "public set ${1:name}(${2:value}: ${3:Type}) {",
       "\tthis.$4 = $2;",
       "}"
     ]
   },
+  "My get-set": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["getSet"],
+    "body": [
+      "private _$1: $3 = $4;\n",
+      "public get ${1:name}() {",
+      "\treturn this._$1;",
+      "}\n",
+      "public set $1(${2:value}: ${3:type}) {",
+      "\tthis._$1 = $2;",
+      "}"
+    ]
+  },
   "My public method": {
     "scope": "typescript,typescriptreact",
-    "prefix": "public method",
+    "prefix": ["publicMethod"],
     "body": ["public ${1:method}($2) {", "\t$0", "}"]
+  },
+  "My public async method": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["publicAsyncMethod"],
+    "body": ["public async ${1:method}($2) {", "\t$0", "}"]
   },
   "My private method": {
     "scope": "typescript,typescriptreact",
-    "prefix": "private method",
+    "prefix": ["privateMethod"],
     "body": ["private ${1:method}($2) {", "\t$0", "}"]
+  },
+  "My private async method": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["privateAsyncMethod"],
+    "body": ["private async ${1:method}($2) {", "\t$0", "}"]
   },
   "My protected method": {
     "scope": "typescript,typescriptreact",
-    "prefix": "protected method",
+    "prefix": ["protectedMethod"],
     "body": ["protected ${1:method}($2) {", "\t$0", "}"]
+  },
+  "My protected async method": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["protectedAsyncMethod"],
+    "body": ["protected async ${1:method}($2) {", "\t$0", "}"]
   },
   "My class field": {
     "scope": "typescript,typescriptreact",
-    "prefix": "field",
-    "body": ["private readonly ${1:field} = ($2) => {", "\t$0", "}"]
+    "prefix": ["field"],
+    "body": ["private readonly ${1:field} = ($2) => {", "\t$0", "};"]
   }
 }
