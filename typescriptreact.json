@@ -116,7 +116,7 @@
   },
   "My propTypes": {
     "prefix": "proptypes",
-    "body": "static readonly propTypes: PropTypesOf$1<${2:Props}> = {$0};"
+    "body": "static readonly propTypes: WeakValidationMap$1<${2:Props}> = {$0};"
   },
   "My Render X Method": {
     "prefix": "renx",
