@@ -88,19 +88,24 @@
     "body": "import ${2:module} = require('${1:path}');"
   },
   // Exports
+  "My export from": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["efr", "exportFrom"],
+    "body": ["export {$2} from '${1:module}';"]
+  },
   "My export default": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "ed",
+    "prefix": ["ed", "exportDefault"],
     "body": ["export default $1;"]
   },
   "My export const": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "ec",
+    "prefix": ["ec", "exportConst"],
     "body": "export const ${1:name} = $2;"
   },
   "My export default const": {
     "scope": "javascript,javascriptreact",
-    "prefix": "edc",
+    "prefix": ["edc", "exportDefaultConst"],
     "body": ["const ${1:name} = $0;\n", "export default $1;"]
   },
   "My export function": {
