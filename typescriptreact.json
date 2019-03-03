@@ -15,60 +15,60 @@
   /**
    *	Component Declarations
    */
-  "My class component": {
+  "My React class component": {
     "prefix": ["rcc", "reactClassComponent"],
     "body": [
-      "import React, { Component } from 'react';\n\n",
-      "export default class ${1:MyComponent} extends Component<$1Props, $1State> {",
+      "import React, { Component } from 'react';\n",
+      "export default class ${1:$TM_FILENAME_BASE} extends Component<$1Props, $1State> {",
       "\treadonly state: Readonly<$1State> = {$4};\n",
       "\trender() {",
       "\t\treturn (",
       "\t\t\t$0",
       "\t\t);",
       "\t}",
-      "}\n\n",
+      "}\n",
       "export interface $1Props {$2}\n",
-      "export interface $1State {$3}\n"
+      "interface $1State {$3}\n"
     ]
   },
-  "My pure component": {
+  "My React pure component": {
     "prefix": ["rpc", "reactPureComponent"],
     "body": [
-      "import React, { PureComponent } from 'react';\n\n",
-      "export default class ${1:MyComponent} extends PureComponent<$1Props, $1State> {",
+      "import React, { PureComponent } from 'react';\n",
+      "export default class ${1:$TM_FILENAME_BASE} extends PureComponent<$1Props, $1State> {",
       "\treadonly state: Readonly<$1State> = {$4};\n",
       "\trender() {",
       "\t\treturn (",
       "\t\t\t$0",
       "\t\t);",
       "\t}",
-      "}\n\n",
+      "}\n",
       "export interface $1Props {$2}\n",
-      "export interface $1State {$3}\n"
+      "interface $1State {$3}\n"
     ]
   },
-  "My inherited component": {
+  "My React inherited component": {
     "prefix": ["ric", "reactInheritedComponent"],
     "body": [
       "import React from 'react';",
-      "import ${3:BaseComponent} from '$2';\n\n",
-      "export default class ${1:MyComponent} extends $3<$1Props, $1State> {",
+      "import ${3:BaseComponent} from '$2';\n",
+      "export default class ${1:$TM_FILENAME_BASE} extends $3<$1Props, $1State> {",
       "\treadonly state: Readonly<$1State> = {$6};\n",
       "\trender() {",
       "\t\treturn (",
       "\t\t\t$0",
       "\t\t);",
       "\t}",
-      "}\n\n",
+      "}\n",
       "export interface $1Props {$4}\n",
-      "export interface $1State {$5}\n"
+      "interface $1State {$5}\n"
     ]
   },
-  "My function component": {
+  "My React function component": {
     "prefix": ["rfc", "reactFunctionComponent"],
     "body": [
       "import React, { FunctionComponent } from 'react';\n",
-      "const ${1:MyComponent}: FunctionComponent<$1Props> = ({$4}) => {",
+      "const ${1:$TM_FILENAME_BASE}: FunctionComponent<$1Props> = ({$4}) => {",
       "\treturn (",
       "\t\t$0",
       "\t);",
@@ -78,11 +78,11 @@
       "export default $1;\n"
     ]
   },
-  "My Higher Order Component": {
-    "prefix": "hoc",
+  "My higher-order component": {
+    "prefix": ["hoc", "higherOrderComponent"],
     "body": [
-      "import React, { Component, ComponentType } from 'react';\n\n",
-      "export default function ${1:MyHoc}<${2:TOwnProps}, ${3:TState}>(${4:WrappedComponent}: ComponentType<$2 & $1Props>) {",
+      "import React, { Component, ComponentType } from 'react';\n",
+      "export default function ${1:$TM_FILENAME_BASE}<${2:TOwnProps}, ${3:TState}>(${4:WrappedComponent}: ComponentType<$2 & $1Props>) {",
       "\treturn class $1 extends Component<$2, $3> {",
       "\t\trender() {",
       "\t\t\tconst props: $1Props = {$6};\n",
@@ -91,15 +91,15 @@
       "\t\t\t);",
       "\t\t}",
       "\t}",
-      "}\n\n",
+      "}\n",
       "export interface $1Props {$5}\n"
     ]
   },
   /*
    * Component Members and Life-Cycle Methods
    */
-  "My Component Constructor": {
-    "prefix": "cctor",
+  "My React component constructor": {
+    "prefix": ["cctor"],
     "body": [
       "constructor(${1:props}: ${2:Props}) {",
       "\tsuper($1);",
@@ -107,20 +107,20 @@
       "}"
     ]
   },
-  "My Component State": {
-    "prefix": "cstate",
+  "My React component state": {
+    "prefix": ["cstate"],
     "body": ["readonly state: Readonly<${1:ComponentState}> = {$0};"]
   },
   "My defaultProps": {
-    "prefix": "defaultprops",
+    "prefix": ["defaultprops"],
     "body": "static readonly defaultProps: DefaultPropsOf$1<${2:Props}, \"${3}\"> = {$0};"
   },
   "My propTypes": {
-    "prefix": "proptypes",
+    "prefix": ["proptypes"],
     "body": "static readonly propTypes: WeakValidationMap$1<${2:Props}> = {$0};"
   },
-  "My Render X Method": {
-    "prefix": "renx",
+  "My React renderX method": {
+    "prefix": ["renx"],
     "body": [
       "private render${1:Something}($2) {",
       "\treturn (",
@@ -129,16 +129,16 @@
       "}"
     ]
   },
-  "My Render Method": {
-    "prefix": "ren",
+  "My React render method": {
+    "prefix": ["ren"],
     "body": ["render() {", "\treturn (", "\t\t$0", "\t);", "}"]
   },
   "My componentDidMount": {
-    "prefix": "cdm",
+    "prefix": ["cdm"],
     "body": ["componentDidMount() {", "\t$0", "}"]
   },
   "My componentDidCatch": {
-    "prefix": "cdc",
+    "prefix": ["cdc"],
     "body": [
       "componentDidCatch(${1:error}: Error, ${2:errorInfo}: ErrorInfo) {",
       "\t$0",
@@ -146,7 +146,7 @@
     ]
   },
   "My shouldComponentUpdate": {
-    "prefix": "scu",
+    "prefix": ["scu"],
     "body": [
       "shouldComponentUpdate(${1:nextProps}: Readonly<${2:Props}>, ${3:nextState}: Readonly<${4:State}>, ${5:nextContext}: ${6:any}): boolean {",
       "\t$0",
@@ -154,11 +154,11 @@
     ]
   },
   "My componentWillUnmount": {
-    "prefix": "cwu",
+    "prefix": ["cwu"],
     "body": ["componentWillUnmount() {", "\t$0", "}"]
   },
   "My setNativeProps": {
-    "prefix": "snp",
+    "prefix": ["snp"],
     "body": [
       "setNativeProps(${1:nativeProps}: Object) {",
       "\t${2:component}.setNativeProps($1);$0",
@@ -166,7 +166,7 @@
     ]
   },
   "My getDerivedStateFromProps": {
-    "prefix": "gdsfp",
+    "prefix": ["gdsfp"],
     "body": [
       "static getDerivedStateFromProps(${1:nextProps}: Readonly<${2:Props}>, ${3:prevState}: ${4:State}): Partial<${4:State}> | null {",
       "\treturn {$0};",
@@ -174,14 +174,14 @@
     ]
   },
   "My getDerivedStateFromError": {
-    "prefix": "gdsfe",
+    "prefix": ["gdsfe"],
     "body": [
       "static getDerivedStateFromError(${1:error}: any): Partial<${2:State}> | null {",
       "\treturn {$0};",
       "}"
     ]
   },
-  "My Lazy Load Component": {
+  "My React lazy load component": {
     "prefix": "lazy",
     "body": ["const ${1:Component} = lazy(() => import('$2'));"]
   }
