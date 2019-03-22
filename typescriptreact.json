@@ -99,7 +99,7 @@
    * Component Members and Life-Cycle Methods
    */
   "My React component constructor": {
-    "prefix": ["cctor"],
+    "prefix": ["cCtor"],
     "body": [
       "constructor(${1:props}: ${2:Props}) {",
       "\tsuper($1);",
@@ -108,19 +108,19 @@
     ]
   },
   "My React component state": {
-    "prefix": ["cstate"],
+    "prefix": ["cState"],
     "body": ["readonly state: Readonly<${1:ComponentState}> = {$0};"]
   },
   "My defaultProps": {
-    "prefix": ["defaultprops"],
+    "prefix": ["defaultProps"],
     "body": "static readonly defaultProps: DefaultPropsOf$1<${2:Props}, \"${3}\"> = {$0};"
   },
   "My propTypes": {
-    "prefix": ["proptypes"],
+    "prefix": ["propTypes"],
     "body": "static readonly propTypes: WeakValidationMap$1<${2:Props}> = {$0};"
   },
   "My React renderX method": {
-    "prefix": ["renx"],
+    "prefix": ["renX"],
     "body": [
       "private render${1:Something}($2) {",
       "\treturn (",

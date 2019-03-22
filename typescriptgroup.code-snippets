@@ -112,5 +112,14 @@
     "scope": "typescript,typescriptreact",
     "prefix": ["field"],
     "body": ["private readonly ${1:field} = ($2) => {", "\t$0", "};"]
+  },
+  // Redux
+  "My redux action": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["action"],
+    "body": [
+      "export const ${1:ACTION} = '$2$1';",
+      "export type $1 = typeof $1;"
+    ]
   }
 }
