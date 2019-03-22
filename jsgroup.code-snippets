@@ -93,6 +93,11 @@
     "prefix": ["efr", "exportFrom"],
     "body": ["export {$2} from '${1:module}';"]
   },
+  "My export default from": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["edfr", "exportDefaultFrom"],
+    "body": ["export { default as ${2:name} } from '${1:module}';"]
+  },
   "My export default": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ed", "exportDefault"],
