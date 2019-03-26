@@ -109,7 +109,7 @@
     "body": "export const ${1:name} = $2;"
   },
   "My export default const": {
-    "scope": "javascript,javascriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["edc", "exportDefaultConst"],
     "body": ["const ${1:name} = $0;\n", "export default $1;"]
   },

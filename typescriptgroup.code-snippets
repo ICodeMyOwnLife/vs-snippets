@@ -37,11 +37,6 @@
     "prefix": ["et", "exportType"],
     "body": "export type ${1:name} = $0;"
   },
-  "My export default const": {
-    "scope": "typescript,typescriptreact",
-    "prefix": "edc",
-    "body": ["const ${1:name}: ${2:type} = $0;\n", "export default $1;"]
-  },
   "My export string": {
     "scope": "typescript,typescriptreact",
     "prefix": ["estr", "exportString"],
