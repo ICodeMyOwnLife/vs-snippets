@@ -67,16 +67,14 @@
   "My React function component": {
     "prefix": ["rfc", "reactFunctionComponent"],
     "body": [
-      "import React, { FunctionComponent } from 'react';\n",
+      "import React, { FunctionComponent, memo } from 'react';\n",
       "const ${1:$TM_FILENAME_BASE}: FunctionComponent<$1Props> = ({$4}) => {",
       "\treturn (",
       "\t\t$0",
       "\t);",
       "};\n",
-      "$1.propTypes = {$3};\n",
-      "$1.displayName = {$1};\n",
       "export interface $1Props {$2}\n",
-      "export default $1;\n"
+      "export default memo($1);\n"
     ]
   },
   "My higher-order component": {

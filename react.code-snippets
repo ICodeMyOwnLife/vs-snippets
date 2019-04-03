@@ -24,5 +24,15 @@
     "scope": "javascriptreact,typescriptreact",
     "prefix": "cp",
     "body": "const {$2} = this.props$1;"
+  },
+  "My useCallback": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "useCallback",
+    "body": "const ${1:callback} = useCallback$5(($2) => { $3; }, [$4]);"
+  },
+  "My useState": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "useState",
+    "body": "const [${1:state}, ${2:setState}] = useState$4(${3:initialValue});"
   }
 }
