@@ -74,6 +74,7 @@
       "\t);",
       "};\n",
       "$1.propTypes = {$3};\n",
+      "$1.displayName = {$1};\n",
       "export interface $1Props {$2}\n",
       "export default $1;\n"
     ]
@@ -183,6 +184,6 @@
   },
   "My React lazy load component": {
     "prefix": "lazy",
-    "body": ["const ${1:Component} = lazy(() => import('$2'));"]
+    "body": ["const ${2:Component} = lazy(() => import('$1'));"]
   }
 }
