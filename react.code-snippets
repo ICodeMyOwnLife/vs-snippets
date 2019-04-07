@@ -28,11 +28,21 @@
   "My useCallback": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": "useCallback",
-    "body": "const ${1:callback} = useCallback$5(($2) => { $3; }, [$4]);"
+    "body": "const ${1:callback} = useCallback(($3) => {$4}, [$2]);"
   },
   "My useState": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": "useState",
-    "body": "const [${1:state}, ${2:setState}] = useState$4(${3:initialValue});"
+    "body": "const [${1:state}, ${2:setState}] = useState(${3:initialValue});"
+  },
+  "My useEffect": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "useEffect",
+    "body": "useEffect(() => {$2}, [$1]);"
+  },
+  "My useContext": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "useContext",
+    "body": "const $2 = useContext($1);"
   }
 }

@@ -64,7 +64,21 @@
       "interface $1State {$5}\n"
     ]
   },
-  "My React function component": {
+  "My React function component declaration": {
+    "prefix": ["rfcd", "reactFunctionComponentDeclaration"],
+    "body": [
+      "import React, { memo } from 'react';\n",
+      "export function ${1:$TM_FILENAME_BASE}Component<${2:T}> ({$4}: $1Props<$2>) {",
+      "\treturn (",
+      "\t\t$0",
+      "\t);",
+      "}\n",
+      "export interface $1Props<$2> {$3}\n",
+      "const ${1} = memo($1Component);",
+      "export default $1;\n"
+    ]
+  },
+  "My React function component expression": {
     "prefix": ["rfc", "reactFunctionComponent"],
     "body": [
       "import React, { FunctionComponent, memo } from 'react';\n",
