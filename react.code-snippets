@@ -44,5 +44,10 @@
     "scope": "javascriptreact,typescriptreact",
     "prefix": "useContext",
     "body": "const $2 = useContext($1);"
+  },
+  "My useRef": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "useRef",
+    "body": "const $1 = useRef<$2>($3);"
   }
 }
