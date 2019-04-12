@@ -116,7 +116,7 @@
   "My export default const": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["edc", "exportDefaultConst"],
-    "body": ["const ${1:name} = $0;\n", "export default $1;"]
+    "body": ["const ${1:$TM_FILENAME_BASE} = $0;\n", "export default $1;"]
   },
   "My export function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -126,7 +126,7 @@
   "My export default function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edf",
-    "body": "export default function ${1:name}($2) {$0}"
+    "body": "export default function ${1:$TM_FILENAME_BASE}($2) {$0}"
   },
   "My export function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -136,7 +136,7 @@
   "My export default function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edfe",
-    "body": "export default const ${1:name} = ($2) => {$0};"
+    "body": "export default const ${1:$TM_FILENAME_BASE} = ($2) => {$0};"
   },
   "My export generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -151,7 +151,7 @@
   "My export default async function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edaf",
-    "body": "export default async function ${1:name}($2) {$0}"
+    "body": "export default async function ${1:$TM_FILENAME_BASE}($2) {$0}"
   },
   "My export async function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -161,7 +161,7 @@
   "My export default async function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edaf",
-    "body": ["const ${1:name} = async ($2) => {$0};\n", "export default $1;\n"]
+    "body": ["const ${1:$TM_FILENAME_BASE} = async ($2) => {$0};\n", "export default $1;\n"]
   },
   "My export async generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -171,7 +171,7 @@
   "My export default async generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edagf",
-    "body": "export default async function* ${1:name}($2) {$0}"
+    "body": "export default async function* ${1:$TM_FILENAME_BASE}($2) {$0}"
   },
   "My export class": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -181,7 +181,7 @@
   "My export default class": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edcl",
-    "body": "export default class ${1:name} {$0}"
+    "body": "export default class ${1:$TM_FILENAME_BASE} {$0}"
   },
   // Object properties
   "My async function property": {
