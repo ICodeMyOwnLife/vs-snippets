@@ -43,11 +43,16 @@
   "My useContext": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": "useContext",
-    "body": "const $2 = useContext($1);"
+    "body": "const ${1:name} = useContext($2);"
   },
   "My useRef": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": "useRef",
-    "body": "const $1 = useRef<$2>($3);"
+    "body": "const ${1:name} = useRef($2);"
+  },
+  "My useMemo": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "useMemo",
+    "body": "const ${1:name} = useMemo(() => $3, [$2]);"
   }
 }
