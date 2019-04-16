@@ -26,32 +26,32 @@
     "body": "const {$2} = this.props$1;"
   },
   "My useCallback": {
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "useCallback",
     "body": "const ${1:callback} = useCallback(($3) => {$4}, [$2]);"
   },
   "My useState": {
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "useState",
     "body": "const [${1:state}, ${2:setState}] = useState(${3:initialValue});"
   },
   "My useEffect": {
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "useEffect",
     "body": "useEffect(() => {$2}, [$1]);"
   },
   "My useContext": {
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "useContext",
     "body": "const ${1:name} = useContext($2);"
   },
   "My useRef": {
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "useRef",
     "body": "const ${1:name} = useRef($2);"
   },
   "My useMemo": {
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "useMemo",
     "body": "const ${1:name} = useMemo(() => $3, [$2]);"
   }

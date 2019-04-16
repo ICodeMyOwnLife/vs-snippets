@@ -161,7 +161,10 @@
   "My export default async function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edaf",
-    "body": ["const ${1:$TM_FILENAME_BASE} = async ($2) => {$0};\n", "export default $1;\n"]
+    "body": [
+      "const ${1:$TM_FILENAME_BASE} = async ($2) => {$0};\n",
+      "export default $1;\n"
+    ]
   },
   "My export async generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -330,5 +333,10 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ae", "aftereach"],
     "body": ["afterEach(() => {", "\t$0", "});"]
+  },
+  "My spy": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["spy"],
+    "body": "const ${3}Spy = jest.spyOn(${1:obj}, '${2}');"
   }
 }
