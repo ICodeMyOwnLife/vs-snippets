@@ -40,6 +40,11 @@
     "prefix": "useEffect",
     "body": "useEffect(() => {$2}, [$1]);"
   },
+  "My useLayoutEffect": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useLayoutEffect",
+    "body": "useLayoutEffect(() => {$2}, [$1]);"
+  },
   "My useContext": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "useContext",
