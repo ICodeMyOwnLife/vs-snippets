@@ -81,8 +81,8 @@
   "My React function component expression": {
     "prefix": ["rfc", "reactFunctionComponent"],
     "body": [
-      "import React, { FunctionComponent, memo } from 'react';\n",
-      "const ${1:$TM_FILENAME_BASE}: FunctionComponent<$1Props> = ({$4}) => {",
+      "import React, { FC, memo } from 'react';\n",
+      "const ${1:$TM_FILENAME_BASE}: FC<$1Props> = ({$4}) => {",
       "\treturn (",
       "\t\t$0",
       "\t);",
