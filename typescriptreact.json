@@ -87,8 +87,9 @@
       "\t\t$0",
       "\t);",
       "};\n",
-      "export interface $1Props {$2}\n",
-      "export default memo($1);\n"
+      "const Memo$1 = memo($1);\n",
+      "export default Memo$1;\n",
+      "export interface $1Props {$2}\n"
     ]
   },
   "My higher-order component": {
