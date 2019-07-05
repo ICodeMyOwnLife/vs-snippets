@@ -59,5 +59,10 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "useMemo",
     "body": "const ${1:name} = useMemo(() => $3, [$2]);"
+  },
+  "My renderHook": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "renderHook",
+    "body": "const {$2} = renderHook($1);"
   }
 }
