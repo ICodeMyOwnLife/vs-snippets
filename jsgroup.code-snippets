@@ -70,17 +70,17 @@
   "My import": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["i", "import"],
-    "body": "import ${2:moduleName} from '${1:module}';"
+    "body": "import ${2:moduleName} from '${1:module-name}';"
   },
   "My import destructuring": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["id", "importDestructuring"],
-    "body": "import {$2} from '${1:module}';"
+    "body": "import {$2} from '${1:module-name}';"
   },
   "My import all": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["i*", "importAll"],
-    "body": "import * as ${2:moduleName} from '${1:module}';"
+    "body": "import * as ${2:all} from '${1:module-name}';"
   },
   "My import require": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",

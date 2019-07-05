@@ -26,16 +26,21 @@
     "prefix": ["constEnum"],
     "body": "const enum ${1:name} {\n\t$0\n}\n"
   },
+  "My interface": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["interface"],
+    "body": "interface ${1:Name} {$2}"
+  },
   // Exports
   "My export interface": {
     "scope": "typescript,typescriptreact",
     "prefix": ["ei", "exportInterface"],
-    "body": "export interface ${1:name} {$2}"
+    "body": "export interface ${1:Name} {$2}"
   },
   "My export type": {
     "scope": "typescript,typescriptreact",
     "prefix": ["et", "exportType"],
-    "body": "export type ${1:name} = $0;"
+    "body": "export type ${1:Name} = $0;"
   },
   "My export string": {
     "scope": "typescript,typescriptreact",
