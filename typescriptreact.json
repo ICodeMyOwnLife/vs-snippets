@@ -82,13 +82,13 @@
     "prefix": ["rfc", "reactFunctionComponent"],
     "body": [
       "import React, { FC, memo } from 'react';\n",
-      "const ${1:$TM_FILENAME_BASE}: FC<$1Props> = ({$4}) => {",
+      "const ${1:$TM_FILENAME_BASE}Component: FC<$1Props> = ({$4}) => {",
       "\treturn (",
       "\t\t$0",
       "\t);",
       "};\n",
-      "const Memo$1 = memo($1);\n",
-      "export default Memo$1;\n",
+      "const $1 = memo($1Component);\n",
+      "export default $1;\n",
       "export interface $1Props {$2}\n"
     ]
   },
