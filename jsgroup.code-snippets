@@ -136,7 +136,10 @@
   "My export default function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edfe",
-    "body": "export default const ${1:$TM_FILENAME_BASE} = ($2) => {$0};"
+    "body": [
+      "const ${1:$TM_FILENAME_BASE} = ($2) => {$0};\n",
+      "export default $1;\n"
+    ]
   },
   "My export generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
