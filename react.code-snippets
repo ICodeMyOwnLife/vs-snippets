@@ -60,6 +60,11 @@
     "prefix": "useMemo",
     "body": "const ${1:name} = useMemo(() => $3, [$2]);"
   },
+  "My useReducer": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useReducer",
+    "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, ${4:initialValue});"
+  },
   "My renderHook": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "renderHook",
