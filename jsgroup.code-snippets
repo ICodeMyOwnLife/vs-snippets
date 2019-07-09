@@ -61,6 +61,11 @@
     "prefix": "cod",
     "body": "const {$2} = ${1:object};"
   },
+  "My let object destructuring": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "lod",
+    "body": "let {$2} = ${1:object};"
+  },
   "My const array destructuring": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "cad",
