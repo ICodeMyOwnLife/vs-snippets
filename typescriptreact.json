@@ -68,13 +68,13 @@
     "prefix": ["rfcd", "reactFunctionComponentDeclaration"],
     "body": [
       "import React, { memo } from 'react';\n",
-      "export function ${1:$TM_FILENAME_BASE}Component<${2:T}> ({$4}: $1Props<$2>) {",
+      "export function ${1:$TM_FILENAME_BASE}Impl<${2:T}> ({$4}: $1Props<$2>) {",
       "\treturn (",
       "\t\t$0",
       "\t);",
       "}\n",
       "export interface $1Props<$2> {$3}\n",
-      "const ${1} = memo($1Component);",
+      "const ${1} = memo($1Impl);",
       "export default $1;\n"
     ]
   },
@@ -82,12 +82,12 @@
     "prefix": ["rfc", "reactFunctionComponent"],
     "body": [
       "import React, { FC, memo } from 'react';\n",
-      "const ${1:$TM_FILENAME_BASE}Component: FC<$1Props> = ({$4}) => {",
+      "const ${1:$TM_FILENAME_BASE}Impl: FC<$1Props> = ({$4}) => {",
       "\treturn (",
       "\t\t$0",
       "\t);",
       "};\n",
-      "const $1 = memo($1Component);\n",
+      "const $1 = memo($1Impl);\n",
       "export default $1;\n",
       "export interface $1Props {$2}\n"
     ]
