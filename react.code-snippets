@@ -17,57 +17,62 @@
   // }
   "My state destructuring": {
     "scope": "javascriptreact,typescriptreact",
-    "prefix": "cs",
+    "prefix": ["cs", "stateDestructuring"],
     "body": "const {$2} = this.state$1;"
   },
   "My props destructuring": {
     "scope": "javascriptreact,typescriptreact",
-    "prefix": "cp",
+    "prefix": ["cp", "propDestructuring"],
     "body": "const {$2} = this.props$1;"
   },
   "My useCallback": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useCallback",
+    "prefix": ["ucb", "useCallback"],
+    "body": "useCallback(($3) => {$4}, [$2]);"
+  },
+  "My useCallback declaration": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["ucb", "useCallback"],
     "body": "const ${1:callback} = useCallback(($3) => {$4}, [$2]);"
   },
   "My useState": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useState",
+    "prefix": ["us", "useState"],
     "body": "const [${1:state}, ${2:setState}] = useState(${3:initialValue});"
   },
   "My useEffect": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useEffect",
+    "prefix": ["ue", "useEffect"],
     "body": "useEffect(() => {$2}, [$1]);"
   },
   "My useLayoutEffect": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useLayoutEffect",
+    "prefix": ["ule", "useLayoutEffect"],
     "body": "useLayoutEffect(() => {$2}, [$1]);"
   },
   "My useContext": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useContext",
+    "prefix": ["uct", "useContext"],
     "body": "const ${1:name} = useContext($2);"
   },
   "My useRef": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useRef",
+    "prefix": ["ur", "useRef"],
     "body": "const ${1:name} = useRef($2);"
   },
   "My useMemo": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useMemo",
+    "prefix": ["um", "useMemo"],
     "body": "const ${1:name} = useMemo(() => $3, [$2]);"
   },
   "My useReducer": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useReducer",
+    "prefix": ["ur", "useReducer"],
     "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, ${4:initialValue});"
   },
   "My renderHook": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "renderHook",
+    "prefix": ["rh", "renderHook"],
     "body": "const {$2} = renderHook($1);"
   }
 }
