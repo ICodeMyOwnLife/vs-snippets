@@ -79,5 +79,10 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["rh", "renderHook"],
     "body": "const {$2} = renderHook($1);"
+  },
+  "My shallow": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["shallow"],
+    "body": "const ${1:wrapper} = shallow($2);"
   }
 }
