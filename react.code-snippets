@@ -63,6 +63,11 @@
   "My useMemo": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["um", "useMemo"],
+    "body": "useMemo(() => $3, [$2]);"
+  },
+  "My useMemo declaration": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["um", "useMemo"],
     "body": "const ${1:name} = useMemo(() => $3, [$2]);"
   },
   "My useReducer": {
