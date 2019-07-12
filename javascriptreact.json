@@ -16,7 +16,7 @@
     "prefix": ["rfc", "reactFunctionComponent"],
     "body": [
       "import React, { memo } from 'react';\n",
-      "const ${1:$TM_FILENAME_BASE} = ({$4}) => {",
+      "export const ${1:$TM_FILENAME_BASE} = ({$4}) => {",
       "\treturn (",
       "\t\t$0",
       "\t);",

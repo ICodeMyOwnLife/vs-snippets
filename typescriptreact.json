@@ -82,7 +82,7 @@
     "prefix": ["rfc", "reactFunctionComponent"],
     "body": [
       "import React, { FC, memo } from 'react';\n",
-      "const ${1:$TM_FILENAME_BASE}Impl: FC<$1Props> = ({$4}) => {",
+      "export const ${1:$TM_FILENAME_BASE}Impl: FC<$1Props> = ({$4}) => {",
       "\treturn (",
       "\t\t$0",
       "\t);",
