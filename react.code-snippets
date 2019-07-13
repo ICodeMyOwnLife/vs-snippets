@@ -76,8 +76,13 @@
     "body": "const {$2} = renderHook($1);"
   },
   "My shallow": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "scope": "javascriptreact,typescriptreact",
     "prefix": ["shallow"],
     "body": "const ${1:wrapper} = shallow($2);"
+  },
+  "Import classnames": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": ["i_classnames", "import_classnames"],
+    "body": "import classnames from 'classnames';"
   }
 }
