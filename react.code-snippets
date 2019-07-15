@@ -84,5 +84,15 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["shallow"],
     "body": "const ${1:wrapper} = shallow($2);"
+  },
+  "My mount": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["mount"],
+    "body": "const ${1:wrapper} = mount($2);"
+  },
+  "My snapshot test": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["snapshot"],
+    "body": "expect(toJson(${1:wrapper})).toMatchSnapshot();"
   }
 }

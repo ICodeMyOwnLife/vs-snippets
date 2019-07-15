@@ -75,6 +75,7 @@
       "}\n",
       "export interface $1Props<$2> {$3}\n",
       "const ${1} = memo($1Impl);",
+      "$1.displayName = '$1';\n",
       "export default $1;\n"
     ]
   },
@@ -87,7 +88,8 @@
       "\t\t$0",
       "\t);",
       "};\n",
-      "const $1 = memo($1Impl);\n",
+      "const $1 = memo($1Impl);",
+      "$1.displayName = '$1';\n",
       "export default $1;\n",
       "export interface $1Props {$2}\n"
     ]
