@@ -25,15 +25,15 @@
     "prefix": ["cp", "propDestructuring"],
     "body": "const {$2} = this.props$1;"
   },
-  "My useCallback": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["ucb", "useCallback"],
-    "body": "useCallback(($3) => {$4}, [$2]);"
-  },
   "My useCallback declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ucb", "useCallback"],
     "body": "const ${1:callback} = useCallback(($3) => {$4}, [$2]);"
+  },
+  "My useCallback": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["ucb", "useCallback"],
+    "body": "useCallback(($3) => {$4}, [$2]);"
   },
   "My useState": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -57,7 +57,7 @@
   },
   "My useRef": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["ur", "useRef"],
+    "prefix": ["uref", "useRef"],
     "body": "const ${1:name} = useRef($2);"
   },
   "My useMemo": {
@@ -75,13 +75,13 @@
     "prefix": ["ur", "useReducer"],
     "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, ${4:initialValue});"
   },
-  "My renderHook": {
+  "My renderHook declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["rh", "renderHook"],
     "body": "const {$2} = renderHook($1);"
   },
   "My shallow": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "scope": "javascriptreact,typescriptreact",
     "prefix": ["shallow"],
     "body": "const ${1:wrapper} = shallow($2);"
   },
@@ -94,5 +94,10 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["snapshot"],
     "body": "expect(toJson(${1:wrapper})).toMatchSnapshot();"
+  },
+  "Import classnames": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": ["i_classnames", "import_classnames"],
+    "body": "import classnames from 'classnames';"
   }
 }
