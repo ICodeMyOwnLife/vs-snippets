@@ -21,8 +21,8 @@
       "\t\t$0",
       "\t);",
       "};\n",
-      "const $1 = memo($1Impl);\n",
-      "export default $1;\n"
+      "const Memo$1 = memo($1);\n",
+      "export default Memo$1;\n"
     ]
   }
 }
