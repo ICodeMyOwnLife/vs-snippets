@@ -35,6 +35,14 @@
     "prefix": ["ucb", "useCallback"],
     "body": "useCallback(($3) => {$4}, [$2]);"
   },
+  "My useCallback creator": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["ucbCreator", "useCallbackCreator"],
+    "body": [
+      "export const use$1 = ($2) =>",
+      "  useCallback(($4) => {$0}, [$3]);"
+    ]
+  },
   "My useState": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["us", "useState"],
