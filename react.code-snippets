@@ -33,7 +33,7 @@
   "My useCallback": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ucb", "useCallback"],
-    "body": "useCallback(($3) => {$4}, [$2]);"
+    "body": "useCallback(($3) => {$4}, [$2])"
   },
   "My useCallback creator": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -71,7 +71,7 @@
   "My useMemo": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["um", "useMemo"],
-    "body": "useMemo(() => $3, [$2]);"
+    "body": "useMemo(() => $3, [$2])"
   },
   "My useMemo declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -82,6 +82,16 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ur", "useReducer"],
     "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, ${4:initialValue});"
+  },
+  "My lazy load component": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "lazy",
+    "body": ["lazy(() => import('$1'))"]
+  },
+  "My lazy load component declaration": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "lazy",
+    "body": ["const ${2:Component} = lazy(() => import('$1'));"]
   },
   "My renderHook declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",

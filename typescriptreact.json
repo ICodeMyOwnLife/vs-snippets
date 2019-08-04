@@ -196,9 +196,5 @@
       "\treturn {$0};",
       "}"
     ]
-  },
-  "My React lazy load component": {
-    "prefix": "lazy",
-    "body": ["const ${2:Component} = lazy(() => import('$1'));"]
   }
 }
