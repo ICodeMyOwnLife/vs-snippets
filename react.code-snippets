@@ -83,6 +83,11 @@
     "prefix": ["ur", "useReducer"],
     "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, ${4:initialValue});"
   },
+  "My useImperativeHandle": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["uih", "useImperativeHandle"],
+    "body": "useImperativeHandle(${1:ref}, () => ({$0}), [$2]);"
+  },
   "My lazy load component": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "lazy",
@@ -113,9 +118,14 @@
     "prefix": ["snapshot"],
     "body": "expect(toJson(${1:wrapper})).toMatchSnapshot();"
   },
-  "Import classnames": {
+  "My import classnames": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": ["i_classnames", "import_classnames"],
     "body": "import classnames from 'classnames';"
+  },
+  "My import classes": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": ["i_classes", "import_classes"],
+    "body": "import ${2:classes} from '${1:./styles.module.scss}';"
   }
 }
