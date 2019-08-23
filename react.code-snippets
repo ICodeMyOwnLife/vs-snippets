@@ -119,12 +119,12 @@
     "body": "expect(toJson(${1:wrapper})).toMatchSnapshot();"
   },
   "My import classnames": {
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["i_classnames", "import_classnames"],
     "body": "import classnames from 'classnames';"
   },
   "My import classes": {
-    "scope": "javascriptreact,typescriptreact",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["i_classes", "import_classes"],
     "body": "import ${2:classes} from '${1:./styles.module.scss}';"
   }
