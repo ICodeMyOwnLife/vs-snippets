@@ -346,5 +346,26 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["spy"],
     "body": "const ${3}Spy = jest.spyOn(${1:obj}, '${2}');"
-  }
+  },
+  // Utilites
+  "My setTimeout": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["settimeout"],
+    "body": "setTimeout(() => {$0}, ${1:ms});"
+  },
+  "My setTimeout declaration": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["settimeout"],
+    "body": "const ${1:timeoutId} = setTimeout(() => {$0}, ${2:ms});"
+  },
+  "My setInterval": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["setinterval"],
+    "body": "setInterval(() => {$0}, ${1:ms});"
+  },
+  "My setInterval declaration": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["setinterval"],
+    "body": "const ${1:intervalId} = setInterval(() => {$0}, ${2:ms});"
+  },
 }
