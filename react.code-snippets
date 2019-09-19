@@ -15,29 +15,329 @@
   // 	],
   // 	"description": "Log output to console"
   // }
+  /**
+   *	Component Declarations
+   */
+  "My React function component declaration": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "rfcd",
+      "reactFunctionComponentDeclaration"
+    ],
+    "body": [
+      "import React, { memo } from 'react';\n",
+      "export function ${1:$TM_FILENAME_BASE}Component<${2:T}> ({$4}: $1Props<$2>) {",
+      "\treturn (",
+      "\t\t$0",
+      "\t);",
+      "}\n",
+      "const ${1} = memo($1Component);",
+      "export default $1;\n",
+      "export interface $1Props<$2> {$3}\n"
+    ]
+  },
+  "My React function component expression (ts)": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "rfc",
+      "reactFunctionComponent"
+    ],
+    "body": [
+      "import React, { FC, memo } from 'react';\n",
+      "export const ${1:$TM_FILENAME_BASE}Component: FC<$1Props> = ({$4}) => {",
+      "\treturn (",
+      "\t\t$0",
+      "\t);",
+      "};\n",
+      "const $1 = memo($1Component);",
+      "export default $1;\n",
+      "export interface $1Props {$2}\n"
+    ]
+  },
+  "My React function component expression (js)": {
+    "scope": "javascriptreact",
+    "prefix": [
+      "rfc",
+      "reactFunctionComponent"
+    ],
+    "body": [
+      "import React, { memo } from 'react';\n",
+      "export const ${1:$TM_FILENAME_BASE}Component = ({$4}) => {",
+      "\treturn (",
+      "\t\t$0",
+      "\t);",
+      "};\n",
+      "const $1 = memo($1Component);",
+      "export default $1;\n"
+    ]
+  },
+  "My React class component": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "rcc",
+      "reactClassComponent"
+    ],
+    "body": [
+      "import React, { Component } from 'react';\n",
+      "export default class ${1:$TM_FILENAME_BASE} extends Component<$1Props, $1State> {",
+      "\treadonly state: Readonly<$1State> = {$4};\n",
+      "\trender() {",
+      "\t\treturn (",
+      "\t\t\t$0",
+      "\t\t);",
+      "\t}",
+      "}\n",
+      "export interface $1Props {$2}\n",
+      "interface $1State {$3}\n"
+    ]
+  },
+  "My React pure component": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "rpc",
+      "reactPureComponent"
+    ],
+    "body": [
+      "import React, { PureComponent } from 'react';\n",
+      "export default class ${1:$TM_FILENAME_BASE} extends PureComponent<$1Props, $1State> {",
+      "\treadonly state: Readonly<$1State> = {$4};\n",
+      "\trender() {",
+      "\t\treturn (",
+      "\t\t\t$0",
+      "\t\t);",
+      "\t}",
+      "}\n",
+      "export interface $1Props {$2}\n",
+      "interface $1State {$3}\n"
+    ]
+  },
+  "My React inherited component": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "ric",
+      "reactInheritedComponent"
+    ],
+    "body": [
+      "import React from 'react';",
+      "import ${3:BaseComponent} from '$2';\n",
+      "export default class ${1:$TM_FILENAME_BASE} extends $3<$1Props, $1State> {",
+      "\treadonly state: Readonly<$1State> = {$6};\n",
+      "\trender() {",
+      "\t\treturn (",
+      "\t\t\t$0",
+      "\t\t);",
+      "\t}",
+      "}\n",
+      "export interface $1Props {$4}\n",
+      "interface $1State {$5}\n"
+    ]
+  },
+  "My higher-order component": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "hoc",
+      "higherOrderComponent"
+    ],
+    "body": [
+      "import React, { Component, ComponentType } from 'react';\n",
+      "export default function ${1:$TM_FILENAME_BASE}<${2:TOwnProps}, ${3:TState}>(${4:WrappedComponent}: ComponentType<$2 & $1Props>) {",
+      "\treturn class $1 extends Component<$2, $3> {",
+      "\t\trender() {",
+      "\t\t\tconst props: $1Props = {$6};\n",
+      "\t\t\treturn (",
+      "\t\t\t\t<$4 {...props} {...this.props}$0 />",
+      "\t\t\t);",
+      "\t\t}",
+      "\t}",
+      "}\n",
+      "export interface $1Props {$5}\n"
+    ]
+  },
+  /**
+   *	Class Component Utilities
+   */
   "My state destructuring": {
     "scope": "javascriptreact,typescriptreact",
-    "prefix": ["cs", "stateDestructuring"],
+    "prefix": [
+      "cs",
+      "stateDestructuring"
+    ],
     "body": "const {$2} = this.state$1;"
   },
   "My props destructuring": {
     "scope": "javascriptreact,typescriptreact",
-    "prefix": ["cp", "propDestructuring"],
+    "prefix": [
+      "cp",
+      "propDestructuring"
+    ],
     "body": "const {$2} = this.props$1;"
   },
+  /*
+   * Component Members and Life-Cycle Methods
+   */
+  "My React component constructor": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "cCtor"
+    ],
+    "body": [
+      "constructor(${1:props}: ${2:Props}) {",
+      "\tsuper($1);",
+      "\t$0",
+      "}"
+    ]
+  },
+  "My React component state": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "cState"
+    ],
+    "body": [
+      "readonly state: Readonly<${1:ComponentState}> = {$0};"
+    ]
+  },
+  "My defaultProps": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "defaultProps"
+    ],
+    "body": "static readonly defaultProps: DefaultPropsOf$1<${2:Props}, \"${3}\"> = {$0};"
+  },
+  "My propTypes": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "propTypes"
+    ],
+    "body": "static readonly propTypes: WeakValidationMap$1<${2:Props}> = {$0};"
+  },
+  "My React renderX method": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "renX"
+    ],
+    "body": [
+      "private render${1:Something}($2) {",
+      "\treturn (",
+      "\t\t$0",
+      "\t);",
+      "}"
+    ]
+  },
+  "My React render method": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "ren"
+    ],
+    "body": [
+      "render() {",
+      "\treturn (",
+      "\t\t$0",
+      "\t);",
+      "}"
+    ]
+  },
+  "My componentDidMount": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "cdm"
+    ],
+    "body": [
+      "componentDidMount() {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "My componentDidCatch": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "cdc"
+    ],
+    "body": [
+      "componentDidCatch(${1:error}: Error, ${2:errorInfo}: ErrorInfo) {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "My shouldComponentUpdate": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "scu"
+    ],
+    "body": [
+      "shouldComponentUpdate(${1:nextProps}: Readonly<${2:Props}>, ${3:nextState}: Readonly<${4:State}>, ${5:nextContext}: ${6:any}): boolean {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "My componentWillUnmount": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "cwu"
+    ],
+    "body": [
+      "componentWillUnmount() {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "My setNativeProps": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "snp"
+    ],
+    "body": [
+      "setNativeProps(${1:nativeProps}: Object) {",
+      "\t${2:component}.setNativeProps($1);$0",
+      "}"
+    ]
+  },
+  "My getDerivedStateFromProps": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "gdsfp"
+    ],
+    "body": [
+      "static getDerivedStateFromProps(${1:nextProps}: Readonly<${2:Props}>, ${3:prevState}: ${4:State}): Partial<${4:State}> | null {",
+      "\treturn {$0};",
+      "}"
+    ]
+  },
+  "My getDerivedStateFromError": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "gdsfe"
+    ],
+    "body": [
+      "static getDerivedStateFromError(${1:error}: any): Partial<${2:State}> | null {",
+      "\treturn {$0};",
+      "}"
+    ]
+  },
+  /*
+   * Hooks
+   */
   "My useCallback declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["ucb", "useCallback"],
+    "prefix": [
+      "ucb",
+      "useCallback"
+    ],
     "body": "const ${1:callback} = useCallback(($3) => {$4}, [$2]);"
   },
   "My useCallback": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["ucb", "useCallback"],
+    "prefix": [
+      "ucb",
+      "useCallback"
+    ],
     "body": "useCallback(($3) => {$4}, [$2])"
   },
   "My useCallback creator": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["ucbCreator", "useCallbackCreator"],
+    "prefix": [
+      "ucbCreator",
+      "useCallbackCreator"
+    ],
     "body": [
       "export const use$1 = ($2) =>",
       "  useCallback(($4) => {$0}, [$3]);"
@@ -45,87 +345,139 @@
   },
   "My useState": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["us", "useState"],
+    "prefix": [
+      "us",
+      "useState"
+    ],
     "body": "const [${1:state}, ${2:setState}] = useState(${3:initialValue});"
   },
   "My useEffect": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["ue", "useEffect"],
+    "prefix": [
+      "ue",
+      "useEffect"
+    ],
     "body": "useEffect(() => {$2}, [$1]);"
   },
   "My useLayoutEffect": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["ule", "useLayoutEffect"],
+    "prefix": [
+      "ule",
+      "useLayoutEffect"
+    ],
     "body": "useLayoutEffect(() => {$2}, [$1]);"
   },
   "My useContext": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["uct", "useContext"],
+    "prefix": [
+      "uct",
+      "useContext"
+    ],
     "body": "const ${1:name} = useContext($2);"
   },
   "My useRef": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["uref", "useRef"],
+    "prefix": [
+      "uref",
+      "useRef"
+    ],
     "body": "const ${1:name} = useRef($2);"
   },
   "My useMemo": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["um", "useMemo"],
+    "prefix": [
+      "um",
+      "useMemo"
+    ],
     "body": "useMemo(() => $3, [$2])"
   },
   "My useMemo declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["um", "useMemo"],
+    "prefix": [
+      "um",
+      "useMemo"
+    ],
     "body": "const ${1:name} = useMemo(() => $3, [$2]);"
   },
   "My useReducer": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["ur", "useReducer"],
+    "prefix": [
+      "ur",
+      "useReducer"
+    ],
     "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, ${4:initialValue});"
   },
   "My useImperativeHandle": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["uih", "useImperativeHandle"],
+    "prefix": [
+      "uih",
+      "useImperativeHandle"
+    ],
     "body": "useImperativeHandle(${1:ref}, () => ({$0}), [$2]);"
   },
   "My lazy load component": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "lazy",
-    "body": ["lazy(() => import('$1'))"]
+    "body": [
+      "lazy(() => import('$1'))"
+    ]
   },
   "My lazy load component declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "lazy",
-    "body": ["const ${2:Component} = lazy(() => import('$1'));"]
+    "body": [
+      "const ${2:Component} = lazy(() => import('$1'));"
+    ]
   },
+  /*
+  * Testing
+  */
   "My renderHook declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["rh", "renderHook"],
+    "prefix": [
+      "rh",
+      "renderHook"
+    ],
     "body": "const {$2} = renderHook($1);"
   },
   "My shallow": {
     "scope": "javascriptreact,typescriptreact",
-    "prefix": ["shallow"],
+    "prefix": [
+      "shallow"
+    ],
     "body": "const ${1:wrapper} = shallow($2);"
   },
   "My mount": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["mount"],
+    "prefix": [
+      "mount"
+    ],
     "body": "const ${1:wrapper} = mount($2);"
   },
   "My snapshot test": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["snapshot"],
+    "prefix": [
+      "snapshot"
+    ],
     "body": "expect(toJson(${1:wrapper})).toMatchSnapshot();"
   },
+  /*
+  * Imports
+  */
   "My import classnames": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["i_classnames", "import_classnames"],
+    "prefix": [
+      "i_classnames",
+      "import_classnames"
+    ],
     "body": "import classnames from 'classnames';"
   },
   "My import classes": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["i_classes", "import_classes"],
+    "prefix": [
+      "i_classes",
+      "import_classes"
+    ],
     "body": "import ${2:classes} from '${1:./styles.module.scss}';"
   }
 }

@@ -12,18 +12,4 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-  "My React function component expression": {
-    "prefix": ["rfc", "reactFunctionComponent"],
-    "body": [
-      "import React, { memo } from 'react';\n",
-      "export const ${1:$TM_FILENAME_BASE} = ({$4}) => {",
-      "\treturn (",
-      "\t\t$0",
-      "\t);",
-      "};\n",
-      "const Memo$1 = memo($1);",
-      "Memo$1.displayName = '$1';",
-      "export default Memo$1;\n"
-    ]
-  }
 }
