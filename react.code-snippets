@@ -32,6 +32,7 @@
       "\t);",
       "}\n",
       "const ${1} = memo($1Component);",
+      "${1}.displayName = '$1';",
       "export default $1;\n",
       "export interface $1Props<$2> {$3}\n"
     ]
@@ -50,12 +51,13 @@
       "\t);",
       "};\n",
       "const $1 = memo($1Component);",
+      "${1}.displayName = '$1';",
       "export default $1;\n",
       "export interface $1Props {$2}\n"
     ]
   },
   "My React function component expression (js)": {
-    "scope": "javascriptreact",
+    "scope": "javascript,javascriptreact",
     "prefix": [
       "rfc",
       "reactFunctionComponent"
@@ -68,6 +70,7 @@
       "\t);",
       "};\n",
       "const $1 = memo($1Component);",
+      "${1}.displayName = '$1';",
       "export default $1;\n"
     ]
   },
