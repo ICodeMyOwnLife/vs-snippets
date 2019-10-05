@@ -74,6 +74,19 @@
       "export default $1;\n"
     ]
   },
+  "My React ForwardRefExoticComponent": {
+    "scope": "typescriptreact",
+    "prefix": ["rfrc", "reactForwardRefComponent"],
+    "body": [
+      "import React, { forwardRef } from 'react';\n",
+      "const ${1:$TM_FILENAME_BASE} = forwardRef<${4:RefType}, $1Props>(({$3}, ref) => (",
+      "\t$0",
+      "));\n",
+      "$1.displayName = '$1';\n",
+      "export default $1;\n",
+      "export interface $1Props {$2}\n"
+    ]
+  },
   "My React class component": {
     "scope": "typescriptreact",
     "prefix": [
