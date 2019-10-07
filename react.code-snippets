@@ -45,11 +45,9 @@
     ],
     "body": [
       "import React, { FC, memo } from 'react';\n",
-      "export const ${1:$TM_FILENAME_BASE}Component: FC<$1Props> = ({$4}) => {",
-      "\treturn (",
+      "export const ${1:$TM_FILENAME_BASE}Component: FC<$1Props> = ({$4}) => (",
       "\t\t$0",
-      "\t);",
-      "};\n",
+      "\t);\n",
       "const $1 = memo($1Component);",
       "${1}.displayName = '$1';",
       "export default $1;\n",
@@ -64,11 +62,9 @@
     ],
     "body": [
       "import React, { memo } from 'react';\n",
-      "export const ${1:$TM_FILENAME_BASE}Component = ({$4}) => {",
-      "\treturn (",
+      "export const ${1:$TM_FILENAME_BASE}Component = ({$4}) => (",
       "\t\t$0",
-      "\t);",
-      "};\n",
+      "\t);\n",
       "const $1 = memo($1Component);",
       "${1}.displayName = '$1';",
       "export default $1;\n"
