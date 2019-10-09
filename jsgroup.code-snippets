@@ -72,9 +72,9 @@
     "body": "const [$2] = ${1:array};"
   },
   // Imports and require
-  "My import": {
+  "My import default": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": ["i", "import"],
+    "prefix": ["i", "importDefault"],
     "body": "import ${2:moduleName} from '${1:module-name}';"
   },
   "My import destructuring": {
@@ -91,6 +91,11 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ir", "importRequire"],
     "body": "import ${2:module} = require('${1:path}');"
+  },
+  "My import side-effect": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["imp", "importSideEffect"],
+    "body": "import '${1:path}';"
   },
   "My require": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",

@@ -18,7 +18,7 @@
   /**
    *	Component Declarations
    */
-  "My React function component declaration": {
+  "My React function component declaration (ts)": {
     "scope": "typescriptreact",
     "prefix": [
       "rfcd",
@@ -46,8 +46,8 @@
     "body": [
       "import React, { FC, memo } from 'react';\n",
       "export const ${1:$TM_FILENAME_BASE}Component: FC<$1Props> = ({$4}) => (",
-      "\t\t$0",
-      "\t);\n",
+      "\t$0",
+      ");\n",
       "const $1 = memo($1Component);",
       "${1}.displayName = '$1';",
       "export default $1;\n",
