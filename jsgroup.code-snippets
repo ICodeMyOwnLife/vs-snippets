@@ -156,6 +156,11 @@
     "prefix": "egf",
     "body": "export function* ${1:name}($2) {$0}"
   },
+  "My export default generator function": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "edgf",
+    "body": "export default function* ${1:name}($2) {$0}"
+  },
   "My export async function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "eaf",
