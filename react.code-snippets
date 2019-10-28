@@ -26,7 +26,7 @@
     ],
     "body": [
       "import React, { memo, ReactElement, ComponentType } from 'react';\n",
-      "export function ${1:$TM_FILENAME_BASE}Component<${2:T}> ({$4}: $1Props<$2>): ReactElement {",
+      "export function ${1:$TM_FILENAME_BASE}Component<${2:T}> ({$4}: $1Props<$2>): ReactElement | null {",
       "\treturn (",
       "\t\t$0",
       "\t);",
@@ -440,7 +440,7 @@
     "prefix": ["makeStyles"],
     "body": [
       "import { makeStyles, Theme } from '@material-ui/core';\n",
-      "const ${1:useStyles} = makeStyles((${2:theme}: Theme)=> ({$0}));\n",
+      "const ${1:useStyles} = makeStyles(({$2}: Theme)=> ({$0}), { classNamePrefix: '$3' });\n",
       "export default $1;\n"
     ]
   },
