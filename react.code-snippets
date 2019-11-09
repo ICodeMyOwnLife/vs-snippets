@@ -431,7 +431,7 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["useStyles"],
     "body": [
-      "import useStyles from './styles';\n",
+      "import useStyles from './styles';",
       "const ${1:classes} = useStyles($2);"
     ]
   },
@@ -439,9 +439,13 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["makeStyles"],
     "body": [
-      "import { makeStyles, Theme } from '@material-ui/core';\n",
-      "const ${1:useStyles} = makeStyles(({$2}: Theme)=> ({$0}), { classNamePrefix: '$3' });\n",
-      "export default $1;\n"
+      "import { makeStyles, createStyles } from '@material-ui/core';\n",
+      "const styles = () =>",
+      "\tcreateStyles({",
+      "\t\t$0",
+      "\t});\n",
+      "const useStyles = makeStyles(styles, { classNamePrefix: '$1' });\n",
+      "export default useStyles;\n"
     ]
   },
   /*
