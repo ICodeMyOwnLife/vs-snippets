@@ -123,6 +123,11 @@
     "prefix": ["ec", "exportConst"],
     "body": "export const ${1:name} = $2;"
   },
+  "My export const object destructuring": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "ecod",
+    "body": "export const {$2} = ${1:object};"
+  },
   "My export default const": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["edc", "exportDefaultConst"],
@@ -222,12 +227,12 @@
     "body": ["${1:field} = ($2) => {$0};"]
   },
   "My get property": {
-    "scope": "javascript,javascriptreact",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": ["get"],
     "body": ["get ${1:name}() {", "\treturn this.$2;", "}"]
   },
   "My set property": {
-    "scope": "javascript,javascriptreact",
+    "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": ["set"],
     "body": ["set ${1:name}($2) {", "\tthis.$3 = $2;", "}"]
   },

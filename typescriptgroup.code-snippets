@@ -56,29 +56,15 @@
     ]
   },
   // Class members
-  "My get property": {
-    "scope": "typescript,typescriptreact",
-    "prefix": ["get"],
-    "body": ["public get ${1:name}() {", "\t$0", "}"]
-  },
-  "My set property": {
-    "scope": "typescript,typescriptreact",
-    "prefix": ["set"],
-    "body": [
-      "public set ${1:name}(${2:value}: ${3:Type}) {",
-      "\tthis.$4 = $2;",
-      "}"
-    ]
-  },
   "My get-set": {
     "scope": "typescript,typescriptreact",
     "prefix": ["getSet"],
     "body": [
       "private _$1: $3 = $4;\n",
-      "public get ${1:name}() {",
+      "get ${1:name}() {",
       "\treturn this._$1;",
       "}\n",
-      "public set $1(${2:value}: ${3:type}) {",
+      "set $1(${2:value}: ${3:type}) {",
       "\tthis._$1 = $2;",
       "}"
     ]
@@ -86,12 +72,12 @@
   "My public method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["publicMethod"],
-    "body": ["public ${1:method}($2) {", "\t$0", "}"]
+    "body": ["${1:method}($2) {", "\t$0", "}"]
   },
   "My public async method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["publicAsyncMethod"],
-    "body": ["public async ${1:method}($2) {", "\t$0", "}"]
+    "body": ["async ${1:method}($2) {", "\t$0", "}"]
   },
   "My private method": {
     "scope": "typescript,typescriptreact",
