@@ -82,7 +82,7 @@
     "prefix": ["id", "importDestructuring"],
     "body": "import {$2} from '${1:module-name}';"
   },
-  "My import all": {
+  "My import * as ns": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["i*", "importAll"],
     "body": "import * as ${2:all} from '${1:module-name}';"
@@ -117,6 +117,13 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ed", "exportDefault"],
     "body": ["export default $1;"]
+  },
+  "My export * as ns": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["e*", "exportAll"],
+    "body": [
+      "export * as ${0:ns} from '$1';",
+    ]
   },
   "My export const": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
