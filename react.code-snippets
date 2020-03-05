@@ -70,6 +70,38 @@
       "export default $1;\n"
     ]
   },
+  "My React function container component (ts)": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "rfcc",
+      "reactFunctionContainer"
+    ],
+    "body": [
+      "import React, { FC, memo } from 'react';\n",
+      "export const ${1:$TM_FILENAME_BASE}Component: FC = () => (",
+      "\t$0",
+      ");\n",
+      "const $1 = memo($1Component);",
+      "${1}.displayName = '$1';",
+      "export default $1;\n"
+    ]
+  },
+  "My React function container component (js)": {
+    "scope": "javascript,javascriptreact",
+    "prefix": [
+      "rfcc",
+      "reactFunctionContainer"
+    ],
+    "body": [
+      "import React, { memo } from 'react';\n",
+      "export const ${1:$TM_FILENAME_BASE}Component = () => (",
+      "\t\t$0",
+      "\t);\n",
+      "const $1 = memo($1Component);",
+      "${1}.displayName = '$1';",
+      "export default $1;\n"
+    ]
+  },
   "My React ForwardRefExoticComponent": {
     "scope": "typescriptreact",
     "prefix": ["rfrc", "reactForwardRefComponent"],
