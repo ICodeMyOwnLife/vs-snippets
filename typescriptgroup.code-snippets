@@ -36,6 +36,17 @@
     "prefix": ["interface"],
     "body": "interface ${1:Name} {$2}"
   },
+  // Imports
+  "My import type": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["it", "importType"],
+    "body": "import type ${0:Name} from '$1';"
+  },
+  "My import type destructuring": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["itd", "importTypeDestructuring"],
+    "body": "import type {$0} from '$1';"
+  },
   // Exports
   "My export interface": {
     "scope": "typescript,typescriptreact",
