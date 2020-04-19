@@ -16,146 +16,153 @@
   // 	"description": "Log output to console"
   // }
   // Declarations
-  "My const": {
+  "const": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "c",
     "body": "const ${1:name} = $2;"
   },
-  "My let": {
+  "let": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "l",
     "body": "let ${1:name} = $2;"
   },
-  "My function": {
+  "function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "f",
     "body": "function ${1:name}($2) {$0}"
   },
-  "My function expression": {
+  "function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "fe",
     "body": "const ${1:name} = ($2) => {$0};"
   },
-  "My generator function": {
+  "generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "gf",
     "body": "function* ${1:name}($2) {$0}"
   },
-  "My async function": {
+  "async function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "af",
     "body": "async function ${1:name}($2) {$0}"
   },
-  "My async function expression": {
+  "async function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "afe",
     "body": "const ${1:name} = async ($2) => {$0}"
   },
-  "My async generator function": {
+  "async generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "agf",
     "body": "async function* ${1:name}($2) {$0}"
   },
-  "My const object destructuring": {
+  "const object destructuring": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "cod",
     "body": "const {$2} = ${1:object};"
   },
-  "My let object destructuring": {
+  "let object destructuring": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "lod",
     "body": "let {$2} = ${1:object};"
   },
-  "My const array destructuring": {
+  "const array destructuring": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "cad",
     "body": "const [$2] = ${1:array};"
   },
   // Imports and require
-  "My import default": {
+  "import default": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["i", "importDefault"],
     "body": "import ${2:moduleName} from '${1:module-name}';"
   },
-  "My import destructuring": {
+  "import destructuring": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["id", "importDestructuring"],
     "body": "import {$2} from '${1:module-name}';"
   },
-  "My import * as ns": {
+  "import * as ns": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["i*", "importAll"],
     "body": "import * as ${2:all} from '${1:module-name}';"
   },
-  "My import require": {
+  "import require": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ir", "importRequire"],
     "body": "import ${2:module} = require('${1:path}');"
   },
-  "My import side-effect": {
+  "import side-effect": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["imp", "importSideEffect"],
     "body": "import '${1:path}';"
   },
-  "My require": {
+  "require": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["req", "require"],
     "body": "const ${2:module} = require('${1:path}');"
   },
   // Exports
-  "My export from": {
+  "export from": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["efr", "exportFrom"],
     "body": ["export {$2} from '${1:module}';"]
   },
-  "My export default from": {
+  "export default from": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["edfr", "exportDefaultFrom"],
     "body": ["export { default as ${2:name} } from '${1:module}';"]
   },
-  "My export default": {
+  "export default": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ed", "exportDefault"],
     "body": ["export default $1;"]
   },
-  "My export * as ns": {
+  "export * from": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["e*fr", "exportAllFrom"],
+    "body": [
+      "export * from '$1';",
+    ]
+  },
+  "export * as ns": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["e*", "exportAll"],
     "body": [
       "export * as ${0:ns} from '$1';",
     ]
   },
-  "My export const": {
+  "export const": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ec", "exportConst"],
     "body": "export const ${1:name} = $2;"
   },
-  "My export const object destructuring": {
+  "export const object destructuring": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ecod",
     "body": "export const {$2} = ${1:object};"
   },
-  "My export default const": {
+  "export default const": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["edc", "exportDefaultConst"],
     "body": ["const ${1:$TM_FILENAME_BASE} = $0;\n", "export default $1;"]
   },
-  "My export function": {
+  "export function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ef",
     "body": "export function ${1:name}($2) {$0}"
   },
-  "My export default function": {
+  "export default function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edf",
     "body": "export default function ${1:$TM_FILENAME_BASE}($2) {$0}"
   },
-  "My export function expression": {
+  "export function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "efe",
     "body": "export const ${1:name} = ($2) => {$0};"
   },
-  "My export default function expression": {
+  "export default function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edfe",
     "body": [
@@ -163,32 +170,32 @@
       "export default $1;\n"
     ]
   },
-  "My export generator function": {
+  "export generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "egf",
     "body": "export function* ${1:name}($2) {$0}"
   },
-  "My export default generator function": {
+  "export default generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edgf",
     "body": "export default function* ${1:name}($2) {$0}"
   },
-  "My export async function": {
+  "export async function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "eaf",
     "body": "export async function ${1:name}($2) {$0}"
   },
-  "My export default async function": {
+  "export default async function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edaf",
     "body": "export default async function ${1:$TM_FILENAME_BASE}($2) {$0}"
   },
-  "My export async function expression": {
+  "export async function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "eafe",
     "body": "export const ${1:name} = async ($2) => {$0};\n"
   },
-  "My export default async function expression": {
+  "export default async function expression": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edaf",
     "body": [
@@ -196,54 +203,54 @@
       "export default $1;\n"
     ]
   },
-  "My export async generator function": {
+  "export async generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "eagf",
     "body": "export async function* ${1:name}($2) {$0}"
   },
-  "My export default async generator function": {
+  "export default async generator function": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edagf",
     "body": "export default async function* ${1:$TM_FILENAME_BASE}($2) {$0}"
   },
-  "My export class": {
+  "export class": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "ecl",
     "body": "export class ${1:name} {$0}"
   },
-  "My export default class": {
+  "export default class": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "edcl",
     "body": "export default class ${1:$TM_FILENAME_BASE} {$0}"
   },
   // Object properties
-  "My async function property": {
+  "async function property": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "afp",
     "body": ["${1:field}: async ($2) => {$0},"]
   },
   // Class members
-  "My constructor": {
+  "constructor": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ctor", "constructor"],
     "body": ["constructor($1) {$0}"]
   },
-  "My class field": {
+  "class field": {
     "scope": "javascript,javascriptreact",
     "prefix": ["field"],
     "body": ["${1:field} = ($2) => {$0};"]
   },
-  "My get property": {
+  "get property": {
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": ["get"],
     "body": ["get ${1:name}() {", "\treturn this.$2;", "}"]
   },
-  "My set property": {
+  "set property": {
     "scope": "javascript,javascriptreact,typescript,typescriptreact",
     "prefix": ["set"],
     "body": ["set ${1:name}($2) {", "\tthis.$3 = $2;", "}"]
   },
-  "My get-set": {
+  "get-set": {
     "scope": "javascript,javascriptreact",
     "prefix": ["getset"],
     "body": [
@@ -256,33 +263,33 @@
     ]
   },
   // Loops
-  "My for loop": {
+  "for loop": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "for",
     "body": ["for (let ${1:i} = ${2:0}; $1 < ${3:count}; ++$1) {", "\t$0", "}"]
   },
-  "My revert for loop": {
+  "revert for loop": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "forr",
     "body": ["for (let ${1:i} = ${2:startIndex}; $1 >= ${3:0}; --$1) {", "\t$0", "}"]
   },
-  "My for of": {
+  "for of": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "forof",
     "body": ["for (const ${2:iterator} of ${1:iterable}) {", "\t$0", "}"]
   },
-  "My for await of": {
+  "for await of": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "forawaitof",
     "body": ["for await (const ${2:iterator} of ${1:iterable}) {", "\t$0", "}"]
   },
   // Testing
-  "My describe": {
+  "describe": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["d", "describe"],
     "body": ["describe(`${1:testSuite}`, () => {", "\t$0", "});\n"]
   },
-  "My describe each": {
+  "describe each": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["de", "describeeach"],
     "body": [
@@ -291,17 +298,17 @@
       "});\n"
     ]
   },
-  "My test": {
+  "test": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["t", "test"],
     "body": ["test(`${1:testCase}`, () => {", "\t$0", "});"]
   },
-  "My test each": {
+  "test each": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["te", "testeach"],
     "body": ["test.each<[$1]>([$4])(`${2:testCase}`, ($3) => {", "\t$0", "});"]
   },
-  "My test each match snapshot": {
+  "test each match snapshot": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["tems", "testeachmatchsnapshot"],
     "body": [
@@ -310,17 +317,17 @@
       "});"
     ]
   },
-  "My it": {
+  "it": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "it",
     "body": ["it(`${1:testCase}`, () => {", "\t$0", "});"]
   },
-  "My it each": {
+  "it each": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ite", "iteach"],
     "body": ["it.each<[$1]>([$4])(`${2:testCase}`, ($3) => {", "\t$0", "});"]
   },
-  "My it each match snapshot": {
+  "it each match snapshot": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["items", "iteachmatchsnapshot"],
     "body": [
@@ -329,75 +336,80 @@
       "});"
     ]
   },
-  "My test async": {
+  "test async": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ta", "testasync"],
     "body": ["test(`${1:testCase}`, async () => {", "\t$0", "});"]
   },
-  "My it async": {
+  "it async": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ita", "itasync"],
     "body": ["it(`${1:testCase}`, async () => {", "\t$0", "});"]
   },
-  "My test done": {
+  "test done": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["td", "testdone"],
     "body": ["test(`${1:testCase}`, done => {", "\t$0", "});"]
   },
-  "My it done": {
+  "it done": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["itd", "itdone"],
     "body": ["it(`${1:testCase}`, done => {", "\t$0", "});"]
   },
-  "My expect": {
+  "expect": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["e", "expect"],
     "body": ["expect(${1:actual}).$2;"]
   },
-  "My beforeAll": {
+  "beforeAll": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ba", "beforeall"],
     "body": ["beforeAll(() => {", "\t$0", "});"]
   },
-  "My beforeEach": {
+  "beforeEach": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["be", "beforeeach"],
     "body": ["beforeEach(() => {", "\t$0", "});"]
   },
-  "My afterAll": {
+  "afterAll": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["aa", "afterall"],
     "body": ["afterAll(() => {", "\t$0", "});"]
   },
-  "My afterEach": {
+  "afterEach": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ae", "aftereach"],
     "body": ["afterEach(() => {", "\t$0", "});"]
   },
-  "My spy": {
+  "spy": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["spy"],
     "body": "const ${3}Spy = jest.spyOn(${1:obj}, '${2}');"
   },
   // Utilites
-  "My setTimeout": {
+  "setTimeout": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["settimeout"],
     "body": "setTimeout(() => {$0}, ${1:ms});"
   },
-  "My setTimeout declaration": {
+  "setTimeout declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["settimeout"],
     "body": "const ${1:timeoutId} = setTimeout(() => {$0}, ${2:ms});"
   },
-  "My setInterval": {
+  "setInterval": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["setinterval"],
     "body": "setInterval(() => {$0}, ${1:ms});"
   },
-  "My setInterval declaration": {
+  "setInterval declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["setinterval"],
     "body": "const ${1:intervalId} = setInterval(() => {$0}, ${2:ms});"
+  },
+  "setImmediate": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["setimmediate"],
+    "body": "setImmediate(() => {$0});"
   },
 }
