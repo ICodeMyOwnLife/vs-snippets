@@ -18,7 +18,7 @@
   /**
    *	Component Declarations
    */
-  "My React function component declaration (ts)": {
+  "React function component declaration (ts)": {
     "scope": "typescriptreact",
     "prefix": [
       "rfcd",
@@ -37,7 +37,7 @@
       "export interface $1Props<$2> {$3}\n"
     ]
   },
-  "My React function component expression (ts)": {
+  "React function component expression (ts)": {
     "scope": "typescriptreact",
     "prefix": [
       "rfc",
@@ -54,7 +54,7 @@
       "export interface $1Props {$2}\n"
     ]
   },
-  "My React function component expression (js)": {
+  "React function component expression (js)": {
     "scope": "javascript,javascriptreact",
     "prefix": [
       "rfc",
@@ -70,7 +70,7 @@
       "export default $1;\n"
     ]
   },
-  "My React function container component (ts)": {
+  "React function container component (ts)": {
     "scope": "typescriptreact",
     "prefix": [
       "rfcc",
@@ -86,7 +86,7 @@
       "export default $1;\n"
     ]
   },
-  "My React function container component (js)": {
+  "React function container component (js)": {
     "scope": "javascript,javascriptreact",
     "prefix": [
       "rfcc",
@@ -102,7 +102,7 @@
       "export default $1;\n"
     ]
   },
-  "My React ForwardRefExoticComponent": {
+  "React ForwardRefExoticComponent": {
     "scope": "typescriptreact",
     "prefix": ["rfrc", "reactForwardRefComponent"],
     "body": [
@@ -115,7 +115,7 @@
       "export interface $1Props {$2}\n"
     ]
   },
-  "My React class component": {
+  "React class component": {
     "scope": "typescriptreact",
     "prefix": [
       "rcc",
@@ -135,7 +135,7 @@
       "interface $1State {$3}\n"
     ]
   },
-  "My React pure component": {
+  "React pure component": {
     "scope": "typescriptreact",
     "prefix": [
       "rpc",
@@ -155,7 +155,7 @@
       "interface $1State {$3}\n"
     ]
   },
-  "My React inherited component": {
+  "React inherited component": {
     "scope": "typescriptreact",
     "prefix": [
       "ric",
@@ -176,7 +176,7 @@
       "interface $1State {$5}\n"
     ]
   },
-  "My higher-order component": {
+  "higher-order component": {
     "scope": "typescriptreact",
     "prefix": [
       "hoc",
@@ -197,7 +197,7 @@
       "export interface $1Props {$5}\n"
     ]
   },
-  "My Next page (ts)": {
+  "Next page (ts)": {
     "scope": "typescriptreact",
     "prefix": [
       "np",
@@ -214,7 +214,7 @@
       "interface $1Props {$2}\n"
     ]
   },
-  "My Next page (js)": {
+  "Next page (js)": {
     "scope": "javascript,javascriptreact",
     "prefix": [
       "np",
@@ -232,7 +232,7 @@
   /**
    *	Class Component Utilities
    */
-  "My state destructuring": {
+  "state destructuring": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": [
       "cs",
@@ -240,7 +240,7 @@
     ],
     "body": "const {$2} = this.state$1;"
   },
-  "My props destructuring": {
+  "props destructuring": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": [
       "cp",
@@ -251,7 +251,7 @@
   /*
    * Component Members and Life-Cycle Methods
    */
-  "My React component constructor": {
+  "React component constructor": {
     "scope": "typescriptreact",
     "prefix": [
       "cCtor"
@@ -263,7 +263,7 @@
       "}"
     ]
   },
-  "My React component state": {
+  "React component state": {
     "scope": "typescriptreact",
     "prefix": [
       "cState"
@@ -272,21 +272,21 @@
       "readonly state: Readonly<${1:ComponentState}> = {$0};"
     ]
   },
-  "My defaultProps": {
+  "defaultProps": {
     "scope": "typescriptreact",
     "prefix": [
       "defaultProps"
     ],
     "body": "static readonly defaultProps: DefaultPropsOf$1<${2:Props}, \"${3}\"> = {$0};"
   },
-  "My propTypes": {
+  "propTypes": {
     "scope": "typescriptreact",
     "prefix": [
       "propTypes"
     ],
     "body": "static readonly propTypes: WeakValidationMap$1<${2:Props}> = {$0};"
   },
-  "My React renderX method": {
+  "React renderX method": {
     "scope": "typescriptreact",
     "prefix": [
       "renX"
@@ -299,7 +299,7 @@
       "}"
     ]
   },
-  "My React render method": {
+  "React render method": {
     "scope": "typescriptreact",
     "prefix": [
       "ren"
@@ -312,7 +312,7 @@
       "}"
     ]
   },
-  "My componentDidMount": {
+  "componentDidMount": {
     "scope": "typescriptreact",
     "prefix": [
       "cdm"
@@ -323,7 +323,7 @@
       "}"
     ]
   },
-  "My componentDidCatch": {
+  "componentDidCatch": {
     "scope": "typescriptreact",
     "prefix": [
       "cdc"
@@ -334,7 +334,7 @@
       "}"
     ]
   },
-  "My shouldComponentUpdate": {
+  "shouldComponentUpdate": {
     "scope": "typescriptreact",
     "prefix": [
       "scu"
@@ -345,7 +345,7 @@
       "}"
     ]
   },
-  "My componentWillUnmount": {
+  "componentWillUnmount": {
     "scope": "typescriptreact",
     "prefix": [
       "cwu"
@@ -356,7 +356,7 @@
       "}"
     ]
   },
-  "My setNativeProps": {
+  "setNativeProps": {
     "scope": "typescriptreact",
     "prefix": [
       "snp"
@@ -367,7 +367,7 @@
       "}"
     ]
   },
-  "My getDerivedStateFromProps": {
+  "getDerivedStateFromProps": {
     "scope": "typescriptreact",
     "prefix": [
       "gdsfp"
@@ -378,7 +378,7 @@
       "}"
     ]
   },
-  "My getDerivedStateFromError": {
+  "getDerivedStateFromError": {
     "scope": "typescriptreact",
     "prefix": [
       "gdsfe"
@@ -392,7 +392,7 @@
   /*
    * Hooks
    */
-  "My useCallback declaration": {
+  "useCallback declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "ucb",
@@ -400,7 +400,7 @@
     ],
     "body": "const ${1:callback} = useCallback(($3) => {$4}, [$2]);"
   },
-  "My useCallback": {
+  "useCallback": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "ucb",
@@ -408,7 +408,7 @@
     ],
     "body": "useCallback(($3) => {$4}, [$2])"
   },
-  "My useCallback creator": {
+  "useCallback creator": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "ucbCreator",
@@ -419,7 +419,7 @@
       "  useCallback(($4) => {$0}, [$3]);"
     ]
   },
-  "My useState": {
+  "useState": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "us",
@@ -427,7 +427,7 @@
     ],
     "body": "const [${1:state}, ${2:setState}] = useState(${3:initialState});"
   },
-  "My useEffect": {
+  "useEffect": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "ue",
@@ -435,7 +435,7 @@
     ],
     "body": "useEffect(() => {$2}, [$1]);"
   },
-  "My useLayoutEffect": {
+  "useLayoutEffect": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "ule",
@@ -443,7 +443,7 @@
     ],
     "body": "useLayoutEffect(() => {$2}, [$1]);"
   },
-  "My useContext": {
+  "useContext": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "uct",
@@ -451,7 +451,7 @@
     ],
     "body": "const ${1:name} = useContext($2);"
   },
-  "My useRef": {
+  "useRef": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "uref",
@@ -459,7 +459,7 @@
     ],
     "body": "const ${1:name} = useRef($2);"
   },
-  "My useMemo": {
+  "useMemo": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "um",
@@ -467,7 +467,7 @@
     ],
     "body": "useMemo(() => $3, [$2])"
   },
-  "My useMemo declaration": {
+  "useMemo declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "um",
@@ -475,7 +475,7 @@
     ],
     "body": "const ${1:name} = useMemo(() => $3, [$2]);"
   },
-  "My useReducer": {
+  "useReducer": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "ur",
@@ -483,7 +483,7 @@
     ],
     "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, ${4:initialValue});"
   },
-  "My useImperativeHandle": {
+  "useImperativeHandle": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "uih",
@@ -491,7 +491,7 @@
     ],
     "body": "useImperativeHandle(${1:ref}, () => ({$0}), [$2]);"
   },
-  "My useStyles": {
+  "useStyles": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["useStyles"],
     "body": [
@@ -499,7 +499,7 @@
       "const ${1:classes} = useStyles($2);"
     ]
   },
-  "My makeStyles": {
+  "makeStyles": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["makeStyles"],
     "body": [
@@ -508,21 +508,21 @@
       "\tcreateStyles({",
       "\t\t$0",
       "\t});\n",
-      "const useStyles = makeStyles(styles, { classNamePrefix: '$1' });\n",
+      "const useStyles = makeStyles(styles, { name: '$1' });\n",
       "export default useStyles;\n"
     ]
   },
   /*
   * Helpers
   */
-  "My lazy load component": {
+  "lazy load component": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "lazy",
     "body": [
       "lazy(() => import('$1'))"
     ]
   },
-  "My lazy load component declaration": {
+  "lazy load component declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "lazy",
     "body": [
@@ -532,7 +532,7 @@
   /*
   * Testing
   */
-  "My renderHook declaration": {
+  "renderHook declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "rh",
@@ -540,21 +540,21 @@
     ],
     "body": "const {$2} = renderHook($1);"
   },
-  "My shallow": {
+  "shallow": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": [
       "shallow"
     ],
     "body": "const ${1:wrapper} = shallow($2);"
   },
-  "My mount": {
+  "mount": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "mount"
     ],
     "body": "const ${1:wrapper} = mount($2);"
   },
-  "My snapshot test": {
+  "snapshot test": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "snapshot"
@@ -564,7 +564,7 @@
   /*
   * Imports
   */
-  "My import classnames": {
+  "import classnames": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "i_classnames",
@@ -572,7 +572,7 @@
     ],
     "body": "import classnames from 'classnames';"
   },
-  "My import classes": {
+  "import classes": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "i_classes",
