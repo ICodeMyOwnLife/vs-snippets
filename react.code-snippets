@@ -232,7 +232,7 @@
   /**
    *	Class Component Utilities
    */
-  "state destructuring": {
+  "State destructuring": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": [
       "cs",
@@ -240,7 +240,7 @@
     ],
     "body": "const {$2} = this.state$1;"
   },
-  "props destructuring": {
+  "Props destructuring": {
     "scope": "javascriptreact,typescriptreact",
     "prefix": [
       "cp",
@@ -392,14 +392,6 @@
   /*
    * Hooks
    */
-  "useCallback declaration": {
-    "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": [
-      "ucb",
-      "useCallback"
-    ],
-    "body": "const ${1:callback} = useCallback(($3) => {$4}, [$2]);"
-  },
   "useCallback": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
@@ -407,6 +399,14 @@
       "useCallback"
     ],
     "body": "useCallback(($3) => {$4}, [$2])"
+  },
+  "useCallback declaration": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "ucbDeclaration",
+      "useCallbackDeclaration"
+    ],
+    "body": "const ${1:callback} = useCallback(($3) => {$4}, [$2]);"
   },
   "useCallback creator": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -470,8 +470,8 @@
   "useMemo declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
-      "um",
-      "useMemo"
+      "umDeclaration",
+      "useMemoDeclaration"
     ],
     "body": "const ${1:name} = useMemo(() => $3, [$2]);"
   },
@@ -524,7 +524,7 @@
   },
   "lazy load component declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "lazy",
+    "prefix": "lazyDeclaration",
     "body": [
       "const ${2:Component} = lazy(() => import('$1'));"
     ]
@@ -564,7 +564,15 @@
   /*
   * Imports
   */
-  "import classnames": {
+  "Import clsx": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "i_clsx",
+      "import_clsx"
+    ],
+    "body": "import clsx from 'clsx';"
+  },
+  "Import classnames": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "i_classnames",
@@ -572,12 +580,20 @@
     ],
     "body": "import classnames from 'classnames';"
   },
-  "import classes": {
+  "Import classes": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
       "i_classes",
       "import_classes"
     ],
     "body": "import ${2:classes} from '${1:./styles.module.scss}';"
+  },
+  "Import Material UI Core": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "i_mui",
+      "import_Mui"
+    ],
+    "body": "import {$0} from '@material-ui/core';"
   }
 }
