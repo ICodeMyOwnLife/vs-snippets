@@ -18,6 +18,42 @@
   /**
    *	Component Declarations
    */
+  "Next function component expression (ts)": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "nfc",
+      "nextFunctionComponent"
+    ],
+    "body": [
+      "import React from 'react';",
+      "import { NextPage } from 'next';\n",
+      "export const ${1:$TM_FILENAME_BASE}: NextPage<$1Props> = ({$3}) => (",
+      "\t$0",
+      ");\n",
+      "$1.getInitialProps = async () => {",
+      "\treturn {};",
+      "}\n",
+      "${1}.displayName = '$1';",
+      "export default $1;\n",
+      "export interface $1Props {$2}\n"
+    ]
+  },
+  "Next simple function component expression (ts)": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "nsfc",
+      "nextSimpleFunctionComponent"
+    ],
+    "body": [
+      "import React from 'react';",
+      "import { NextPage } from 'next';\n",
+      "export const ${1:$TM_FILENAME_BASE}: NextPage = () => (",
+      "\t$0",
+      ");\n",
+      "${1}.displayName = '$1';",
+      "export default $1;\n"
+    ]
+  },
   "My React function component declaration (ts)": {
     "scope": "typescriptreact",
     "prefix": [
