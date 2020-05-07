@@ -16,49 +16,99 @@
   // 	"description": "Log output to console"
   // }
   // Declarations
-  "My declare": {
+  "declare const": {
     "scope": "typescript,typescriptreact",
-    "prefix": ["declare"],
-    "body": "declare ${1:name} {\n\t$0\n}\n"
+    "prefix": ["dc", "declareConst"],
+    "body": "declare const ${1:name}: $0;"
   },
-  "My enum": {
+  "declare let": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["dl", "declareLet"],
+    "body": "declare let ${1:name}: $0;"
+  },
+  "declare var": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["dv", "declareVar"],
+    "body": "declare var ${1:name}: $0;"
+  },
+  "declare function": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["df", "declareFunction"],
+    "body": "declare function ${1:name}($2): $3;"
+  },
+  "declare enum": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["de", "declareEnum"],
+    "body": "declare enum ${1:name} {\n\t$0\n}\n"
+  },
+  "declare const enum": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["dce", "declareConstEnum"],
+    "body": "declare const enum ${1:name} {\n\t$0\n}\n"
+  },
+  "declare interface": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["di", "declareInterface"],
+    "body": "declare interface ${1:name} {\n\t$0\n}\n"
+  },
+  "declare class": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["dcl", "declareClass"],
+    "body": "declare class ${1:name} {\n\t$0\n}\n"
+  },
+  "declare namespace": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["dns", "declareNamespace"],
+    "body": "declare namespace ${1:name} {\n\t$0\n}\n"
+  },
+  "declare module": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["dm", "declareModule"],
+    "body": "declare module '${1:name}' {\n\t$0\n}\n"
+  },
+  "declare global": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["dg", "declareGlobal"],
+    "body": "declare global {\n\t$0\n}\n"
+  },
+  "enum": {
     "scope": "typescript,typescriptreact",
     "prefix": ["enum"],
     "body": "enum ${1:name} {\n\t$0\n}\n"
   },
-  "My const enum": {
+  "const enum": {
     "scope": "typescript,typescriptreact",
     "prefix": ["constEnum"],
     "body": "const enum ${1:name} {\n\t$0\n}\n"
   },
-  "My interface": {
+  "interface": {
     "scope": "typescript,typescriptreact",
     "prefix": ["interface"],
     "body": "interface ${1:Name} {$2}"
   },
   // Imports
-  "My import type": {
+  "import type": {
     "scope": "typescript,typescriptreact",
     "prefix": ["it", "importType"],
     "body": "import type ${0:Name} from '$1';"
   },
-  "My import type destructuring": {
+  "import type destructuring": {
     "scope": "typescript,typescriptreact",
     "prefix": ["itd", "importTypeDestructuring"],
     "body": "import type {$0} from '$1';"
   },
   // Exports
-  "My export interface": {
+  "export interface": {
     "scope": "typescript,typescriptreact",
     "prefix": ["ei", "exportInterface"],
     "body": "export interface ${1:Name} {$2}"
   },
-  "My export type": {
+  "export type": {
     "scope": "typescript,typescriptreact",
     "prefix": ["et", "exportType"],
     "body": "export type ${1:Name} = $0;"
   },
-  "My export string": {
+  "export string": {
     "scope": "typescript,typescriptreact",
     "prefix": ["estr", "exportString"],
     "body": [
@@ -66,8 +116,43 @@
       "export type $1 = typeof $1;\n"
     ]
   },
+  "export declare const": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["exdc", "exportDeclareConst"],
+    "body": "export declare const ${1:name}: $0;"
+  },
+  "export declare function": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["exdf", "exportDeclareFunction"],
+    "body": "export declare function ${1:name}($2): $3;"
+  },
+  "export declare enum": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["exde", "exportDeclareEnum"],
+    "body": "export declare enum ${1:name} {\n\t$0\n}\n"
+  },
+  "export declare const enum": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["exdce", "exportDeclareConstEnum"],
+    "body": "export declare const enum ${1:name} {\n\t$0\n}\n"
+  },
+  "export declare interface": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["exdi", "exportDeclareInterface"],
+    "body": "export declare interface ${1:name} {\n\t$0\n}\n"
+  },
+  "export declare class": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["exdcl", "exportDeclareClass"],
+    "body": "export declare class ${1:name} {\n\t$0\n}\n"
+  },
+  "export declare namespace": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["exdns", "exportDeclareNamespace"],
+    "body": "export declare namespace ${1:name} {\n\t$0\n}\n"
+  },
   // Class members
-  "My get-set": {
+  "get-set": {
     "scope": "typescript,typescriptreact",
     "prefix": ["getSet"],
     "body": [
@@ -80,37 +165,37 @@
       "}"
     ]
   },
-  "My public method": {
+  "public method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["publicMethod"],
     "body": ["${1:method}($2) {", "\t$0", "}"]
   },
-  "My public async method": {
+  "public async method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["publicAsyncMethod"],
     "body": ["async ${1:method}($2) {", "\t$0", "}"]
   },
-  "My private method": {
+  "private method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["privateMethod"],
     "body": ["private ${1:method}($2) {", "\t$0", "}"]
   },
-  "My private async method": {
+  "private async method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["privateAsyncMethod"],
     "body": ["private async ${1:method}($2) {", "\t$0", "}"]
   },
-  "My protected method": {
+  "protected method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["protectedMethod"],
     "body": ["protected ${1:method}($2) {", "\t$0", "}"]
   },
-  "My protected async method": {
+  "protected async method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["protectedAsyncMethod"],
     "body": ["protected async ${1:method}($2) {", "\t$0", "}"]
   },
-  "My class field": {
+  "class field": {
     "scope": "typescript,typescriptreact",
     "prefix": ["field"],
     "body": ["private readonly ${1:field} = ($2) => {", "\t$0", "};"]
