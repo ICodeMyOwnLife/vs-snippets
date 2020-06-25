@@ -306,7 +306,7 @@
   "test each": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["te", "testeach"],
-    "body": ["test.each($2)(`${1:testCase}`, ($3) => {", "\t$0", "});"]
+    "body": ["test.each(${1:testCases})(`$2`, ($3) => {", "\t$0", "});"]
   },
   "it": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
