@@ -507,12 +507,12 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["makeStyles"],
     "body": [
-      "import { makeStyles, createStyles } from '@material-ui/core';\n",
+      "import { makeStyles, createStyles } from '${1:@material-ui/core}';\n",
       "const styles = () =>",
       "\tcreateStyles({",
       "\t\t$0",
       "\t});\n",
-      "const useStyles = makeStyles(styles, { name: '$1' });\n",
+      "const useStyles = makeStyles(styles, { name: '$2' });\n",
       "export default useStyles;\n"
     ]
   },
