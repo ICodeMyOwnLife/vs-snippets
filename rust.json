@@ -1,0 +1,237 @@
+{
+  // Place your snippets for rust here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  // Declarations
+  "constant": {
+    "prefix": ["c", "constant"],
+    "body": ["const ${1:MY_CONSTANT}: $2 = $3;$0"],
+    "description": "Constant"
+  },
+  "public constant": {
+    "prefix": ["pc", "publicConstant"],
+    "body": ["pub const ${1:MY_CONSTANT}: $2 = $3;$0"],
+    "description": "Public constant"
+  },
+  "function": {
+    "prefix": ["f", "function"],
+    "body": ["fn ${1:my_function}($2) -> $3 {", "    $0", "}"],
+    "description": "General function"
+  },
+  "function declaration": {
+    "prefix": ["fd", "functionDeclaration"],
+    "body": ["fn ${1:my_function}($2) -> $3;$0"],
+    "description": "General function"
+  },
+  "public function": {
+    "prefix": ["pf", "publicFunction"],
+    "body": ["pub fn ${1:my_function}($2) -> $3 {", "    $0", "}"],
+    "description": "Public general function"
+  },
+  "void function": {
+    "prefix": ["vf", "voidFunction"],
+    "body": ["fn ${1:my_function}($2) {", "    $0", "}"],
+    "description": "Void function"
+  },
+  "void function declaration": {
+    "prefix": ["vfd", "voidFunctionDeclaration"],
+    "body": ["fn ${1:my_function}($2);$0"],
+    "description": "Void function"
+  },
+  "public void function": {
+    "prefix": ["pvf", "publicVoidFunction"],
+    "body": ["pub fn ${1:my_function}($2) {", "    $0", "}"],
+    "description": "Public void function"
+  },
+  "let": {
+    "prefix": ["l", "let"],
+    "body": ["let ${1:my_variable} = $2;$0"],
+    "description": "Immutable variable"
+  },
+  "let mut": {
+    "prefix": ["lm", "letMut"],
+    "body": ["let mut ${1:my_variable} = $2;$0"],
+    "description": "Mutable variable"
+  },
+  "let if else": {
+    "prefix": ["lie", "letIfElse"],
+    "body": ["let ${1:my_variable} = if $2 { $3 } else { $4 };$0"],
+    "description": "Tertiary variable"
+  },
+  "let mut if else": {
+    "prefix": ["lmie", "letMutIfElse"],
+    "body": ["let mut ${1:my_variable} = if $2 { $3 } else { $4 };$0"],
+    "description": "Tertiary mutable variable"
+  },
+  "enum": {
+    "prefix": ["e", "enum"],
+    "body": ["enum ${1:MyEnum} {", "    $0", "}"],
+    "description": "Enum"
+  },
+  "public enum": {
+    "prefix": ["pe", "publicEnum"],
+    "body": ["pub enum ${1:MyEnum} {", "    $0", "}"],
+    "description": "Public enum"
+  },
+  "module": {
+    "prefix": ["m", "module"],
+    "body": ["mod ${1:my_module} {", "    $0", "}"],
+    "description": "Module"
+  },
+  "public module": {
+    "prefix": ["pm", "publicModule"],
+    "body": ["pub mod ${1:my_module} {", "    $0", "}"],
+    "description": "Public module"
+  },
+  "module declaration": {
+    "prefix": ["md", "moduleDeclaration"],
+    "body": ["mod ${1:my_module};$0"],
+    "description": "Module declaration"
+  },
+  "public module declaration": {
+    "prefix": ["pmd", "publicModuleDeclaration"],
+    "body": ["pub mod ${1:my_module};$0"],
+    "description": "Public module declaration"
+  },
+  "struct": {
+    "prefix": ["s"],
+    "body": ["struct ${1:MyStruct} {", "    $0", "}"],
+    "description": "Struct"
+  },
+  "public struct": {
+    "prefix": ["ps", "publicStruct"],
+    "body": ["pub struct ${1:MyStruct} {", "    $0", "}"],
+    "description": "Public struct"
+  },
+  "impl struct": {
+    "prefix": ["is", "implStruct"],
+    "body": ["impl ${1:MyStruct} {", "    $0", "}"],
+    "description": "Implement struct"
+  },
+  "tuple struct": {
+    "prefix": ["ts", "tupleStruct"],
+    "body": ["struct ${1:MyStruct} ($2);$0"],
+    "description": "Tuple struct"
+  },
+  "public tuple struct": {
+    "prefix": ["pts", "publicTupleStruct"],
+    "body": ["pub struct ${1:MyStruct} ($2);$0"],
+    "description": "Public tuple struct"
+  },
+  "trait": {
+    "prefix": ["t", "trait"],
+    "body": ["trait ${1:MyTrait} {", "    $0", "}"],
+    "description": "Trait"
+  },
+  "public trait": {
+    "prefix": ["pt", "publicTrait"],
+    "body": ["Public trait ${1:MyTrait} {", "    $0", "}"],
+    "description": "Public trait"
+  },
+  "impl trait": {
+    "prefix": ["it", "implTrait"],
+    "body": ["impl ${1:MyTrait} for ${2:MyStruct} {", "    $0", "}"],
+    "description": "Implement trait"
+  },
+  // Control Flows
+  "if": {
+    "prefix": ["if"],
+    "body": ["if $1 {", "    $0", "}"],
+    "description": "If clause"
+  },
+  "if else": {
+    "prefix": ["ifElse"],
+    "body": ["if $1 {", "    $2", "} else {", "    $0", "}"],
+    "description": "If else"
+  },
+  "if let": {
+    "prefix": ["ifLet"],
+    "body": ["if let $1 = $2 {", "    $0", "}"],
+    "description": "If let"
+  },
+  "if let else": {
+    "prefix": ["ifLetElse"],
+    "body": ["if let $1 = $2 {", "    $3", "} else {", "    $0", "}"],
+    "description": "If let else"
+  },
+  "match": {
+    "prefix": ["match"],
+    "body": ["match $1 {", "    $0", "}"],
+    "description": "Match"
+  },
+  "for": {
+    "prefix": ["for"],
+    "body": ["for ${1:i} in ${2:list} {", "    $0", "}"],
+    "description": "For loop"
+  },
+  "loop": {
+    "prefix": ["loop"],
+    "body": ["loop {", "    $0", "}"],
+    "description": "Loop"
+  },
+  "while": {
+    "prefix": ["while"],
+    "body": ["while $1 {", "    $0", "}"],
+    "description": "While loop"
+  },
+  // Data
+  "vec": {
+    "prefix": ["vec"],
+    "body": ["vec!([$0])"],
+    "description": "vec"
+  },
+  // Console
+  "println": {
+    "prefix": ["println"],
+    "body": ["println!(\"$1\", $2);$0"],
+    "description": "println macro"
+  },
+  // Packages
+  "use": {
+    "prefix": ["u", "use"],
+    "body": ["use $1;$0"],
+    "description": "use"
+  },
+  // Errors
+  "panic": {
+    "prefix": ["panic"],
+    "body": ["panic!(\"$1\");$0"],
+    "description": "Panic"
+  },
+  // Tests
+  "test module": {
+    "prefix": ["tm", "testModule"],
+    "body": ["#[cfg(test)]", "mod ${1:tests} {", "    $0", "}"],
+    "description": "Test module"
+  },
+  "test": {
+    "prefix": ["test"],
+    "body": ["#[test]", "fn ${1:my_test}() {", "    $0", "}"],
+    "description": "Test"
+  },
+  "assert": {
+    "prefix": ["assert"],
+    "body": ["assert!($1);$0"],
+    "description": "Assert"
+  },
+  "assert equal": {
+    "prefix": ["assertEq"],
+    "body": ["assert_eq!($1, $2);$0"],
+    "description": "Assert equal"
+  },
+  "assert not equal": {
+    "prefix": ["assertNe"],
+    "body": ["assert_ne!($1, $2);$0"],
+    "description": "Assert not equal"
+  }
+}
