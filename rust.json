@@ -53,6 +53,26 @@
     "body": ["pub fn ${1:my_function}($2) {", "    $0", "}"],
     "description": "Public void function"
   },
+  "method": {
+    "prefix": ["m", "method"],
+    "body": ["fn ${1:my_function}(&self, $2) -> $3 {", "    $0", "}"],
+    "description": "General method"
+  },
+  "void method": {
+    "prefix": ["vm", "voidMethod"],
+    "body": ["fn ${1:my_function}(&self, $2) {", "    $0", "}"],
+    "description": "Void method"
+  },
+  "public method": {
+    "prefix": ["pm", "publicMethod"],
+    "body": ["pub fn ${1:my_function}(&self, $2) -> $3 {", "    $0", "}"],
+    "description": "Public General method"
+  },
+  "public void method": {
+    "prefix": ["pvm", "publicVoidMethod"],
+    "body": ["pub fn ${1:my_function}(&self, $2) {", "    $0", "}"],
+    "description": "Public void method"
+  },
   "let": {
     "prefix": ["l", "let"],
     "body": ["let ${1:my_variable} = $2;$0"],
@@ -72,6 +92,25 @@
     "prefix": ["lmie", "letMutIfElse"],
     "body": ["let mut ${1:my_variable} = if $2 { $3 } else { $4 };$0"],
     "description": "Tertiary mutable variable"
+  },
+  "let match": {
+    "prefix": ["letMatch"],
+    "body": ["let ${1:my_variable} = match $2 {", "    $3 => $4,$5", "};$0"],
+    "description": "let match"
+  },
+  "let mut match": {
+    "prefix": ["letMutMatch"],
+    "body": [
+      "let mut ${1:my_variable} = match $2 {",
+      "    $3 => $4,$5",
+      "};$0"
+    ],
+    "description": "let mut match"
+  },
+  "let destructuring": {
+    "prefix": ["ld", "letDestructuring"],
+    "body": ["let ($2) = $1;$0"],
+    "description": "let destructuring"
   },
   "enum": {
     "prefix": ["e", "enum"],
@@ -105,17 +144,23 @@
   },
   "struct": {
     "prefix": ["s"],
-    "body": ["struct ${1:MyStruct} {", "    $0", "}"],
+    "body": ["struct ${1:MyStruct} {", "    $2: $3,$0", "}"],
     "description": "Struct"
   },
   "public struct": {
     "prefix": ["ps", "publicStruct"],
-    "body": ["pub struct ${1:MyStruct} {", "    $0", "}"],
+    "body": ["pub struct ${1:MyStruct} {", "    $2: $3,$0", "}"],
     "description": "Public struct"
   },
   "impl struct": {
     "prefix": ["is", "implStruct"],
-    "body": ["impl ${1:MyStruct} {", "    $0", "}"],
+    "body": [
+      "impl ${1:MyStruct} {",
+      "    pub fn new($2) -> $1 {",
+      "        $0",
+      "    }",
+      "}"
+    ],
     "description": "Implement struct"
   },
   "tuple struct": {
@@ -149,6 +194,11 @@
     "body": ["if $1 {", "    $0", "}"],
     "description": "If clause"
   },
+  "else": {
+    "prefix": ["else"],
+    "body": ["else {", "    $0", "}"],
+    "description": "If clause"
+  },
   "if else": {
     "prefix": ["ifElse"],
     "body": ["if $1 {", "    $2", "} else {", "    $0", "}"],
@@ -166,7 +216,7 @@
   },
   "match": {
     "prefix": ["match"],
-    "body": ["match $1 {", "    $0", "}"],
+    "body": ["match $1 {", "    $2 => {", "        $3", "    }$0", "};"],
     "description": "Match"
   },
   "for": {
@@ -184,41 +234,7 @@
     "body": ["while $1 {", "    $0", "}"],
     "description": "While loop"
   },
-  // Data
-  "vec": {
-    "prefix": ["vec"],
-    "body": ["vec!([$0])"],
-    "description": "vec"
-  },
-  // Console
-  "println": {
-    "prefix": ["println"],
-    "body": ["println!(\"$1\", $2);$0"],
-    "description": "println macro"
-  },
-  // Packages
-  "use": {
-    "prefix": ["u", "use"],
-    "body": ["use $1;$0"],
-    "description": "use"
-  },
-  // Errors
-  "panic": {
-    "prefix": ["panic"],
-    "body": ["panic!(\"$1\");$0"],
-    "description": "Panic"
-  },
-  // Tests
-  "test module": {
-    "prefix": ["tm", "testModule"],
-    "body": ["#[cfg(test)]", "mod ${1:tests} {", "    $0", "}"],
-    "description": "Test module"
-  },
-  "test": {
-    "prefix": ["test"],
-    "body": ["#[test]", "fn ${1:my_test}() {", "    $0", "}"],
-    "description": "Test"
-  },
+  // Macros
   "assert": {
     "prefix": ["assert"],
     "body": ["assert!($1);$0"],
@@ -233,5 +249,83 @@
     "prefix": ["assertNe"],
     "body": ["assert_ne!($1, $2);$0"],
     "description": "Assert not equal"
+  },
+  "format": {
+    "prefix": ["format"],
+    "body": ["format!(\"$1\", $2);$0"],
+    "description": "format macro"
+  },
+  "format declaration": {
+    "prefix": ["formatDeclaration"],
+    "body": ["let ${1:my_string} = format!(\"$1\", $2);$0"],
+    "description": "format declaration"
+  },
+  "panic": {
+    "prefix": ["panic"],
+    "body": ["panic!(\"$1\");$0"],
+    "description": "Panic"
+  },
+  "println": {
+    "prefix": ["println"],
+    "body": ["println!(\"$1\", $2);$0"],
+    "description": "println macro"
+  },
+  "eprintln": {
+    "prefix": ["eprintln"],
+    "body": ["eprintln!(\"$1\", $2);$0"],
+    "description": "eprintln macro"
+  },
+  "vec": {
+    "prefix": ["vec"],
+    "body": ["vec!([$0])"],
+    "description": "vec macro"
+  },
+  "write": {
+    "prefix": ["write"],
+    "body": ["write!(${1:f}, \"$2\", $3);$0"],
+    "description": "write macro"
+  },
+  // Packages
+  "use": {
+    "prefix": ["u", "use"],
+    "body": ["use $1;$0"],
+    "description": "use"
+  },
+  "public use": {
+    "prefix": ["pu", "publicUse"],
+    "body": ["pub use $1;$0"],
+    "description": "Public use"
+  },
+  // Attributes
+  "cfg": {
+    "prefix": ["cfg"],
+    "body": ["#[cfg($1)]$0"],
+    "description": "cfg attribute"
+  },
+  "derive": {
+    "prefix": ["derive"],
+    "body": ["#[derive($1)]$0"],
+    "description": "derive attribute"
+  },
+  "repr": {
+    "prefix": ["repr"],
+    "body": ["#[repr($1)]$0"],
+    "description": "repr attribute"
+  },
+  "wasm_bindgen": {
+    "prefix": ["wasmBindGen"],
+    "body": ["#[wasm_bindgen]"],
+    "description": "wasm_bindgen attribute"
+  },
+  // Tests
+  "test module": {
+    "prefix": ["tm", "testModule"],
+    "body": ["#[cfg(test)]", "mod ${1:tests} {", "    $0", "}"],
+    "description": "Test module"
+  },
+  "test": {
+    "prefix": ["test"],
+    "body": ["#[test]", "fn ${1:my_test}() {", "    $0", "}"],
+    "description": "Test"
   }
 }
