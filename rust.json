@@ -1,98 +1,74 @@
 {
   // Declarations
-  "constant": {
+  "const": {
     "prefix": ["c", "constant"],
-    "body": ["const ${1:MY_CONSTANT}: $2 = $3;$0"],
-    "description": "Constant"
-  },
-  "public constant": {
-    "prefix": ["pc", "publicConstant"],
-    "body": ["pub const ${1:MY_CONSTANT}: $2 = $3;$0"],
-    "description": "Public constant"
+    "body": ["${1|const,pub const|} ${2:MY_CONSTANT}: $3 = $4;$0"],
+    "description": "const"
   },
   "function": {
     "prefix": ["f", "function"],
-    "body": ["fn ${1:my_function}($2) -> $3 {", "    $0", "}"],
-    "description": "General function"
+    "body": ["${1|fn,pub fn|} ${2:my_function}($3) -> $4 {", "    $0", "}"],
+    "description": "function"
+  },
+  "generic function": {
+    "prefix": ["gf", "genericFunction"],
+    "body": [
+      "${1|fn,pub fn|} ${2:my_function}<${3:T}>($4) -> $5 where $6 {",
+      "    $0",
+      "}"
+    ],
+    "description": "function"
   },
   "function declaration": {
     "prefix": ["fd", "functionDeclaration"],
-    "body": ["fn ${1:my_function}($2) -> $3;$0"],
-    "description": "General function"
-  },
-  "public function": {
-    "prefix": ["pf", "publicFunction"],
-    "body": ["pub fn ${1:my_function}($2) -> $3 {", "    $0", "}"],
-    "description": "Public general function"
-  },
-  "void function": {
-    "prefix": ["vf", "voidFunction"],
-    "body": ["fn ${1:my_function}($2) {", "    $0", "}"],
-    "description": "Void function"
-  },
-  "void function declaration": {
-    "prefix": ["vfd", "voidFunctionDeclaration"],
-    "body": ["fn ${1:my_function}($2);$0"],
-    "description": "Void function"
-  },
-  "public void function": {
-    "prefix": ["pvf", "publicVoidFunction"],
-    "body": ["pub fn ${1:my_function}($2) {", "    $0", "}"],
-    "description": "Public void function"
-  },
-  "method": {
-    "prefix": ["m", "method"],
-    "body": ["fn ${1:my_function}(&self, $2) -> $3 {", "    $0", "}"],
-    "description": "General method"
-  },
-  "void method": {
-    "prefix": ["vm", "voidMethod"],
-    "body": ["fn ${1:my_function}(&self, $2) {", "    $0", "}"],
-    "description": "Void method"
-  },
-  "public method": {
-    "prefix": ["pm", "publicMethod"],
-    "body": ["pub fn ${1:my_function}(&self, $2) -> $3 {", "    $0", "}"],
-    "description": "Public General method"
-  },
-  "public void method": {
-    "prefix": ["pvm", "publicVoidMethod"],
-    "body": ["pub fn ${1:my_function}(&self, $2) {", "    $0", "}"],
-    "description": "Public void method"
+    "body": ["${1|fn,pub fn|} ${2:my_function}($3) -> $4;$0"],
+    "description": "function declaration"
   },
   "let": {
     "prefix": ["l", "let"],
-    "body": ["let ${1:my_variable} = $2;$0"],
-    "description": "Immutable variable"
+    "body": ["${1|let,let mut|} ${2:my_variable}: $3 = $4;$0"],
+    "description": "let"
   },
-  "let mut": {
-    "prefix": ["lm", "letMut"],
-    "body": ["let mut ${1:my_variable} = $2;$0"],
-    "description": "Mutable variable"
+  "method": {
+    "prefix": ["m", "method"],
+    "body": [
+      "${1|fn,pub fn|} ${2:my_method}(${3|&self,&mut self|}, $4) -> $5 {",
+      "    $0",
+      "}"
+    ],
+    "description": "method"
+  },
+  "generic method": {
+    "prefix": ["gm", "genericMethod"],
+    "body": [
+      "${1|fn,pub fn|} ${2:my_method}<${3:T}>(${4|&self,&mut self|}, $5) -> $6 where $7 {",
+      "    $0",
+      "}"
+    ],
+    "description": "method"
+  },
+  "method declaration": {
+    "prefix": ["md", "methodDeclaration"],
+    "body": [
+      "${1|fn,pub fn|} ${2:my_method}(${3|&self,&mut self|}, $4) -> $5;$0"
+    ],
+    "description": "method declaration"
   },
   "let if else": {
     "prefix": ["lie", "letIfElse"],
-    "body": ["let ${1:my_variable} = if $2 { $3 } else { $4 };$0"],
-    "description": "Tertiary variable"
-  },
-  "let mut if else": {
-    "prefix": ["lmie", "letMutIfElse"],
-    "body": ["let mut ${1:my_variable} = if $2 { $3 } else { $4 };$0"],
-    "description": "Tertiary mutable variable"
+    "body": [
+      "${1|let,let mut|} ${2:my_variable} = if $3 { $4 } else { $5 };$0"
+    ],
+    "description": "let ternary"
   },
   "let match": {
-    "prefix": ["letMatch"],
-    "body": ["let ${1:my_variable} = match $2 {", "    $3 => $4,$5", "};$0"],
-    "description": "let match"
-  },
-  "let mut match": {
-    "prefix": ["letMutMatch"],
+    "prefix": ["lm", "letMatch"],
     "body": [
-      "let mut ${1:my_variable} = match $2 {",
-      "    $3 => $4,$5",
+      "${1|let,let mut|} ${2:my_variable} = match $3 {",
+      "    $4 => $5,$6",
       "};$0"
     ],
-    "description": "let mut match"
+    "description": "let match"
   },
   "let destructuring": {
     "prefix": ["ld", "letDestructuring"],
@@ -101,130 +77,133 @@
   },
   "enum": {
     "prefix": ["e", "enum"],
-    "body": ["enum ${1:MyEnum} {", "    $0", "}"],
-    "description": "Enum"
-  },
-  "public enum": {
-    "prefix": ["pe", "publicEnum"],
-    "body": ["pub enum ${1:MyEnum} {", "    $0", "}"],
-    "description": "Public enum"
+    "body": ["${1|enum,pub enum|} ${2:MyEnum} {", "    $0", "}"],
+    "description": "enum"
   },
   "module": {
-    "prefix": ["m", "module"],
-    "body": ["mod ${1:my_module} {", "    $0", "}"],
-    "description": "Module"
-  },
-  "public module": {
-    "prefix": ["pm", "publicModule"],
-    "body": ["pub mod ${1:my_module} {", "    $0", "}"],
-    "description": "Public module"
+    "prefix": ["mod", "module"],
+    "body": ["${1|mod,pub mod|} ${2:my_module} {", "    $0", "}"],
+    "description": "module"
   },
   "module declaration": {
-    "prefix": ["md", "moduleDeclaration"],
-    "body": ["mod ${1:my_module};$0"],
-    "description": "Module declaration"
+    "prefix": ["modDecl", "moduleDeclaration"],
+    "body": ["${1|mod,pub mod|} ${2:my_module};$0"],
+    "description": "module declaration"
   },
-  "public module declaration": {
-    "prefix": ["pmd", "publicModuleDeclaration"],
-    "body": ["pub mod ${1:my_module};$0"],
-    "description": "Public module declaration"
+  "static": {
+    "prefix": ["static"],
+    "body": [
+      "${1|static,static mut,pub static,pub static mut|} ${2:MY_STATIC}: $3 = $4;$0"
+    ],
+    "description": "static"
   },
   "constructor": {
     "prefix": ["ctor", "constructor"],
-    "body": ["pub fn new($2) -> $1 {", "    $1 {", "        $0", "    }", "}"],
-    "description": "Constructor"
+    "body": [
+      "${1|pub fn,fn|} new($3) -> $2 {",
+      "    $2 {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "constructor"
   },
   "struct": {
-    "prefix": ["s"],
-    "body": ["struct ${1:MyStruct} {", "    $2: $3,$0", "}"],
-    "description": "Struct"
+    "prefix": ["s", "struct"],
+    "body": ["${1|struct,pub struct|} ${2:MyStruct} {", "    $3: $4,$0", "}"],
+    "description": "struct"
   },
-  "public struct": {
-    "prefix": ["ps", "publicStruct"],
-    "body": ["pub struct ${1:MyStruct} {", "    $2: $3,$0", "}"],
-    "description": "Public struct"
+  "generic struct": {
+    "prefix": ["gs", "genericStruct"],
+    "body": [
+      "${1|struct,pub struct|} ${2:MyStruct}<${3:T}> where $4 {",
+      "    $5: $6,$0",
+      "}"
+    ],
+    "description": "generic struct"
   },
   "tuple struct": {
     "prefix": ["ts", "tupleStruct"],
-    "body": ["struct ${1:MyStruct} ($2);$0"],
-    "description": "Tuple struct"
-  },
-  "public tuple struct": {
-    "prefix": ["pts", "publicTupleStruct"],
-    "body": ["pub struct ${1:MyStruct} ($2);$0"],
-    "description": "Public tuple struct"
+    "body": ["${1|struct,pub struct|} ${2:MyStruct} ($3);$0"],
+    "description": "tuple struct"
   },
   "trait": {
-    "prefix": ["t", "trait"],
-    "body": ["trait ${1:MyTrait} {", "    $0", "}"],
-    "description": "Trait"
-  },
-  "public trait": {
-    "prefix": ["pt", "publicTrait"],
-    "body": ["Public trait ${1:MyTrait} {", "    $0", "}"],
-    "description": "Public trait"
+    "prefix": ["tr", "trait"],
+    "body": ["${1|trait,pub trait|} ${2:MyTrait} {", "    $0", "}"],
+    "description": "trait"
   },
   // Control Flows
   "if": {
     "prefix": ["if"],
     "body": ["if $1 {", "    $0", "}"],
-    "description": "If clause"
+    "description": "if clause"
   },
   "else": {
     "prefix": ["else"],
     "body": ["else {", "    $0", "}"],
-    "description": "If clause"
+    "description": "else clause"
   },
   "if else": {
     "prefix": ["ifElse"],
     "body": ["if $1 {", "    $2", "} else {", "    $0", "}"],
-    "description": "If else"
+    "description": "if else"
   },
   "if let": {
     "prefix": ["ifLet"],
-    "body": ["if let $1 = $2 {", "    $0", "}"],
-    "description": "If let"
+    "body": ["if ${1|let,let mut|} $2 = $3 {", "    $0", "}"],
+    "description": "if let"
   },
   "if let else": {
     "prefix": ["ifLetElse"],
-    "body": ["if let $1 = $2 {", "    $3", "} else {", "    $0", "}"],
-    "description": "If let else"
+    "body": [
+      "if ${1|let,let mut|} $2 = $3 {",
+      "    $4",
+      "} else {",
+      "    $0",
+      "}"
+    ],
+    "description": "if let else"
   },
   "match": {
     "prefix": ["match"],
     "body": ["match $1 {", "    $2 => {", "        $3", "    }$0", "};"],
-    "description": "Match"
+    "description": "match"
   },
   "for": {
     "prefix": ["for"],
     "body": ["for ${1:i} in ${2:list} {", "    $0", "}"],
-    "description": "For loop"
+    "description": "for"
   },
   "loop": {
     "prefix": ["loop"],
     "body": ["loop {", "    $0", "}"],
-    "description": "Loop"
+    "description": "loop"
   },
   "while": {
     "prefix": ["while"],
     "body": ["while $1 {", "    $0", "}"],
-    "description": "While loop"
+    "description": "while"
+  },
+  "while let": {
+    "prefix": ["whileLet"],
+    "body": ["while ${1|let,let mut|} $2 = $3 {", "    $0", "}"],
+    "description": "while let"
   },
   // Macros
   "assert": {
     "prefix": ["assert"],
     "body": ["assert!($1);$0"],
-    "description": "Assert"
+    "description": "assert macro"
   },
   "assert equal": {
     "prefix": ["assertEq"],
     "body": ["assert_eq!($1, $2);$0"],
-    "description": "Assert equal"
+    "description": "assert_eq macro"
   },
   "assert not equal": {
     "prefix": ["assertNe"],
     "body": ["assert_ne!($1, $2);$0"],
-    "description": "Assert not equal"
+    "description": "assert_ne macro"
   },
   "format": {
     "prefix": ["format"],
@@ -236,10 +215,15 @@
     "body": ["let ${1:my_string} = format!(\"$1\", $2);$0"],
     "description": "format declaration"
   },
+  "log": {
+    "prefix": ["log"],
+    "body": ["log!(\"$1\", $2);$0"],
+    "description": "log macro"
+  },
   "panic": {
     "prefix": ["panic"],
     "body": ["panic!(\"$1\");$0"],
-    "description": "Panic"
+    "description": "panic macro"
   },
   "println": {
     "prefix": ["println"],
@@ -261,29 +245,91 @@
     "body": ["write!(${1:f}, \"$2\", $3)?;$0"],
     "description": "write macro"
   },
+  "macro_rules log": {
+    "prefix": ["macroRulesLog"],
+    "body": [
+      "macro_rules! log {",
+      "    ( \\$( \\$t:tt )* ) => {",
+      "        web_sys::console::log_1(&format!( \\$( \\$t )* ).into());",
+      "    }",
+      "}"
+    ],
+    "description": "macro_rules! log"
+  },
   // Implementation
   "impl struct": {
     "prefix": ["is", "implStruct"],
-    "body": ["impl ${1:MyStruct} {", "    $0", "}"],
-    "description": "Implement struct"
+    "body": ["impl${2:<T>} ${1:MyStruct} {", "    $0", "}"],
+    "description": "implement struct"
+  },
+  "impl generic struct": {
+    "prefix": ["igs", "implGenericStruct"],
+    "body": ["impl<${2:T}> ${1:MyStruct}<$2> where $3 {", "    $0", "}"],
+    "description": "implement generic struct"
   },
   "impl struct with constructor": {
     "prefix": ["iswc", "implStructWithCtor"],
     "body": [
       "impl ${1:MyStruct} {",
-      "    pub fn new($2) -> $1 {",
+      "    ${2|pub fn,fn|} new($3) -> $1 {",
       "        $1 {",
       "            $0",
       "        }",
       "    }",
       "}"
     ],
-    "description": "Implement struct with constructor"
+    "description": "implement struct with constructor"
+  },
+  "impl generic struct with constructor": {
+    "prefix": ["igswc", "implGenericStructWithCtor"],
+    "body": [
+      "impl<${2:T}> ${1:MyStruct}<$2> where $3 {",
+      "    ${4|pub fn,fn|} new($5) -> $1<$2> {",
+      "        $1 {",
+      "            $0",
+      "        }",
+      "    }",
+      "}"
+    ],
+    "description": "implement generic struct with constructor"
   },
   "impl trait": {
     "prefix": ["it", "implTrait"],
     "body": ["impl ${1:MyTrait} for ${2:MyStruct} {", "    $0", "}"],
-    "description": "Implement trait"
+    "description": "implement trait"
+  },
+  "impl trait for generic struct": {
+    "prefix": ["igt", "implGenericTrait"],
+    "body": [
+      "impl<${3:T}> ${1:MyTrait} for ${2:MyStruct}<$3> where $4 {",
+      "    $0",
+      "}"
+    ],
+    "description": "implement trait"
+  },
+  "impl Deref": {
+    "prefix": ["implDeref"],
+    "body": [
+      "impl Deref for ${1:MyStruct} {",
+      "    type Target = ${2};",
+      "    fn deref(&self) -> &Self::Target {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "implement Deref"
+  },
+  "impl generic Deref": {
+    "prefix": ["implGenericDeref"],
+    "body": [
+      "impl<${2:T}> Deref for ${1:MyStruct}<$2> where $3 {",
+      "    type Target = ${4};",
+      "    fn deref(&self) -> &Self::Target {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "implement generic Deref"
   },
   "impl Display": {
     "prefix": ["implDisplay"],
@@ -295,7 +341,41 @@
       "    }",
       "}"
     ],
-    "description": "Implement trait"
+    "description": "implement Display"
+  },
+  "impl generic Display": {
+    "prefix": ["implGenericDisplay"],
+    "body": [
+      "impl<${2:T}> fmt::Display for ${1:MyStruct}<$2> where $3 {",
+      "    fn fmt(&self, ${4:f}: &mut fmt::Formatter) -> fmt::Result {",
+      "        $0",
+      "        Ok(())",
+      "    }",
+      "}"
+    ],
+    "description": "implement Display"
+  },
+  "impl Drop": {
+    "prefix": ["implDrop"],
+    "body": [
+      "impl Drop for ${1:MyStruct} {",
+      "    fn drop(&mut self) {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "implement Drop"
+  },
+  "impl generic Drop": {
+    "prefix": ["implGenericDrop"],
+    "body": [
+      "impl<${2:T}> Drop for ${1:MyStruct}<$2> where $3 {",
+      "    fn drop(&mut self) {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "implement generic Drop"
   },
   "impl borrowing IntoIterator struct": {
     "prefix": ["implBorrowingIntoIteratorStruct"],
@@ -310,7 +390,7 @@
       "    }",
       "}"
     ],
-    "description": "Implement borrowing IntoIterator struct"
+    "description": "implement borrowing IntoIterator struct"
   },
   "impl borrowing Iterator struct": {
     "prefix": ["implBorrowingIteratorStruct"],
@@ -325,7 +405,7 @@
       "    }",
       "}"
     ],
-    "description": "Implement borrowing Iterator struct"
+    "description": "implement borrowing Iterator struct"
   },
   "impl borrowing iterator": {
     "prefix": ["implBorrowingIterator"],
@@ -354,7 +434,7 @@
       "    }",
       "}"
     ],
-    "description": "Implement borrowing Iterator"
+    "description": "implement borrowing iterator"
   },
   "impl consuming IntoIterator struct": {
     "prefix": ["implConsumingIntoIteratorStruct"],
@@ -369,7 +449,7 @@
       "    }",
       "}"
     ],
-    "description": "Implement consuming IntoIterator struct"
+    "description": "implement consuming IntoIterator struct"
   },
   "impl consuming Iterator struct": {
     "prefix": ["implConsumingIteratorStruct"],
@@ -384,7 +464,7 @@
       "    }",
       "}"
     ],
-    "description": "Implement consuming Iterator struct"
+    "description": "implement consuming Iterator struct"
   },
   "impl consuming iterator": {
     "prefix": ["implConsumingIterator"],
@@ -413,7 +493,7 @@
       "    }",
       "}"
     ],
-    "description": "Implement consuming Iterator"
+    "description": "implement consuming iterator"
   },
   "impl mutable IntoIterator struct": {
     "prefix": ["implMutableIntoIteratorStruct"],
@@ -428,7 +508,7 @@
       "    }",
       "}"
     ],
-    "description": "Implement mutable IntoIterator struct"
+    "description": "implement mutable IntoIterator struct"
   },
   "impl mutable Iterator struct": {
     "prefix": ["implMutableIteratorStruct"],
@@ -443,7 +523,7 @@
       "    }",
       "}"
     ],
-    "description": "Implement mutable Iterator struct"
+    "description": "implement mutable Iterator struct"
   },
   "impl mutable iterator": {
     "prefix": ["implMutableIterator"],
@@ -472,20 +552,25 @@
       "    }",
       "}"
     ],
-    "description": "Implement mutable Iterator"
+    "description": "implement mutable Iterator"
   },
   // Packages
   "use": {
     "prefix": ["u", "use"],
-    "body": ["use $1;$0"],
+    "body": ["${1|use,pub use|} $2;$0"],
     "description": "use"
   },
-  "public use": {
-    "prefix": ["pu", "publicUse"],
-    "body": ["pub use $1;$0"],
-    "description": "Public use"
+  "extern": {
+    "prefix": ["extern"],
+    "body": ["extern $1 {", "    $0", "}"],
+    "description": "extern crate"
   },
   // Attributes
+  "allow dead code": {
+    "prefix": ["allowDeadCode"],
+    "body": ["#[allow(dead_code)]$0"],
+    "description": "allow dead code attribute"
+  },
   "cfg": {
     "prefix": ["cfg"],
     "body": ["#[cfg($1)]$0"],
@@ -506,15 +591,21 @@
     "body": ["#[wasm_bindgen]"],
     "description": "wasm_bindgen attribute"
   },
+  // Blocks
+  "unsafe": {
+    "prefix": ["unsafe"],
+    "body": ["unsafe {", "    $0", "}"],
+    "description": "unsafe"
+  },
   // Tests
   "test module": {
     "prefix": ["tm", "testModule"],
     "body": ["#[cfg(test)]", "mod ${1:tests} {", "    $0", "}"],
-    "description": "Test module"
+    "description": "cfg test attribute"
   },
   "test": {
-    "prefix": ["test"],
+    "prefix": ["t", "test"],
     "body": ["#[test]", "fn ${1:my_test}() {", "    $0", "}"],
-    "description": "Test"
+    "description": "test attribute"
   }
 }
