@@ -1,17 +1,4 @@
 {
-  // Place your snippets for rust here. Each snippet is defined under a snippet name and has a prefix, body and
-  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
-  // same ids are connected.
-  // Example:
-  // "Print to console": {
-  // 	"prefix": "log",
-  // 	"body": [
-  // 		"console.log('$1');",
-  // 		"$2"
-  // 	],
-  // 	"description": "Log output to console"
-  // }
   // Declarations
   "constant": {
     "prefix": ["c", "constant"],
@@ -142,6 +129,11 @@
     "body": ["pub mod ${1:my_module};$0"],
     "description": "Public module declaration"
   },
+  "constructor": {
+    "prefix": ["ctor", "constructor"],
+    "body": ["pub fn new($2) -> $1 {", "    $1 {", "        $0", "    }", "}"],
+    "description": "Constructor"
+  },
   "struct": {
     "prefix": ["s"],
     "body": ["struct ${1:MyStruct} {", "    $2: $3,$0", "}"],
@@ -151,17 +143,6 @@
     "prefix": ["ps", "publicStruct"],
     "body": ["pub struct ${1:MyStruct} {", "    $2: $3,$0", "}"],
     "description": "Public struct"
-  },
-  "impl struct": {
-    "prefix": ["is", "implStruct"],
-    "body": [
-      "impl ${1:MyStruct} {",
-      "    pub fn new($2) -> $1 {",
-      "        $0",
-      "    }",
-      "}"
-    ],
-    "description": "Implement struct"
   },
   "tuple struct": {
     "prefix": ["ts", "tupleStruct"],
@@ -182,11 +163,6 @@
     "prefix": ["pt", "publicTrait"],
     "body": ["Public trait ${1:MyTrait} {", "    $0", "}"],
     "description": "Public trait"
-  },
-  "impl trait": {
-    "prefix": ["it", "implTrait"],
-    "body": ["impl ${1:MyTrait} for ${2:MyStruct} {", "    $0", "}"],
-    "description": "Implement trait"
   },
   // Control Flows
   "if": {
@@ -282,8 +258,221 @@
   },
   "write": {
     "prefix": ["write"],
-    "body": ["write!(${1:f}, \"$2\", $3);$0"],
+    "body": ["write!(${1:f}, \"$2\", $3)?;$0"],
     "description": "write macro"
+  },
+  // Implementation
+  "impl struct": {
+    "prefix": ["is", "implStruct"],
+    "body": ["impl ${1:MyStruct} {", "    $0", "}"],
+    "description": "Implement struct"
+  },
+  "impl struct with constructor": {
+    "prefix": ["iswc", "implStructWithCtor"],
+    "body": [
+      "impl ${1:MyStruct} {",
+      "    pub fn new($2) -> $1 {",
+      "        $1 {",
+      "            $0",
+      "        }",
+      "    }",
+      "}"
+    ],
+    "description": "Implement struct with constructor"
+  },
+  "impl trait": {
+    "prefix": ["it", "implTrait"],
+    "body": ["impl ${1:MyTrait} for ${2:MyStruct} {", "    $0", "}"],
+    "description": "Implement trait"
+  },
+  "impl Display": {
+    "prefix": ["implDisplay"],
+    "body": [
+      "impl fmt::Display for ${1:MyStruct} {",
+      "    fn fmt(&self, ${2:f}: &mut fmt::Formatter) -> fmt::Result {",
+      "        $0",
+      "        Ok(())",
+      "    }",
+      "}"
+    ],
+    "description": "Implement trait"
+  },
+  "impl borrowing IntoIterator struct": {
+    "prefix": ["implBorrowingIntoIteratorStruct"],
+    "body": [
+      "impl<'${2:a}> IntoIterator for &'$2 ${1:MyStruct} {",
+      "    type Item = &'$2 ${3:MyItem};",
+      "    type IntoIter = ${4:MyIterator}<'$2>;",
+      "    fn into_iter(self) -> Self::IntoIter {",
+      "        $4 {",
+      "            $0",
+      "        }",
+      "    }",
+      "}"
+    ],
+    "description": "Implement borrowing IntoIterator struct"
+  },
+  "impl borrowing Iterator struct": {
+    "prefix": ["implBorrowingIteratorStruct"],
+    "body": [
+      "impl<'${2:a}> Iterator for ${1:MyStruct}<'$2> {",
+      "    type Item = &'$2 ${3:MyItem};",
+      "    fn next(&mut self) -> Option<Self::Item> {",
+      "        if $4 {",
+      "            return None;",
+      "        }",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Implement borrowing Iterator struct"
+  },
+  "impl borrowing iterator": {
+    "prefix": ["implBorrowingIterator"],
+    "body": [
+      "pub struct ${1:MyStruct}BorrowingIterator<'${2:a}> {",
+      "    ${4:my_struct}: &'$2 $1,$5",
+      "}",
+      "",
+      "impl<'${2:a}> IntoIterator for &'$2 $1 {",
+      "    type Item = &'$2 ${3:MyItem};",
+      "    type IntoIter = $1BorrowingIterator<'$2>;",
+      "    fn into_iter(self) -> Self::IntoIter {",
+      "        $1BorrowingIterator {",
+      "            $4: self,$6",
+      "        }",
+      "    }",
+      "}",
+      "",
+      "impl<'${2:a}> Iterator for $1BorrowingIterator<'$2> {",
+      "    type Item = &'$2 $3;",
+      "    fn next(&mut self) -> Option<Self::Item> {",
+      "        if $7 {",
+      "            return None;",
+      "        }",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Implement borrowing Iterator"
+  },
+  "impl consuming IntoIterator struct": {
+    "prefix": ["implConsumingIntoIteratorStruct"],
+    "body": [
+      "impl IntoIterator for ${1:MyStruct} {",
+      "    type Item = ${3:MyItem};",
+      "    type IntoIter = ${4:MyIterator};",
+      "    fn into_iter(self) -> Self::IntoIter {",
+      "        $4 {",
+      "            $0",
+      "        }",
+      "    }",
+      "}"
+    ],
+    "description": "Implement consuming IntoIterator struct"
+  },
+  "impl consuming Iterator struct": {
+    "prefix": ["implConsumingIteratorStruct"],
+    "body": [
+      "impl Iterator for ${1:MyStruct} {",
+      "    type Item = ${3:MyItem};",
+      "    fn next(&mut self) -> Option<Self::Item> {",
+      "        if $4 {",
+      "            return None;",
+      "        }",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Implement consuming Iterator struct"
+  },
+  "impl consuming iterator": {
+    "prefix": ["implConsumingIterator"],
+    "body": [
+      "pub struct ${1:MyStruct}ConsumingIterator {",
+      "    ${3:my_struct}: $1,$4",
+      "}",
+      "",
+      "impl IntoIterator for $1 {",
+      "    type Item = ${2:MyItem};",
+      "    type IntoIter = $1ConsumingIterator;",
+      "    fn into_iter(self) -> Self::IntoIter {",
+      "        $1ConsumingIterator {",
+      "            $3: self,$5",
+      "        }",
+      "    }",
+      "}",
+      "",
+      "impl Iterator for $1ConsumingIterator {",
+      "    type Item = $2;",
+      "    fn next(&mut self) -> Option<Self::Item> {",
+      "        if $6 {",
+      "            return None;",
+      "        }",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Implement consuming Iterator"
+  },
+  "impl mutable IntoIterator struct": {
+    "prefix": ["implMutableIntoIteratorStruct"],
+    "body": [
+      "impl<'${2:a}> IntoIterator for &'$2 mut ${1:MyStruct} {",
+      "    type Item = &'$2 mut ${3:MyItem};",
+      "    type IntoIter = ${4:MyIterator}<'$2>;",
+      "    fn into_iter(self) -> Self::IntoIter {",
+      "        $4 {",
+      "            $0",
+      "        }",
+      "    }",
+      "}"
+    ],
+    "description": "Implement mutable IntoIterator struct"
+  },
+  "impl mutable Iterator struct": {
+    "prefix": ["implMutableIteratorStruct"],
+    "body": [
+      "impl<'${2:a}> Iterator for ${1:MyStruct}<'$2> {",
+      "    type Item = &'$2 mut ${3:MyItem};",
+      "    fn next(&mut self) -> Option<Self::Item> {",
+      "        if $4 {",
+      "            return None;",
+      "        }",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Implement mutable Iterator struct"
+  },
+  "impl mutable iterator": {
+    "prefix": ["implMutableIterator"],
+    "body": [
+      "pub struct ${1:MyStruct}MutableIterator<'${2:a}> {",
+      "    ${4:my_struct}: &'$2 mut $1,$5",
+      "}",
+      "",
+      "impl<'$2> IntoIterator for &'$2 mut $1 {",
+      "    type Item = &'$2 mut ${3:MyItem};",
+      "    type IntoIter = $1MutableIterator<'$2>;",
+      "    fn into_iter(self) -> Self::IntoIter {",
+      "        $1MutableIterator {",
+      "            $4: self,$6",
+      "        }",
+      "    }",
+      "}",
+      "",
+      "impl<'$2> Iterator for $1MutableIterator<'$2> {",
+      "    type Item = &'$2 mut $3;",
+      "    fn next(&mut self) -> Option<Self::Item> {",
+      "        if $7 {",
+      "            return None;",
+      "        }",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Implement mutable Iterator"
   },
   // Packages
   "use": {
