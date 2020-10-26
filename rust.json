@@ -15,45 +15,26 @@
     "body": ["${1|fn,pub fn|} ${2:my_function}($3) -> $4;$0"],
     "description": "function declaration"
   },
+  "let": {
+    "prefix": ["l", "let"],
+    "body": ["${1|let,let mut|} ${2:my_variable}: $3 = $4;$0"],
+    "description": "let"
+  },
   "method": {
     "prefix": ["m", "method"],
-    "body": ["fn ${1:my_method}(&self, $2) -> $3 {", "    $0", "}"],
+    "body": [
+      "${1|fn,pub fn|} ${2:my_method}(${3|&self,&mut self|}, $4) -> $5 {",
+      "    $0",
+      "}"
+    ],
     "description": "method"
   },
   "method declaration": {
     "prefix": ["md", "methodDeclaration"],
-    "body": ["fn ${1:my_method}(&self, $2) -> $3;$0"],
+    "body": [
+      "${1|fn,pub fn|} ${2:my_method}(${3|&self,&mut self|}, $4) -> $5;$0"
+    ],
     "description": "method declaration"
-  },
-  "public method": {
-    "prefix": ["pm", "publicMethod"],
-    "body": ["pub fn ${1:my_method}(&self, $2) -> $3 {", "    $0", "}"],
-    "description": "public method"
-  },
-  "void method": {
-    "prefix": ["vm", "voidMethod"],
-    "body": ["fn ${1:my_function}(&self, $2) {", "    $0", "}"],
-    "description": "void method"
-  },
-  "void method declaration": {
-    "prefix": ["vmd", "voidMethodDeclaration"],
-    "body": ["fn ${1:my_function}(&self, $2);$0"],
-    "description": "void method"
-  },
-  "public void method": {
-    "prefix": ["pvm", "publicVoidMethod"],
-    "body": ["pub fn ${1:my_function}(&self, $2) {", "    $0", "}"],
-    "description": "public void method"
-  },
-  "let": {
-    "prefix": ["l", "let"],
-    "body": ["let ${1:my_variable} = $2;$0"],
-    "description": "let"
-  },
-  "let mut": {
-    "prefix": ["lm", "letMut"],
-    "body": ["let mut ${1:my_variable} = $2;$0"],
-    "description": "let mut"
   },
   "let if else": {
     "prefix": ["lie", "letIfElse"],
@@ -114,8 +95,15 @@
     "body": ["pub mod ${1:my_module};$0"],
     "description": "public module declaration"
   },
+  "static": {
+    "prefix": ["static"],
+    "body": [
+      "${1|static,static mut,pub static,pub static mut|} ${2:MY_STATIC}: $3 = $4;$0"
+    ],
+    "description": "static"
+  },
   "struct": {
-    "prefix": ["s"],
+    "prefix": ["s", "struct"],
     "body": ["struct ${1:MyStruct} {", "    $2: $3,$0", "}"],
     "description": "struct"
   },
