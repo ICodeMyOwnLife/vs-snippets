@@ -245,6 +245,17 @@
     "body": ["write!(${1:f}, \"$2\", $3)?;$0"],
     "description": "write macro"
   },
+  "macro_rules": {
+    "prefix": ["macroRules"],
+    "body": [
+      "macro_rules! ${1:my_macro} {",
+      "    ( ${2:\\$( \\$t:expr ),*} ) => {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "macro_rules"
+  },
   "macro_rules log": {
     "prefix": ["macroRulesLog"],
     "body": [
@@ -580,6 +591,11 @@
     "prefix": ["derive"],
     "body": ["#[derive($1)]$0"],
     "description": "derive attribute"
+  },
+  "macro_export": {
+    "prefix": ["macroExport"],
+    "body": ["#[macro_export]$0"],
+    "description": "macro_export attribute"
   },
   "repr": {
     "prefix": ["repr"],
