@@ -1,0 +1,52 @@
+{
+  // Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  "axon function component": {
+    "scope": "typescriptreact",
+    "prefix": ["afc", "axonFunctionComponent"],
+    "body": [
+			"import React from 'react'\n",
+			"export interface ${1}Props {",
+			"  $2",
+			"}\n",
+      "const ${1:Component} = ({ $3 }: $1Props) => {",
+      "  return (",
+      "    $0",
+      "  )",
+			"}\n",
+			"export default $1"
+    ],
+    "description": "Axon function component"
+  },
+  "axon function component container": {
+    "scope": "typescriptreact",
+    "prefix": ["afcc", "axonFunctionComponentContainer"],
+    "body": [
+			"import React from 'react'\n",
+      "const ${1:Component} = () => {",
+      "  return (",
+      "    $0",
+      "  )",
+			"}\n",
+			"export default $1"
+    ],
+    "description": "Axon function component container"
+  },
+  "loadable page": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": ["alp", "axonLoadablePage"],
+    "body": ["const ${1:Page} = asLoadablePage(() => import('$2'))$0"],
+    "description": "loadable page"
+  },
+  "import css classes": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": ["aicc", "axonImportCssClasses"],
+    "body": ["import classes from './styles.css'"],
+    "description": "import css classes"
+  }
+}

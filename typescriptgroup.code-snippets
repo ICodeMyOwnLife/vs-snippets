@@ -98,6 +98,11 @@
     "body": "import type {$0} from '$1';"
   },
   // Exports
+  "export enum": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["ee", "exportEnum"],
+    "body": "export enum ${1:name} {\n\t$0\n}\n"
+  },
   "export interface": {
     "scope": "typescript,typescriptreact",
     "prefix": ["ei", "exportInterface"],
@@ -107,6 +112,11 @@
     "scope": "typescript,typescriptreact",
     "prefix": ["et", "exportType"],
     "body": "export type ${1:Name} = $0;"
+  },
+  "export type destructuring": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["etd", "exportTypeDestructuring"],
+    "body": "export type {$0} from '$1';"
   },
   "export string": {
     "scope": "typescript,typescriptreact",
