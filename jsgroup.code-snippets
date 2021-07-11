@@ -97,6 +97,11 @@
     "prefix": ["imp", "importSideEffect"],
     "body": "import '${1:path}';"
   },
+  "import JSDoc": {
+    "scope": "javascript,javascriptreact",
+    "prefix": ["impjd", "importJSDoc"],
+    "body": "import('${1:path}').$0"
+  },
   "require": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["req", "require"],
