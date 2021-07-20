@@ -36,16 +36,16 @@
     ],
     "description": "Axon function component container"
   },
-  "loadable page": {
-    "scope": "javascript,typescript,typescriptreact",
-    "prefix": ["alp", "axonLoadablePage"],
-    "body": ["const ${1:Page} = asLoadablePage(() => import('$2'))$0"],
-    "description": "loadable page"
-  },
-  "import css classes": {
+  "axon import css classes": {
     "scope": "javascript,typescript,typescriptreact",
     "prefix": ["aicc", "axonImportCssClasses"],
-    "body": ["import classes from './styles.css'"],
-    "description": "import css classes"
+    "body": ["import classes from './${1:$TM_FILENAME_BASE}.css'"],
+    "description": "Axon import css classes"
+  },
+  "axon import classenames": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": ["aicl", "axonImportClassenames"],
+    "body": ["import css from 'classnames'"],
+    "description": "Axon import classnames"
   }
 }

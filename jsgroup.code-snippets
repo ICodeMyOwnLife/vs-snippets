@@ -402,5 +402,16 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["setimmediate"],
     "body": "setImmediate(() => {$0});"
+  },
+  // Functions
+  "iife": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["iife", "immediatelyInvoked"],
+    "body": "(() => {\n\t$0\n})();"
+  },
+  "iiafe": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["iiafe", "immediatelyInvokedAsync"],
+    "body": "(async () => {\n\t$0\n})();"
   }
 }
