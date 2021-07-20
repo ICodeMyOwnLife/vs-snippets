@@ -34,7 +34,12 @@
   "declare function": {
     "scope": "typescript,typescriptreact",
     "prefix": ["df", "declareFunction"],
-    "body": "declare function ${1:name}($2): $3;"
+    "body": "declare function ${1:name}($2): $3;$0"
+  },
+  "declare function expression": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["dfe", "declareFunctionExpression"],
+    "body": "declare const ${1:name}: ($2) => $3;$0"
   },
   "declare enum": {
     "scope": "typescript,typescriptreact",
@@ -86,6 +91,11 @@
     "prefix": ["interface"],
     "body": "interface ${1:Name} {$2}"
   },
+  "namespace": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["ns", "namespace"],
+    "body": "namespace ${1:Name} {\n\t$0\n}\n"
+  },
   // Imports
   "import type": {
     "scope": "typescript,typescriptreact",
@@ -125,6 +135,11 @@
       "export const ${1:name} = `$2$1`;",
       "export type $1 = typeof $1;\n"
     ]
+  },
+  "export namespace": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["ens", "exportNamespace"],
+    "body": ["export namespace ${1:Name} {\n\t$0\n}\n"]
   },
   "export declare const": {
     "scope": "typescript,typescriptreact",
