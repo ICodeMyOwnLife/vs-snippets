@@ -44,6 +44,17 @@
       "export interface $1Props {$2}\n"
     ]
   },
+  "React function component expression with no props (ts)": {
+    "scope": "typescriptreact",
+    "prefix": ["rfcnp", "reactFunctionComponentNoProps"],
+    "body": [
+      "import { FC, memo } from 'react';\n",
+      "const ${1:$TM_FILENAME_BASE}Component: FC = () => (",
+      "\t$0",
+      ");\n",
+      "export const $1 = memo($1Component);\n"
+    ]
+  },
   "React function component expression (js)": {
     "scope": "javascript,javascriptreact",
     "prefix": ["rfc", "reactFunctionComponent"],

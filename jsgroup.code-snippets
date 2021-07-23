@@ -418,5 +418,18 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["iiafe", "immediatelyInvokedAsync"],
     "body": "(async () => {\n\t$0\n})();"
+  },
+  // Misc
+  "region": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["region"],
+    "body": [
+      "///////////////////////////////////////////////////////////",
+      "//#region ${1:REGION}",
+      "///////////////////////////////////////////////////////////",
+      "$0",
+      "//#endregion",
+      "///////////////////////////////////////////////////////////"
+    ]
   }
 }
