@@ -6,9 +6,9 @@
   // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
   // Placeholders with the same ids are connected.
   // Example:
-  "axon function component": {
+  "axon FC": {
     "scope": "typescriptreact",
-    "prefix": ["afc", "axonFunctionComponent"],
+    "prefix": ["afc", "axonFC"],
     "body": [
       "import React from 'react'\n",
       "interface ${1:$TM_FILENAME_BASE}Props {",
@@ -22,9 +22,9 @@
     ],
     "description": "Axon function component"
   },
-  "axon function component container": {
+  "axon FC container": {
     "scope": "typescriptreact",
-    "prefix": ["afcc", "axonFunctionComponentContainer"],
+    "prefix": ["afcc", "axonFCContainer"],
     "body": [
       "import React from 'react'\n",
       "export const ${1:$TM_FILENAME_BASE} = () => {",

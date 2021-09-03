@@ -22,7 +22,7 @@
     "scope": "typescriptreact",
     "prefix": ["rfcd", "reactFunctionComponentDeclaration"],
     "body": [
-      "import { memo, ReactElement, ComponentType } from 'react';\n",
+      "import { ComponentType, memo, ReactElement } from 'react';\n",
       "function ${1:$TM_FILENAME_BASE}Component<${2:T}> ({$4}: $1Props<$2>): ReactElement | null {",
       "\treturn (",
       "\t\t$0",
@@ -32,21 +32,47 @@
       "export interface $1Props<$2> {$3}\n"
     ]
   },
-  "React function component expression (ts)": {
+  "React FC (ts)": {
     "scope": "typescriptreact",
-    "prefix": ["rfc", "reactFunctionComponent"],
+    "prefix": ["rfc", "reactFC"],
     "body": [
-      "import { FC, memo } from 'react';\n",
+      "import { FC, memo, ReactNode } from 'react';\n",
       "const ${1:$TM_FILENAME_BASE}Component: FC<$1Props> = ({$3}) => (",
+      "\t$0",
+      ");\n",
+      "export const $1 = memo($1Component);\n",
+      "export interface $1Props {",
+      "  children?: ReactNode;",
+      "  $2",
+      "}\n"
+    ]
+  },
+  "React FC (js)": {
+    "scope": "javascript,javascriptreact",
+    "prefix": ["rfc", "reactFC"],
+    "body": [
+      "import { memo } from 'react';\n",
+      "const ${1:$TM_FILENAME_BASE}Component = ({$2}) => (",
+      "\t$0",
+      ");\n",
+      "export const $1 = memo($1Component);\n"
+    ]
+  },
+  "React VFC (ts)": {
+    "scope": "typescriptreact",
+    "prefix": ["rvfc", "reactVFC"],
+    "body": [
+      "import { memo, VFC } from 'react';\n",
+      "const ${1:$TM_FILENAME_BASE}Component: VFC<$1Props> = ({$3}) => (",
       "\t$0",
       ");\n",
       "export const $1 = memo($1Component);\n",
       "export interface $1Props {$2}\n"
     ]
   },
-  "React function component expression with no props (ts)": {
+  "React FC container": {
     "scope": "typescriptreact",
-    "prefix": ["rfcnp", "reactFunctionComponentNoProps"],
+    "prefix": ["rfcc", "reactFCContainer"],
     "body": [
       "import { FC, memo } from 'react';\n",
       "const ${1:$TM_FILENAME_BASE}Component: FC = () => (",
@@ -55,31 +81,31 @@
       "export const $1 = memo($1Component);\n"
     ]
   },
-  "React function component expression (js)": {
-    "scope": "javascript,javascriptreact",
-    "prefix": ["rfc", "reactFunctionComponent"],
+  "React VFC container": {
+    "scope": "typescriptreact",
+    "prefix": ["rvfcc", "reactVFCContainer"],
     "body": [
-      "import { memo } from 'react';\n",
-      "const ${1:$TM_FILENAME_BASE}Component = ({$2}) => (",
-      "\t\t$0",
-      "\t);\n",
+      "import { memo, VFC } from 'react';\n",
+      "const ${1:$TM_FILENAME_BASE}Component: VFC = () => (",
+      "\t$0",
+      ");\n",
       "export const $1 = memo($1Component);\n"
     ]
   },
-  "React function container component (ts)": {
+  "React page (ts)": {
     "scope": "typescriptreact",
-    "prefix": ["rfcc", "reactFunctionContainer"],
+    "prefix": ["rp", "reactPage"],
     "body": [
-      "import { FC, memo } from 'react';\n",
-      "const ${1:$TM_FILENAME_BASE}: FC = () => (",
+      "import { memo, VFC } from 'react';\n",
+      "const ${1:$TM_FILENAME_BASE}: VFC = () => (",
       "\t$0",
       ");\n",
       "export default memo($1);\n"
     ]
   },
-  "React function container component (js)": {
+  "React page (js)": {
     "scope": "javascript,javascriptreact",
-    "prefix": ["rfcc", "reactFunctionContainer"],
+    "prefix": ["rp", "reactPage"],
     "body": [
       "import { memo } from 'react';\n",
       "export const ${1:$TM_FILENAME_BASE} = () => (",
