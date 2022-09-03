@@ -263,7 +263,7 @@
       "}"
     ]
   },
-  // Loops
+  // Control flow and error handling
   "for loop": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "for",
@@ -287,6 +287,30 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "forawaitof",
     "body": ["for await (const ${2:iterator} of ${1:iterable}) {", "\t$0", "}"]
+  },
+  "try catch finally": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "trycatchfinally",
+    "body": [
+      "try {",
+      "\t$0",
+      "} catch (${1:error}) {",
+      "\t",
+      "} finally {",
+      "\t",
+      "}"
+    ]
+  },
+  "try finally": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "tryfinally",
+    "body": [
+      "try {",
+      "\t$0",
+      "} finally {",
+      "\t",
+      "}"
+    ]
   },
   // Testing
   "describe": {
@@ -382,7 +406,7 @@
     "prefix": ["spy"],
     "body": "const ${3}Spy = jest.spyOn(${1:obj}, '${2}');"
   },
-  // Utilites
+  // Utilities
   "setTimeout": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["settimeout"],
