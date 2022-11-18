@@ -193,36 +193,41 @@
   "public method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["publicMethod"],
-    "body": ["${1:method}($2) {", "\t$0", "}"]
+    "body": ["${1:methodName}($2) {", "\t$0", "}"]
   },
   "public async method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["publicAsyncMethod"],
-    "body": ["async ${1:method}($2) {", "\t$0", "}"]
+    "body": ["async ${1:methodName}($2) {", "\t$0", "}"]
   },
   "private method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["privateMethod"],
-    "body": ["private ${1:method}($2) {", "\t$0", "}"]
+    "body": ["private ${1:methodName}($2) {", "\t$0", "}"]
   },
   "private async method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["privateAsyncMethod"],
-    "body": ["private async ${1:method}($2) {", "\t$0", "}"]
+    "body": ["private async ${1:methodName}($2) {", "\t$0", "}"]
   },
   "protected method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["protectedMethod"],
-    "body": ["protected ${1:method}($2) {", "\t$0", "}"]
+    "body": ["protected ${1:methodName}($2) {", "\t$0", "}"]
   },
   "protected async method": {
     "scope": "typescript,typescriptreact",
     "prefix": ["protectedAsyncMethod"],
-    "body": ["protected async ${1:method}($2) {", "\t$0", "}"]
+    "body": ["protected async ${1:methodName}($2) {", "\t$0", "}"]
   },
   "class field": {
     "scope": "typescript,typescriptreact",
     "prefix": ["field"],
     "body": ["private readonly ${1:field} = ($2) => {", "\t$0", "};"]
+  },
+  "external method": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["externalMethod"],
+    "body": ["export function ${1:methodName}(this: $2) {", "\t$0", "}"]
   }
 }

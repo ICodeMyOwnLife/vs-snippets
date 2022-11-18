@@ -230,7 +230,16 @@
     "prefix": "afp",
     "body": ["${1:field}: async ($2) => {$0},"]
   },
-  // Class members
+  // Class and class members
+  "class definition": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["cls", "class"],
+    "body": [
+      "class ${1:ClassName}${2: extends ${3:Super}} {",
+      "${4:\tconstructor() {\n\t\t$5\n\t\\}\n\n}\t$0",
+      "}\n"
+    ]
+  },
   "constructor": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["ctor", "constructor"],
@@ -304,13 +313,7 @@
   "try finally": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "tryfinally",
-    "body": [
-      "try {",
-      "\t$0",
-      "} finally {",
-      "\t",
-      "}"
-    ]
+    "body": ["try {", "\t$0", "} finally {", "\t", "}"]
   },
   // Testing
   "describe": {
