@@ -45,7 +45,7 @@
     "prefix": ["rfcc", "reactFCContainer"],
     "body": [
       "import { FC } from 'react';\n",
-      "const ${1:$TM_FILENAME_BASE}: FC = () => (",
+      "export const ${1:$TM_FILENAME_BASE}: FC = () => (",
       "\t$0",
       ");\n",
     ]
