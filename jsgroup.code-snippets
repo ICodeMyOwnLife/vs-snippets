@@ -235,8 +235,8 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["cls", "class"],
     "body": [
-      "class ${1:ClassName}${2: extends ${3:Super}} {",
-      "${4:\tconstructor() {\n\t\t$5\n\t\\}\n\n}\t$0",
+      "class ${1:ClassName}${2: extends ${3:Base}}${4: implements ${5:Interface}} {",
+      "${6:\tconstructor($7) {\n\t\t$8\n\t\\}\n\n}\t$0",
       "}\n"
     ]
   },
@@ -404,16 +404,26 @@
     "prefix": ["ae", "aftereach"],
     "body": ["afterEach(() => {", "\t$0", "});"]
   },
+  "expect.assertions": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["ea", "expectAssertions"],
+    "body": ["expect.assertions($1)$0"]
+  },
   "spy": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["spy"],
     "body": "const ${3}Spy = jest.spyOn(${1:obj}, '${2}');"
   },
   // Utilities
+  "console.log": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["clg", "consoleLog"],
+    "body": "console.log($1)$0"
+  },
   "setTimeout": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["settimeout"],
-    "body": "setTimeout(() => {$0}, ${1:ms});"
+    "body": "setTimeout(() => {$0}, ${1:ms})"
   },
   "setTimeout declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
@@ -423,7 +433,7 @@
   "setInterval": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["setinterval"],
-    "body": "setInterval(() => {$0}, ${1:ms});"
+    "body": "setInterval(() => {$0}, ${1:ms})"
   },
   "setInterval declaration": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
