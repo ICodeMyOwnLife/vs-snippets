@@ -229,5 +229,11 @@
     "scope": "typescript,typescriptreact",
     "prefix": ["externalMethod"],
     "body": ["export function ${1:methodName}(this: $2) {", "\t$0", "}"]
+  },
+  // Misc
+  "reference types triple slash": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["refTypes", "referenceTypes"],
+    "body": ["/// <reference types=\"$1\" />", "$0"]
   }
 }

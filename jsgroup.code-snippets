@@ -456,16 +456,25 @@
     "prefix": ["iiafe", "immediatelyInvokedAsync"],
     "body": "(async () => {\n\t$0\n})();"
   },
-  // Misc
+  // Comments
+  "devOnly": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": ["do", "devOnly"],
+    "body": [
+      "$BLOCK_COMMENT_START* #devOnlyStart $BLOCK_COMMENT_END",
+      "$0",
+      "$BLOCK_COMMENT_START* #devOnlyEnd $BLOCK_COMMENT_END"
+    ]
+  },
   "region": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": ["region"],
     "body": [
-      "///////////////////////////////////////////////////////////",
-      "//#region ${1:REGION}",
-      "///////////////////////////////////////////////////////////",
+      "$LINE_COMMENT/////////////////////////////////////////////////////////",
+      "$LINE_COMMENT#region ${1:REGION}",
+      "$LINE_COMMENT/////////////////////////////////////////////////////////",
       "$0",
-      "//#endregion",
+      "$LINE_COMMENT#endregion",
       "///////////////////////////////////////////////////////////"
     ]
   }
