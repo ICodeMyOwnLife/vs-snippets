@@ -1,0 +1,148 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"header": {
+		"scope": "cpp",
+		"prefix": [
+			"header"
+		],
+		"body": [
+			"//+------------------------------------------------------------------+",
+			"//|                                                $0${1:$TM_FILENAME_BASE}.mq5 |",
+			"//|                                                   ICodeMyOwnLife |",
+			"//|                                https://github.com/ICodeMyOwnLife |",
+			"//+------------------------------------------------------------------+",
+			"#property copyright \"ICodeMyOwnLife\"",
+			"#property link \"https://github.com/ICodeMyOwnLife\"",
+			"#property version \"1.00\""
+		]
+	},
+	"indicator properties": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_properties",
+			"i"
+		],
+		"body": [
+			"#property ${1|indicator_chart_window,indicator_separate_window|}",
+			"#property indicator_buffers ${2:1}",
+			"#property indicator_plots ${3:1}"
+		]
+	},
+	"plot properties": {
+		"scope": "cpp",
+		"prefix": [
+			"plot_properties",
+			"p"
+		],
+		"body": [
+			"#property indicator_label${1:1} \"${2:My Plot}\"",
+			"#property indicator_type$1 ${3:DRAW_LINE}",
+			"#property indicator_color$1 ${4:clrRed}",
+			"#property indicator_style$1 ${5:STYLE_SOLID}",
+			"#property indicator_width$1 ${6:2}"
+		]
+	},
+	"input": {
+		"scope": "cpp",
+		"prefix": [
+			"input"
+		],
+		"body": [
+			"input ${1:int} ${2:input_name} = ${3:value}; // $0"
+		]
+	},
+	"custom indicator 1": {
+		"scope": "cpp",
+		"prefix": [
+			"custom_indicator_1",
+			"ci1"
+		],
+		"body": [
+			"class ${1:${TM_FILENAME_BASE/[\\s*]/_/}} : public CustomIndicator",
+			"{",
+			"private:",
+			"  $3\n",
+			"protected:",
+			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+			"virtual bool FillData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+			"virtual int MaxPeriod() { return $4 }",
+			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);\n",
+			"public:",
+			"  $1()$5 {}",
+			"  ~$1() {}",
+			"  virtual int OnInit();",
+			"};\n",
+			"bool $1::CleanupBuffers(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[])",
+			"{",
+			"  if (prev_calculated <= 0)",
+			"  {",
+			"    $6",
+			"  }",
+			"  return true;",
+			"}\n",
+			"bool $1::FillData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[])",
+			"{",
+			"  return $7;",
+			"}\n",
+			"int $1::OnInit()",
+			"{",
+			"  $8\n",
+			"  return INIT_SUCCEEDED;",
+			"}\n",
+			"void $1::OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[])",
+			"{",
+			"  $9",
+			"}\n",
+			"$1 ${2:my_indicator};\n",
+			"int OnInit() { return $2.OnInit(); }\n",
+			"int OnCalculate(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[])",
+			"{",
+			"  return $2.OnCalculate(rates_total, prev_calculated, time,",
+			"open, high, low, close, tick_volume, volume, spread);",
+			"}"
+		]
+	}
+}
