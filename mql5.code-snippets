@@ -15,20 +15,72 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"define": {
+		"scope": "cpp",
+		"prefix": [
+			"define",
+			"d"
+		],
+		"body": [
+			"#define ${1:CONSTANT} ${2:VALUE}$0"
+		]
+	},
+	"enum": {
+		"scope": "cpp",
+		"prefix": [
+			"enum",
+			"e"
+		],
+		"body": [
+			"enum ${1:ENUM_NAME}\n{\n  $0\n};\n"
+		]
+	},
+	"function": {
+		"scope": "cpp",
+		"prefix": [
+			"function",
+			"f"
+		],
+		"body": [
+			"${1:void} ${2:Function_Name}($3)\n{\n  $0\n}\n"
+		]
+	},
+	"method": {
+		"scope": "cpp",
+		"prefix": [
+			"method",
+			"m"
+		],
+		"body": [
+			"${1:void} ${2:Method_Name}($3)${4:;}\n$0"
+		]
+	},
+	"variable": {
+		"scope": "cpp",
+		"prefix": [
+			"variable",
+			"var",
+			"v"
+		],
+		"body": [
+			"${1:int} ${2:name} = ${value};$0"
+		]
+	},
 	"header": {
 		"scope": "cpp",
 		"prefix": [
-			"header"
+			"header",
+			"h"
 		],
 		"body": [
 			"//+------------------------------------------------------------------+",
-			"//|                                                $0${1:$TM_FILENAME_BASE}.mq5 |",
+			"//|                                                $2${1:$TM_FILENAME_BASE}.mq5 |",
 			"//|                                                   ICodeMyOwnLife |",
 			"//|                                https://github.com/ICodeMyOwnLife |",
 			"//+------------------------------------------------------------------+",
 			"#property copyright \"ICodeMyOwnLife\"",
 			"#property link \"https://github.com/ICodeMyOwnLife\"",
-			"#property version \"1.00\""
+			"#property version \"1.00\"\n$0"
 		]
 	},
 	"indicator properties": {
@@ -60,7 +112,8 @@
 	"input": {
 		"scope": "cpp",
 		"prefix": [
-			"input"
+			"input",
+			"inp"
 		],
 		"body": [
 			"input ${1:int} ${2:input_name} = ${3:value}; // $0"
@@ -73,7 +126,7 @@
 			"ci1"
 		],
 		"body": [
-			"class ${1:${TM_FILENAME_BASE/[\\s*]/_/}} : public CustomIndicator",
+			"class ${1:${TM_FILENAME_BASE/[\\s*]/_/g}} : public CustomIndicator",
 			"{",
 			"private:",
 			"  $3\n",
@@ -143,6 +196,76 @@
 			"  return $2.OnCalculate(rates_total, prev_calculated, time,",
 			"open, high, low, close, tick_volume, volume, spread);",
 			"}"
+		]
+	},
+	"SetIndexBuffer": {
+		"scope": "cpp",
+		"prefix": [
+			"setindexbuffer",
+			"sib"
+		],
+		"body": [
+			"SetIndexBuffer(${1:0}, ${2:buffer}, ${3|INDICATOR_DATA,INDICATOR_COLOR_INDEX,INDICATOR_CALCULATIONS|});$0"
+		]
+	},
+	"IndicatorSetDouble": {
+		"scope": "cpp",
+		"prefix": [
+			"indicatorsetdouble",
+			"isd"
+		],
+		"body": [
+			"IndicatorSetDouble(${1|INDICATOR_LEVELVALUE,INDICATOR_MINIMUM,INDICATOR_MAXIMUM|}, $2);$0"
+		]
+	},
+	"IndicatorSetInteger": {
+		"scope": "cpp",
+		"prefix": [
+			"indicatorsetinteger",
+			"isi"
+		],
+		"body": [
+			"IndicatorSetInteger(${1|INDICATOR_DIGITS,INDICATOR_HEIGHT,INDICATOR_LEVELS,INDICATOR_LEVELCOLOR,INDICATOR_LEVELSTYLE,INDICATOR_LEVELWIDTH|}, $2);$0"
+		]
+	},
+	"IndicatorSetString": {
+		"scope": "cpp",
+		"prefix": [
+			"indicatorsetstring",
+			"iss"
+		],
+		"body": [
+			"IndicatorSetString(${1|INDICATOR_SHORTNAME,INDICATOR_LEVELTEXT|}, $2);$0"
+		]
+	},
+	"PlotIndexSetDouble": {
+		"scope": "cpp",
+		"prefix": [
+			"plotindexsetdouble",
+			"pisd"
+		],
+		"body": [
+			"PlotIndexSetDouble(${1:0}, ${2|PLOT_EMPTY_VALUE|}, $3);$0"
+		]
+	},
+	"PlotIndexSetInteger": {
+		"scope": "cpp",
+		"prefix": [
+			"plotindexsetinteger",
+			"pisi"
+		],
+		"body": [
+			"PlotIndexSetInteger(${1:0}, ${2|PLOT_ARROW,PLOT_ARROW_SHIFT,PLOT_DRAW_BEGIN,PLOT_DRAW_TYPE,PLOT_SHOW_DATA,PLOT_SHIFT,PLOT_LINE_STYLE,PLOT_LINE_WIDTH,PLOT_COLOR_INDEXES,PLOT_LINE_COLOR|}, $3);$0"
+		]
+	},
+	"PlotIndexSetString": {
+		"scope": "cpp",
+		"prefix": [
+			"plotindexsetstring",
+			"piss"
+		],
+		"body": [
+			"PlotIndexSetString(${1:0}, ${2|PLOT_LABEL|}, $3);$0"
 		]
 	}
 }
