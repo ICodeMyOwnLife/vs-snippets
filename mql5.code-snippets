@@ -15,6 +15,225 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	/////////////////////////////////////////////////////////
+	// #propery properties
+	/////////////////////////////////////////////////////////
+	"copyright": {
+		"scope": "cpp",
+		"prefix": "copyright",
+		"body": [
+			"copyright \"${1}\""
+		]
+	},
+	"indicator_applied_price": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_applied_price"
+		],
+		"body": [
+			"indicator_applied_price ${1|PRICE_CLOSE,PRICE_OPEN,PRICE_HIGH,PRICE_LOW,PRICE_MEDIAN,PRICE_TYPICAL,PRICE_WEIGHTED|}"
+		]
+	},
+	"indicator_buffers": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_buffers"
+		],
+		"body": [
+			"indicator_buffers ${1:1}"
+		]
+	},
+	"indicator_chart_window": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_chart_window",
+			"icw"
+		],
+		"body": [
+			"indicator_chart_window"
+		]
+	},
+	"indicator_color": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_color"
+		],
+		"body": [
+			"indicator_color${1:1} ${2:clrRed}"
+		]
+	},
+	"indicator_height": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_height"
+		],
+		"body": [
+			"indicator_height ${1:100}"
+		]
+	},
+	"indicator_label": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_label"
+		],
+		"body": [
+			"indicator_label${1:1} \"${2:Plot 1}\""
+		]
+	},
+	"indicator_level": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_level"
+		],
+		"body": [
+			"indicator_level${1:1} ${2:10.0}"
+		]
+	},
+	"indicator_levelcolor": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_levelcolor"
+		],
+		"body": [
+			"indicator_levelcolor${1:1} ${2:clrRed}"
+		]
+	},
+	"indicator_levelstyle": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_levelstyle"
+		],
+		"body": [
+			"indicator_levelstyle${1:1} ${2|STYLE_SOLID,STYLE_DASH,STYLE_DOT,STYLE_DASHDOT,STYLE_DASHDOTDOT|}"
+		]
+	},
+	"indicator_levelwidth": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_levelwidth"
+		],
+		"body": [
+			"indicator_levelwidth${1:1} ${2:1}"
+		]
+	},
+	"indicator_maximum": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_maximum"
+		],
+		"body": [
+			"indicator_maximum ${1:100.0}"
+		]
+	},
+	"indicator_minimum": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_minimum"
+		],
+		"body": [
+			"indicator_minimum ${1:0.0}"
+		]
+	},
+	"indicator_plots": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_plots"
+		],
+		"body": [
+			"indicator_plots"
+		]
+	},
+	"indicator_separate_window": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_separate_window",
+			"isw"
+		],
+		"body": [
+			"indicator_separate_window"
+		]
+	},
+	"indicator_style": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_style"
+		],
+		"body": [
+			"indicator_style${1:1} ${2|STYLE_SOLID,STYLE_DASH,STYLE_DOT,STYLE_DASHDOT,STYLE_DASHDOTDOT|}"
+		]
+	},
+	"indicator_type": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_type"
+		],
+		"body": [
+			"indicator_type${1:1} ${2|DRAW_LINE,DRAW_NONE,DRAW_SECTION,DRAW_HISTOGRAM,DRAW_HISTOGRAM2,DRAW_ARROW,DRAW_ZIGZAG,DRAW_FILLING,DRAW_BARS,DRAW_CANDLES,DRAW_COLOR_LINE,DRAW_COLOR_SECTION,DRAW_COLOR_HISTOGRAM,DRAW_COLOR_HISTOGRAM2,DRAW_COLOR_ARROW,DRAW_COLOR_ZIGZAG,DRAW_COLOR_BARS,DRAW_COLOR_CANDLES|}"
+		]
+	},
+	"indicator_width": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_width"
+		],
+		"body": [
+			"indicator_width${1:1}: ${2:1}"
+		]
+	},
+	"indicator properties": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_properties",
+			"i"
+		],
+		"body": [
+			"#property ${1|indicator_chart_window,indicator_separate_window|}",
+			"#property indicator_buffers ${2:1}",
+			"#property indicator_plots ${3:1}"
+		]
+	},
+	"link": {
+		"scope": "cpp",
+		"prefix": "link",
+		"body": [
+			"link \"${1}\""
+		]
+	},
+	"plot properties": {
+		"scope": "cpp",
+		"prefix": [
+			"plot_properties",
+			"p"
+		],
+		"body": [
+			"#property indicator_label${1:1} \"${2:My Plot}\"",
+			"#property indicator_type$1 ${3:DRAW_LINE}",
+			"#property indicator_color$1 ${4:clrRed}",
+			"#property indicator_style$1 ${5:STYLE_SOLID}",
+			"#property indicator_width$1 ${6:2}"
+		]
+	},
+	"version": {
+		"scope": "cpp",
+		"prefix": "version",
+		"body": [
+			"version \"${1:1.00}\""
+		]
+	},
+	/////////////////////////////////////////////////////////
+	// C++ keywords
+	/////////////////////////////////////////////////////////
+	"case": {
+		"scope": "cpp",
+		"prefix": [
+			"case"
+		],
+		"body": [
+			"case $1:",
+			"  $0",
+			"break;\n"
+		]
+	},
 	"define": {
 		"scope": "cpp",
 		"prefix": [
@@ -83,32 +302,6 @@
 			"#property version \"1.00\"\n$0"
 		]
 	},
-	"indicator properties": {
-		"scope": "cpp",
-		"prefix": [
-			"indicator_properties",
-			"i"
-		],
-		"body": [
-			"#property ${1|indicator_chart_window,indicator_separate_window|}",
-			"#property indicator_buffers ${2:1}",
-			"#property indicator_plots ${3:1}"
-		]
-	},
-	"plot properties": {
-		"scope": "cpp",
-		"prefix": [
-			"plot_properties",
-			"p"
-		],
-		"body": [
-			"#property indicator_label${1:1} \"${2:My Plot}\"",
-			"#property indicator_type$1 ${3:DRAW_LINE}",
-			"#property indicator_color$1 ${4:clrRed}",
-			"#property indicator_style$1 ${5:STYLE_SOLID}",
-			"#property indicator_width$1 ${6:2}"
-		]
-	},
 	"input": {
 		"scope": "cpp",
 		"prefix": [
@@ -119,6 +312,9 @@
 			"input ${1:int} ${2:input_name} = ${3:value}; // $0"
 		]
 	},
+	/////////////////////////////////////////////////////////
+	// CustomIndicator
+	/////////////////////////////////////////////////////////
 	"custom indicator 1": {
 		"scope": "cpp",
 		"prefix": [
@@ -174,7 +370,7 @@
 			"}\n",
 			"int $1::OnInit()",
 			"{",
-			"  $8\n",
+			"  $9\n",
 			"  return INIT_SUCCEEDED;",
 			"}\n",
 			"void $1::OnIterate(const int index, const int rates_total, const int prev_calculated,",
@@ -183,7 +379,7 @@
 			"const double &close[], const long &tick_volume[],",
 			"const long &volume[], const int &spread[])",
 			"{",
-			"  $9",
+			"  $10",
 			"}\n",
 			"$1 ${2:my_indicator};\n",
 			"int OnInit() { return $2.OnInit(); }\n",
@@ -196,6 +392,218 @@
 			"  return $2.OnCalculate(rates_total, prev_calculated, time,",
 			"open, high, low, close, tick_volume, volume, spread);",
 			"}"
+		],
+	},
+	"custom indicator 2": {
+		"scope": "cpp",
+		"prefix": [
+			"custom_indicator_2",
+			"ci2"
+		],
+		"body": [
+			"class ${1:${TM_FILENAME_BASE/[\\s*]/_/g}} : public CustomIndicator",
+			"{",
+			"private:",
+			"  $3\n",
+			"protected:",
+			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
+			"virtual bool FillData(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
+			"virtual int MaxPeriod() { return $4 }",
+			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);\n",
+			"public:",
+			"  $1()$5 {}",
+			"  ~$1() {}",
+			"  virtual int OnInit();",
+			"};\n",
+			"bool $1::CleanupBuffers(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[])",
+			"{",
+			"  if (prev_calculated <= 0)",
+			"  {",
+			"    $6",
+			"  }",
+			"  return true;",
+			"}\n",
+			"bool $1::FillData(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[])",
+			"{",
+			"  return $7;",
+			"}\n",
+			"int $1::OnInit()",
+			"{",
+			"  $9\n",
+			"  return INIT_SUCCEEDED;",
+			"}\n",
+			"void $1::OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[])",
+			"{",
+			"  $10",
+			"}\n",
+			"$1 ${2:my_indicator};\n",
+			"int OnInit() { return $2.OnInit(); }\n",
+			"int OnCalculate(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[])",
+			"{",
+			"  return $2.OnCalculate(rates_total, prev_calculated, begin, price);",
+			"}"
+		],
+	},
+	"custom indicator: MaxPeriod": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:maxperiod",
+			"ci:mp"
+		],
+		"body": [
+			"virtual int MaxPeriod() { return ${1:1}; }"
+		]
+	},
+	"custom indicator: OnDeinit": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:ondeinit",
+			"ci:od"
+		],
+		"body": [
+			"virtual void OnDeinit(const int reason);"
+		]
+	},
+	"custom indicator: OnInit": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:oninit",
+			"ci:oi"
+		],
+		"body": [
+			"virtual int OnInit();"
+		]
+	},
+	"custom indicator: CleanupBuffers 1": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:cleanupbuffers1",
+			"ci:cb1"
+		],
+		"body": [
+			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);"
+		]
+	},
+	"custom indicator: CleanupBuffers 2": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:cleanupbuffers2",
+			"ci:cb2"
+		],
+		"body": [
+			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]),",
+		]
+	},
+	"custom indicator: FillData 1": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:filldata1",
+			"ci:fd1"
+		],
+		"body": [
+			"virtual bool FillData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+		]
+	},
+	"custom indicator: FillData 2": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:filldata2",
+			"ci:fd2"
+		],
+		"body": [
+			"virtual bool FillData(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
+		]
+	},
+	"custom indicator: OnCalculate 1": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:oncalculate1",
+			"ci:oc1"
+		],
+		"body": [
+			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+		]
+	},
+	"custom indicator: OnCalculate 2": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:oncalculate2",
+			"ci:oc2"
+		],
+		"body": [
+			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
+		]
+	},
+	"custom indicator: OnIterate 1": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:oniterate1",
+			"ci:oniter1"
+		],
+		"body": [
+			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+		]
+	},
+	"custom indicator: OnIterate 2": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:oniterate2",
+			"ci:oniter2"
+		],
+		"body": [
+			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
+		]
+	},
+	"custom indicator: ProcessData 1": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:processdata1",
+			"ci:pd1"
+		],
+		"body": [
+			"virtual bool ProcessData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+		]
+	},
+	"custom indicator: ProcessData 2": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:processdata2",
+			"ci:pd2"
+		],
+		"body": [
+			"virtual bool ProcessData(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
 		]
 	},
 	"SetIndexBuffer": {
