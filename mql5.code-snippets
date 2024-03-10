@@ -18,6 +18,18 @@
 	/////////////////////////////////////////////////////////
 	// #propery properties
 	/////////////////////////////////////////////////////////
+	"app headers": {
+		"scope": "cpp",
+		"prefix": [
+			"appheader",
+			"ah"
+		],
+		"body": [
+			"#property copyright \"ICodeMyOwnLife\"",
+			"#property link \"https://github.com/ICodeMyOwnLife\"",
+			"#property version \"1.00\"\n$0"
+		]
+	},
 	"copyright": {
 		"scope": "cpp",
 		"prefix": "copyright",
@@ -221,7 +233,7 @@
 		]
 	},
 	/////////////////////////////////////////////////////////
-	// C++ keywords
+	// MQL5 keywords
 	/////////////////////////////////////////////////////////
 	"case": {
 		"scope": "cpp",
@@ -285,23 +297,6 @@
 			"${1:int} ${2:name} = ${value};$0"
 		]
 	},
-	"header": {
-		"scope": "cpp",
-		"prefix": [
-			"header",
-			"h"
-		],
-		"body": [
-			"//+------------------------------------------------------------------+",
-			"//|                                                $2${1:$TM_FILENAME_BASE}.mq5 |",
-			"//|                                                   ICodeMyOwnLife |",
-			"//|                                https://github.com/ICodeMyOwnLife |",
-			"//+------------------------------------------------------------------+",
-			"#property copyright \"ICodeMyOwnLife\"",
-			"#property link \"https://github.com/ICodeMyOwnLife\"",
-			"#property version \"1.00\"\n$0"
-		]
-	},
 	"input": {
 		"scope": "cpp",
 		"prefix": [
@@ -313,7 +308,7 @@
 		]
 	},
 	/////////////////////////////////////////////////////////
-	// CustomIndicator
+	// CustomIndicator class
 	/////////////////////////////////////////////////////////
 	"custom indicator 1": {
 		"scope": "cpp",
@@ -382,6 +377,7 @@
 			"  $10",
 			"}\n",
 			"$1 ${2:my_indicator};\n",
+			"void OnDeinit(const int reason) { $2.OnDeinit(reason); }\n",
 			"int OnInit() { return $2.OnInit(); }\n",
 			"int OnCalculate(const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
@@ -443,6 +439,7 @@
 			"  $10",
 			"}\n",
 			"$1 ${2:my_indicator};\n",
+			"void OnDeinit(const int reason) { $2.OnDeinit(reason); }\n",
 			"int OnInit() { return $2.OnInit(); }\n",
 			"int OnCalculate(const int rates_total, const int prev_calculated,",
 			"const int begin, const double &price[])",
@@ -606,16 +603,9 @@
 			"const int begin, const double &price[]);",
 		]
 	},
-	"SetIndexBuffer": {
-		"scope": "cpp",
-		"prefix": [
-			"setindexbuffer",
-			"sib"
-		],
-		"body": [
-			"SetIndexBuffer(${1:0}, ${2:buffer}, ${3|INDICATOR_DATA,INDICATOR_COLOR_INDEX,INDICATOR_CALCULATIONS|});$0"
-		]
-	},
+	/////////////////////////////////////////////////////////
+	// Custom indicator functions
+	/////////////////////////////////////////////////////////
 	"IndicatorSetDouble": {
 		"scope": "cpp",
 		"prefix": [
@@ -675,5 +665,32 @@
 		"body": [
 			"PlotIndexSetString(${1:0}, ${2|PLOT_LABEL|}, $3);$0"
 		]
-	}
+	},
+	"SetIndexBuffer": {
+		"scope": "cpp",
+		"prefix": [
+			"setindexbuffer",
+			"sib"
+		],
+		"body": [
+			"SetIndexBuffer(${1:0}, ${2:buffer}, ${3|INDICATOR_DATA,INDICATOR_COLOR_INDEX,INDICATOR_CALCULATIONS|});$0"
+		]
+	},
+	/////////////////////////////////////////////////////////
+	// Misc
+	/////////////////////////////////////////////////////////
+	"header": {
+		"scope": "cpp",
+		"prefix": [
+			"header",
+			"h"
+		],
+		"body": [
+			"//+------------------------------------------------------------------+",
+			"//|                                                $2${1:$TM_FILENAME_BASE}.mq5 |",
+			"//|                                                   ICodeMyOwnLife |",
+			"//|                                https://github.com/ICodeMyOwnLife |",
+			"//+------------------------------------------------------------------+",
+		]
+	},
 }
