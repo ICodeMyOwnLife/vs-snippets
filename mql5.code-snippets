@@ -266,6 +266,26 @@
 			"enum ${1:ENUM_NAME}\n{\n  $0\n};\n"
 		]
 	},
+	"for": {
+		"scope": "cpp",
+		"prefix": [
+			"for",
+			"forloop"
+		],
+		"body": [
+			"for (${1:int} ${2:i} = ${3:0}; $2 < ${4:count}; ${5:$2++})\n{\n  $0\n}",
+		]
+	},
+	"forr": {
+		"scope": "cpp",
+		"prefix": [
+			"forr",
+			"forreverseloop"
+		],
+		"body": [
+			"for (${1:int} ${2:i} = ${3:length - 1}; $2 >= ${4:0}; ${5:$2--})\n{\n  $0\n}",
+		]
+	},
 	"function": {
 		"scope": "cpp",
 		"prefix": [
