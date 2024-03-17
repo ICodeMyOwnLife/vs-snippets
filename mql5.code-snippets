@@ -225,6 +225,28 @@
 			"#property indicator_width$1 ${6:2}"
 		]
 	},
+	"plot properties - buy (none)": {
+		"scope": "cpp",
+		"prefix": [
+			"plot_buy_none",
+			"pbn"
+		],
+		"body": [
+			"#property indicator_label${1:1} \"Buy signal\"",
+			"#property indicator_type$1 DRAW_NONE",
+		]
+	},
+	"plot properties - sell (none)": {
+		"scope": "cpp",
+		"prefix": [
+			"plot_sell_none",
+			"psn"
+		],
+		"body": [
+			"#property indicator_label${1:2} \"Sell signal\"",
+			"#property indicator_type$1 DRAW_NONE",
+		]
+	},
 	"version": {
 		"scope": "cpp",
 		"prefix": "version",
@@ -273,7 +295,7 @@
 			"forloop"
 		],
 		"body": [
-			"for (${1:int} ${2:i} = ${3:0}; $2 < ${4:count}; ${5:$2++})\n{\n  $0\n}",
+			"for (${1:int} ${2:i} = ${3:0}; $2 ${4|<,<=|} ${5:count}; ${6:$2++})\n{\n  $0\n}",
 		]
 	},
 	"forr": {
@@ -283,7 +305,7 @@
 			"forreverseloop"
 		],
 		"body": [
-			"for (${1:int} ${2:i} = ${3:length - 1}; $2 >= ${4:0}; ${5:$2--})\n{\n  $0\n}",
+			"for (${1:int} ${2:i} = ${3:length - 1}; $2 ${4|>=,>|} ${5:0}; ${6:$2--})\n{\n  $0\n}",
 		]
 	},
 	"function": {
@@ -296,6 +318,18 @@
 			"${1:void} ${2:Function_Name}($3)\n{\n  $0\n}\n"
 		]
 	},
+	"if": {
+		"scope": "cpp",
+		"prefix": [
+			"if"
+		],
+		"body": [
+			"if (${1:${CLIPBOARD}})",
+			"{ ",
+			"  $0",
+			"}",
+		]
+	},
 	"method": {
 		"scope": "cpp",
 		"prefix": [
@@ -304,6 +338,16 @@
 		],
 		"body": [
 			"${1:void} ${2:Method_Name}($3)${4:;}\n$0"
+		]
+	},
+	"method, virtual": {
+		"scope": "cpp",
+		"prefix": [
+			"virtual_method",
+			"vm"
+		],
+		"body": [
+			"virtual ${1:void} ${2:Method_Name}($3)${4:;}\n$0"
 		]
 	},
 	"variable": {
@@ -328,7 +372,7 @@
 		]
 	},
 	/////////////////////////////////////////////////////////
-	// CustomIndicator class
+	// CustomIndicator implementation
 	/////////////////////////////////////////////////////////
 	"custom indicator 1": {
 		"scope": "cpp",
@@ -337,67 +381,35 @@
 			"ci1"
 		],
 		"body": [
-			"class ${1:${TM_FILENAME_BASE/[\\s*]/_/g}} : public CustomIndicator",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} : public CustomIndicator",
 			"{",
 			"private:",
 			"  $3\n",
-			"protected:",
-			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[]);",
-			"virtual bool FillData(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[]);",
-			"virtual int MaxPeriod() { return $4 }",
-			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[]);\n",
 			"public:",
-			"  $1()$5 {}",
+			"  $1() {}",
 			"  ~$1() {}",
 			"  virtual int OnInit();",
+			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
 			"};\n",
-			"bool $1::CleanupBuffers(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[])",
-			"{",
-			"  if (prev_calculated <= 0)",
-			"  {",
-			"    $6",
-			"  }",
-			"  return true;",
-			"}\n",
-			"bool $1::FillData(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[])",
-			"{",
-			"  return $7;",
-			"}\n",
 			"int $1::OnInit()",
 			"{",
-			"  $9\n",
+			"  $11\n",
 			"  return INIT_SUCCEEDED;",
 			"}\n",
-			"void $1::OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"int $1::OnCalculate(const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
 			"const double &high[], const double &low[],",
 			"const double &close[], const long &tick_volume[],",
 			"const long &volume[], const int &spread[])",
-			"{",
-			"  $10",
+			"{ ",
+			"  $21",
+			"  return rates_total;",
 			"}\n",
 			"$1 ${2:my_indicator};\n",
-			"void OnDeinit(const int reason) { $2.OnDeinit(reason); }\n",
 			"int OnInit() { return $2.OnInit(); }\n",
 			"int OnCalculate(const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
@@ -417,49 +429,29 @@
 			"ci2"
 		],
 		"body": [
-			"class ${1:${TM_FILENAME_BASE/[\\s*]/_/g}} : public CustomIndicator",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} : public CustomIndicator",
 			"{",
 			"private:",
 			"  $3\n",
-			"protected:",
-			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]);",
-			"virtual bool FillData(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]);",
-			"virtual int MaxPeriod() { return $4 }",
-			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]);\n",
 			"public:",
-			"  $1()$5 {}",
+			"  $1() {}",
 			"  ~$1() {}",
 			"  virtual int OnInit();",
+			"  virtual int OnCalculate(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
 			"};\n",
-			"bool $1::CleanupBuffers(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[])",
-			"{",
-			"  if (prev_calculated <= 0)",
-			"  {",
-			"    $6",
-			"  }",
-			"  return true;",
-			"}\n",
-			"bool $1::FillData(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[])",
-			"{",
-			"  return $7;",
-			"}\n",
 			"int $1::OnInit()",
 			"{",
-			"  $9\n",
+			"  $11\n",
 			"  return INIT_SUCCEEDED;",
 			"}\n",
-			"void $1::OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"int $1::OnCalculate(const int rates_total, const int prev_calculated,",
 			"const int begin, const double &price[])",
 			"{",
-			"  $10",
+			"  $21",
+			"  return rates_total;",
 			"}\n",
 			"$1 ${2:my_indicator};\n",
-			"void OnDeinit(const int reason) { $2.OnDeinit(reason); }\n",
 			"int OnInit() { return $2.OnInit(); }\n",
 			"int OnCalculate(const int rates_total, const int prev_calculated,",
 			"const int begin, const double &price[])",
@@ -472,7 +464,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:maxperiod",
-			"ci:mp"
+			"ci:mp",
+			"signalindicator:maxperiod",
+			"si:mp"
 		],
 		"body": [
 			"virtual int MaxPeriod() { return ${1:1}; }"
@@ -482,7 +476,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:ondeinit",
-			"ci:od"
+			"ci:od",
+			"signalindicator:ondeinit",
+			"si:od",
 		],
 		"body": [
 			"virtual void OnDeinit(const int reason);"
@@ -492,7 +488,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:oninit",
-			"ci:oi"
+			"ci:oi",
+			"signalindicator:oninit",
+			"si:oi",
 		],
 		"body": [
 			"virtual int OnInit();"
@@ -502,7 +500,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:cleanupbuffers1",
-			"ci:cb1"
+			"ci:cb1",
+			"signalindicator:cleanupbuffers1",
+			"si:cb1",
 		],
 		"body": [
 			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
@@ -516,7 +516,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:cleanupbuffers2",
-			"ci:cb2"
+			"ci:cb2",
+			"signalindicator:cleanupbuffers2",
+			"si:cb2",
 		],
 		"body": [
 			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
@@ -527,7 +529,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:filldata1",
-			"ci:fd1"
+			"ci:fd1",
+			"signalindicator:filldata1",
+			"si:fd1",
 		],
 		"body": [
 			"virtual bool FillData(const int rates_total, const int prev_calculated,",
@@ -541,7 +545,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:filldata2",
-			"ci:fd2"
+			"ci:fd2",
+			"signalindicator:filldata2",
+			"si:fd2",
 		],
 		"body": [
 			"virtual bool FillData(const int rates_total, const int prev_calculated,",
@@ -552,7 +558,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:oncalculate1",
-			"ci:oc1"
+			"ci:oc1",
+			"signalindicator:oncalculate1",
+			"si:oc1",
 		],
 		"body": [
 			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
@@ -566,7 +574,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:oncalculate2",
-			"ci:oc2"
+			"ci:oc2",
+			"signalindicator:oncalculate2",
+			"si:oc2",
 		],
 		"body": [
 			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
@@ -577,7 +587,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:oniterate1",
-			"ci:oniter1"
+			"ci:oniter1",
+			"signalindicator:oniterate1",
+			"si:oniter1",
 		],
 		"body": [
 			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
@@ -591,7 +603,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:oniterate2",
-			"ci:oniter2"
+			"ci:oniter2",
+			"signalindicator:oniterate2",
+			"si:oniter2",
 		],
 		"body": [
 			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
@@ -602,7 +616,9 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:processdata1",
-			"ci:pd1"
+			"ci:pd1",
+			"signalindicator:processdata1",
+			"si:pd1",
 		],
 		"body": [
 			"virtual bool ProcessData(const int rates_total, const int prev_calculated,",
@@ -616,12 +632,97 @@
 		"scope": "cpp",
 		"prefix": [
 			"customindicator:processdata2",
-			"ci:pd2"
+			"ci:pd2",
+			"signalindicator:processdata2",
+			"si:pd2",
 		],
 		"body": [
 			"virtual bool ProcessData(const int rates_total, const int prev_calculated,",
 			"const int begin, const double &price[]);",
 		]
+	},
+	/////////////////////////////////////////////////////////
+	// SignalIndicator implementation
+	/////////////////////////////////////////////////////////
+	"signal indicator": {
+		"scope": "cpp",
+		"prefix": [
+			"signal_indicator",
+			"si"
+		],
+		"body": [
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} : public SignalIndicator",
+			"{",
+			"private:",
+			"  int ${3:_ma_handle};",
+			"  double ${4:_ma_data[]}, _buy_data[], _sell_data[];\n",
+			"protected:",
+			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+			"virtual bool FillData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+			"virtual int MaxPeriod() { return $5; }",
+			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);\n",
+			"public:",
+			"  $1() {}",
+			"  ~$1() {}",
+			"  virtual int OnInit();",
+			"};\n",
+			"bool $1::CleanupBuffers(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[])",
+			"{",
+			"  if (prev_calculated <= 0)",
+			"  {",
+			"${11:ArrayInitialize(_buy_data, EMPTY_VALUE);\nArrayInitialize(_sell_data, EMPTY_VALUE);}",
+			"  }",
+			"  return true;",
+			"}\n",
+			"bool $1::FillData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[])",
+			"{",
+			"  return ${21:FillIndicatorData(rates_total, prev_calculated,}$22;",
+			"}\n",
+			"int $1::OnInit()",
+			"{",
+			"${31:SetIndexBuffer(0, _buy_data, INDICATOR_DATA);\nPlotIndexSetDouble(0, PLOT_EMPTY_VALUE, EMPTY_VALUE);\n\nSetIndexBuffer(1, _sell_data, INDICATOR_DATA);\nPlotIndexSetDouble(1, PLOT_EMPTY_VALUE, EMPTY_VALUE);}\n\n$32",
+			"  return INIT_SUCCEEDED;",
+			"}\n",
+			"void $1::OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[])",
+			"{",
+			"  ${41:_buy_data[index] = _sell_data[index] = EMPTY_VALUE;}\n$42",
+			"}\n",
+			"$1 ${2:my_indicator};\n",
+			"int OnInit() { return $2.OnInit(); }\n",
+			"int OnCalculate(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[])",
+			"{",
+			"  return $2.OnCalculate(rates_total, prev_calculated, time,",
+			"open, high, low, close, tick_volume, volume, spread);",
+			"}"
+		],
 	},
 	/////////////////////////////////////////////////////////
 	// Custom indicator functions
@@ -707,7 +808,7 @@
 		],
 		"body": [
 			"//+------------------------------------------------------------------+",
-			"//|                                                $2${1:$TM_FILENAME_BASE}.mq5 |",
+			"//|                                              $2${1:$TM_FILENAME} |",
 			"//|                                                   ICodeMyOwnLife |",
 			"//|                                https://github.com/ICodeMyOwnLife |",
 			"//+------------------------------------------------------------------+",
