@@ -337,7 +337,7 @@
 			"m"
 		],
 		"body": [
-			"${1:void} ${2:Method_Name}($3)${4:;}\n$0"
+			"${1:void} ${2:Method_Name}($3)${4:;}$0"
 		]
 	},
 	"method, virtual": {
@@ -347,7 +347,7 @@
 			"vm"
 		],
 		"body": [
-			"virtual ${1:void} ${2:Method_Name}($3)${4:;}\n$0"
+			"virtual ${1:void} ${2:Method_Name}($3)${4:;}$0"
 		]
 	},
 	"variable": {
@@ -460,18 +460,6 @@
 			"}"
 		],
 	},
-	"custom indicator: MaxPeriod": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:maxperiod",
-			"ci:mp",
-			"signalindicator:maxperiod",
-			"si:mp"
-		],
-		"body": [
-			"virtual int MaxPeriod() { return ${1:1}; }"
-		]
-	},
 	"custom indicator: OnDeinit": {
 		"scope": "cpp",
 		"prefix": [
@@ -494,64 +482,6 @@
 		],
 		"body": [
 			"virtual int OnInit();"
-		]
-	},
-	"custom indicator: CleanupBuffers 1": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:cleanupbuffers1",
-			"ci:cb1",
-			"signalindicator:cleanupbuffers1",
-			"si:cb1",
-		],
-		"body": [
-			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[]);"
-		]
-	},
-	"custom indicator: CleanupBuffers 2": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:cleanupbuffers2",
-			"ci:cb2",
-			"signalindicator:cleanupbuffers2",
-			"si:cb2",
-		],
-		"body": [
-			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]),",
-		]
-	},
-	"custom indicator: FillData 1": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:filldata1",
-			"ci:fd1",
-			"signalindicator:filldata1",
-			"si:fd1",
-		],
-		"body": [
-			"virtual bool FillData(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[]);",
-		]
-	},
-	"custom indicator: FillData 2": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:filldata2",
-			"ci:fd2",
-			"signalindicator:filldata2",
-			"si:fd2",
-		],
-		"body": [
-			"virtual bool FillData(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]);",
 		]
 	},
 	"custom indicator: OnCalculate 1": {
@@ -583,64 +513,6 @@
 			"const int begin, const double &price[]);",
 		]
 	},
-	"custom indicator: OnIterate 1": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:oniterate1",
-			"ci:oniter1",
-			"signalindicator:oniterate1",
-			"si:oniter1",
-		],
-		"body": [
-			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[]);",
-		]
-	},
-	"custom indicator: OnIterate 2": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:oniterate2",
-			"ci:oniter2",
-			"signalindicator:oniterate2",
-			"si:oniter2",
-		],
-		"body": [
-			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]);",
-		]
-	},
-	"custom indicator: ProcessData 1": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:processdata1",
-			"ci:pd1",
-			"signalindicator:processdata1",
-			"si:pd1",
-		],
-		"body": [
-			"virtual bool ProcessData(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[]);",
-		]
-	},
-	"custom indicator: ProcessData 2": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:processdata2",
-			"ci:pd2",
-			"signalindicator:processdata2",
-			"si:pd2",
-		],
-		"body": [
-			"virtual bool ProcessData(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]);",
-		]
-	},
 	/////////////////////////////////////////////////////////
 	// SignalIndicator implementation
 	/////////////////////////////////////////////////////////
@@ -657,46 +529,41 @@
 			"  int ${3:_ma_handle};",
 			"  double ${4:_ma_data[]}, _buy_data[], _sell_data[];\n",
 			"protected:",
-			"virtual bool CleanupBuffers(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[]);",
 			"virtual bool FillData(const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
 			"const double &high[], const double &low[],",
 			"const double &close[], const long &tick_volume[],",
 			"const long &volume[], const int &spread[]);",
-			"virtual int MaxPeriod() { return $5; }",
+			"virtual void InitData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
 			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
 			"const double &high[], const double &low[],",
 			"const double &close[], const long &tick_volume[],",
 			"const long &volume[], const int &spread[]);\n",
 			"public:",
-			"  $1() {}",
+			"  $1() : SignalIndicator($5) {}",
 			"  ~$1() {}",
 			"  virtual int OnInit();",
 			"};\n",
-			"bool $1::CleanupBuffers(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[])",
-			"{",
-			"  if (prev_calculated <= 0)",
-			"  {",
-			"${11:ArrayInitialize(_buy_data, EMPTY_VALUE);\nArrayInitialize(_sell_data, EMPTY_VALUE);}",
-			"  }",
-			"  return true;",
-			"}\n",
 			"bool $1::FillData(const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
 			"const double &high[], const double &low[],",
 			"const double &close[], const long &tick_volume[],",
 			"const long &volume[], const int &spread[])",
 			"{",
-			"  return ${21:FillIndicatorData(rates_total, prev_calculated,}$22;",
+			"  return ${11:FillIndicatorData(rates_total, prev_calculated,}$12;",
+			"}\n",
+			"void $1::InitData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[])",
+			"{",
+			"${21:ArrayInitialize(_buy_data, EMPTY_VALUE);\nArrayInitialize(_sell_data, EMPTY_VALUE);}",
 			"}\n",
 			"int $1::OnInit()",
 			"{",
@@ -723,6 +590,81 @@
 			"open, high, low, close, tick_volume, volume, spread);",
 			"}"
 		],
+	},
+	"signal indicator: FillData 1": {
+		"scope": "cpp",
+		"prefix": [
+			"signalindicator:filldata1",
+			"si:fd1",
+		],
+		"body": [
+			"virtual bool FillData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+		]
+	},
+	"signal indicator: FillData 2": {
+		"scope": "cpp",
+		"prefix": [
+			"signalindicator:filldata2",
+			"si:fd2",
+		],
+		"body": [
+			"virtual bool FillData(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
+		]
+	},
+	"signal indicator: InitData 1": {
+		"scope": "cpp",
+		"prefix": [
+			"signalindicator:initdata1",
+			"si:id1",
+		],
+		"body": [
+			"virtual void InitData(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);"
+		]
+	},
+	"signal indicator: InitData 2": {
+		"scope": "cpp",
+		"prefix": [
+			"signalindicator:initdata2",
+			"si:id2",
+		],
+		"body": [
+			"virtual void InitData(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]),",
+		]
+	},
+	"signal indicator: OnIterate 1": {
+		"scope": "cpp",
+		"prefix": [
+			"signalindicator:oniterate1",
+			"si:oniter1",
+		],
+		"body": [
+			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+		]
+	},
+	"signal indicator: OnIterate 2": {
+		"scope": "cpp",
+		"prefix": [
+			"signalindicator:oniterate2",
+			"si:oniter2",
+		],
+		"body": [
+			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
+		]
 	},
 	/////////////////////////////////////////////////////////
 	// Custom indicator functions
