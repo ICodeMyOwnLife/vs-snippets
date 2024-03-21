@@ -371,6 +371,37 @@
 			"input ${1:int} ${2:input_name} = ${3:value}; // $0"
 		]
 	},
+	"custom EA": {
+		"scope": "cpp",
+		"prefix": [
+			"customea",
+			"cea"
+		],
+		"body": [
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} : public CustomEa",
+			"{",
+			"private:",
+			"  $3\n",
+			"public:",
+			"  $1() : CustomEa($4) {}",
+			"  virtual int OnInitialize();",
+			"  virtual void OnNewBar();",
+			"};\n",
+			"int $1::OnInitialize()",
+			"{",
+			"  $11\n",
+			"  return INIT_SUCCEEDED;",
+			"}\n",
+			"void $1::OnNewBar()",
+			"{",
+			"  $21",
+			"}\n",
+			"$1 ${2:my_ea};\n",
+			"int OnInit() { return $2.OnInit(); }\n",
+			"double OnTester() { $101 }\n",
+			"void OnTick() { $2.OnTick(); }",
+		]
+	},
 	/////////////////////////////////////////////////////////
 	// CustomIndicator implementation
 	/////////////////////////////////////////////////////////
@@ -386,8 +417,6 @@
 			"private:",
 			"  $3\n",
 			"public:",
-			"  $1() {}",
-			"  ~$1() {}",
 			"  virtual int OnInit();",
 			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
@@ -434,8 +463,6 @@
 			"private:",
 			"  $3\n",
 			"public:",
-			"  $1() {}",
-			"  ~$1() {}",
 			"  virtual int OnInit();",
 			"  virtual int OnCalculate(const int rates_total, const int prev_calculated,",
 			"const int begin, const double &price[]);",
@@ -546,7 +573,6 @@
 			"const long &volume[], const int &spread[]);\n",
 			"public:",
 			"  $1() : SignalIndicator($5) {}",
-			"  ~$1() {}",
 			"  virtual int OnInit();",
 			"};\n",
 			"bool $1::FillData(const int rates_total, const int prev_calculated,",
