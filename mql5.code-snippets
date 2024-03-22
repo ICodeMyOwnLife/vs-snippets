@@ -438,7 +438,7 @@
 			"  $21",
 			"  return rates_total;",
 			"}\n",
-			"$1 ${2:my_indicator};\n",
+			"$1 ${2:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}};\n",
 			"int OnInit() { return $2.OnInit(); }\n",
 			"int OnCalculate(const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
@@ -478,7 +478,7 @@
 			"  $21",
 			"  return rates_total;",
 			"}\n",
-			"$1 ${2:my_indicator};\n",
+			"$1 ${2:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}};\n",
 			"int OnInit() { return $2.OnInit(); }\n",
 			"int OnCalculate(const int rates_total, const int prev_calculated,",
 			"const int begin, const double &price[])",
@@ -604,7 +604,7 @@
 			"{",
 			"  ${41:_buy_data[index] = _sell_data[index] = EMPTY_VALUE;}\n$42",
 			"}\n",
-			"$1 ${2:my_indicator};\n",
+			"$1 ${2:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}};\n",
 			"int OnInit() { return $2.OnInit(); }\n",
 			"int OnCalculate(const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
@@ -763,6 +763,29 @@
 		],
 		"body": [
 			"SetIndexBuffer(${1:0}, ${2:buffer}, ${3|INDICATOR_DATA,INDICATOR_COLOR_INDEX,INDICATOR_CALCULATIONS|});$0"
+		]
+	},
+	/////////////////////////////////////////////////////////
+	// Custom/Signal indicator helpers
+	/////////////////////////////////////////////////////////
+	"AddSubIndicator": {
+		"scope": "cpp",
+		"prefix": [
+			"addsubindicator",
+			"asi"
+		],
+		"body": [
+			"AddSubIndicator(${1:ind_name}, ${2:ind_handle}, ${3|POS_MAIN_WINDOW,POS_CURR_WINDOW,POS_NEW_WINDOW|})$0"
+		]
+	},
+	"FillIndicatorData": {
+		"scope": "cpp",
+		"prefix": [
+			"fillindicatordata",
+			"fid"
+		],
+		"body": [
+			"FillIndicatorData(${1:rates_total}, ${2:prev_calculated}, ${3:ind_handle}, ${4:ind_data}, \"${5:Ind Name}\"$6)$0"
 		]
 	},
 	/////////////////////////////////////////////////////////
