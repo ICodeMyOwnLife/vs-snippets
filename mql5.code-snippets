@@ -785,7 +785,7 @@
 			"fid"
 		],
 		"body": [
-			"FillIndicatorData(${1:rates_total}, ${2:prev_calculated}, ${3:ind_handle}, ${4:ind_data}, \"${5:Ind Name}\"$6)$0"
+			"IndicatorUtil::FillIndicatorData(${1:rates_total}, ${2:prev_calculated}, ${3:ind_handle}, ${4:ind_data}, \"${5:Ind Name}\"$6)$0"
 		]
 	},
 	/////////////////////////////////////////////////////////
