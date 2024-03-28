@@ -189,7 +189,7 @@
 			"indicator_width"
 		],
 		"body": [
-			"indicator_width${1:1}: ${2:1}"
+			"indicator_width${1:1} ${2:1}"
 		]
 	},
 	"indicator properties": {
@@ -338,6 +338,16 @@
 		],
 		"body": [
 			"${1:void} ${2:Method_Name}($3)${4:;}$0"
+		]
+	},
+	"method, static": {
+		"scope": "cpp",
+		"prefix": [
+			"static_method",
+			"sm"
+		],
+		"body": [
+			"static ${1:void} ${2:Method_Name}($3)${4:;}$0"
 		]
 	},
 	"method, virtual": {
@@ -581,7 +591,7 @@
 			"const double &close[], const long &tick_volume[],",
 			"const long &volume[], const int &spread[])",
 			"{",
-			"  return ${11:FillIndicatorData(rates_total, prev_calculated,}$12;",
+			"  return $11",
 			"}\n",
 			"void $1::InitData(const int rates_total, const int prev_calculated,",
 			"const datetime &time[], const double &open[],",
@@ -693,6 +703,18 @@
 		]
 	},
 	/////////////////////////////////////////////////////////
+	// Technical indicator functions
+	/////////////////////////////////////////////////////////
+	"iCustom": {
+		"scope": "cpp",
+		"prefix": [
+			"icustom"
+		],
+		"body": [
+			"iCustom(${1:symbol}, ${2:period}, \"${3:name}\"$4)$0"
+		]
+	},
+	/////////////////////////////////////////////////////////
 	// Custom indicator functions
 	/////////////////////////////////////////////////////////
 	"IndicatorSetDouble": {
@@ -785,7 +807,7 @@
 			"fid"
 		],
 		"body": [
-			"IndicatorUtil::FillIndicatorData(${1:rates_total}, ${2:prev_calculated}, ${3:ind_handle}, ${4:ind_data}, \"${5:Ind Name}\"$6)$0"
+			"${1|IndicatorUtil::FillIndicatorData,IU::FillIndicatorData|}(${2:rates_total}, ${3:prev_calculated}, ${4:ind_handle}, ${5:ind_data}, \"${6:Ind Name}\"$7)$0"
 		]
 	},
 	/////////////////////////////////////////////////////////
