@@ -497,6 +497,46 @@
 			"}"
 		],
 	},
+	"custom indicator: OnCalculate 1": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:oncalculate1",
+			"ci:oc1",
+			"signalindicator:oncalculate",
+			"si:oc",
+		],
+		"body": [
+			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
+			"const datetime &time[], const double &open[],",
+			"const double &high[], const double &low[],",
+			"const double &close[], const long &tick_volume[],",
+			"const long &volume[], const int &spread[]);",
+		]
+	},
+	"custom indicator: OnCalculate 2": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:oncalculate2",
+			"ci:oc2",
+		],
+		"body": [
+			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
+			"const int begin, const double &price[]);",
+		]
+	},
+	"custom indicator: OnChartEvent": {
+		"scope": "cpp",
+		"prefix": [
+			"customindicator:onchartevent",
+			"ci:oce",
+			"signalindicator:onchartevent",
+			"si:oce"
+		],
+		"body": [
+			"virtual void OnChartEvent(const int id, const long &lparam,",
+			"const double &dparam, const string &sparam);",
+		]
+	},
 	"custom indicator: OnDeinit": {
 		"scope": "cpp",
 		"prefix": [
@@ -519,35 +559,6 @@
 		],
 		"body": [
 			"virtual int OnInit();"
-		]
-	},
-	"custom indicator: OnCalculate 1": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:oncalculate1",
-			"ci:oc1",
-			"signalindicator:oncalculate1",
-			"si:oc1",
-		],
-		"body": [
-			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
-			"const datetime &time[], const double &open[],",
-			"const double &high[], const double &low[],",
-			"const double &close[], const long &tick_volume[],",
-			"const long &volume[], const int &spread[]);",
-		]
-	},
-	"custom indicator: OnCalculate 2": {
-		"scope": "cpp",
-		"prefix": [
-			"customindicator:oncalculate2",
-			"ci:oc2",
-			"signalindicator:oncalculate2",
-			"si:oc2",
-		],
-		"body": [
-			"virtual int OnCalculate(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]);",
 		]
 	},
 	/////////////////////////////////////////////////////////
@@ -627,11 +638,11 @@
 			"}"
 		],
 	},
-	"signal indicator: FillData 1": {
+	"signal indicator: FillData": {
 		"scope": "cpp",
 		"prefix": [
-			"signalindicator:filldata1",
-			"si:fd1",
+			"signalindicator:filldata",
+			"si:fd",
 		],
 		"body": [
 			"virtual bool FillData(const int rates_total, const int prev_calculated,",
@@ -641,22 +652,11 @@
 			"const long &volume[], const int &spread[]);",
 		]
 	},
-	"signal indicator: FillData 2": {
+	"signal indicator: InitData": {
 		"scope": "cpp",
 		"prefix": [
-			"signalindicator:filldata2",
-			"si:fd2",
-		],
-		"body": [
-			"virtual bool FillData(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]);",
-		]
-	},
-	"signal indicator: InitData 1": {
-		"scope": "cpp",
-		"prefix": [
-			"signalindicator:initdata1",
-			"si:id1",
+			"signalindicator:initdata",
+			"si:id",
 		],
 		"body": [
 			"virtual void InitData(const int rates_total, const int prev_calculated,",
@@ -666,22 +666,11 @@
 			"const long &volume[], const int &spread[]);"
 		]
 	},
-	"signal indicator: InitData 2": {
+	"signal indicator: OnIterate": {
 		"scope": "cpp",
 		"prefix": [
-			"signalindicator:initdata2",
-			"si:id2",
-		],
-		"body": [
-			"virtual void InitData(const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]),",
-		]
-	},
-	"signal indicator: OnIterate 1": {
-		"scope": "cpp",
-		"prefix": [
-			"signalindicator:oniterate1",
-			"si:oniter1",
+			"signalindicator:oniterate",
+			"si:oniter",
 		],
 		"body": [
 			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
@@ -689,17 +678,6 @@
 			"const double &high[], const double &low[],",
 			"const double &close[], const long &tick_volume[],",
 			"const long &volume[], const int &spread[]);",
-		]
-	},
-	"signal indicator: OnIterate 2": {
-		"scope": "cpp",
-		"prefix": [
-			"signalindicator:oniterate2",
-			"si:oniter2",
-		],
-		"body": [
-			"virtual void OnIterate(const int index, const int rates_total, const int prev_calculated,",
-			"const int begin, const double &price[]);",
 		]
 	},
 	/////////////////////////////////////////////////////////
