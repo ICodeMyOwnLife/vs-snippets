@@ -27,7 +27,8 @@
 		"body": [
 			"#property copyright \"ICodeMyOwnLife\"",
 			"#property link \"https://github.com/ICodeMyOwnLife\"",
-			"#property version \"1.00\"\n$0"
+			"#property version \"1.00\"",
+			"#property description \"${1:$TM_FILENAME_BASE}\"\n$0"
 		]
 	},
 	"copyright": {
@@ -35,6 +36,13 @@
 		"prefix": "copyright",
 		"body": [
 			"copyright \"${1}\""
+		]
+	},
+	"description": {
+		"scope": "cpp",
+		"prefix": "description",
+		"body": [
+			"description \"${1:$TM_FILENAME_BASE}\""
 		]
 	},
 	"indicator_applied_price": {
