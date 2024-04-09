@@ -433,6 +433,78 @@
 		]
 	},
 	/////////////////////////////////////////////////////////
+	// IndicatorImpl implementation
+	/////////////////////////////////////////////////////////
+	"indicator impl 1": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_impl_1",
+			"ii1"
+		],
+		"body": [
+			"#include <../Libraries/IndicatorImpl.mqh>\n",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} : public IndicatorImpl1",
+			"{",
+			"private:",
+			"  $2\n",
+			"public:",
+			"  $1($3)$4 {}\n",
+			"  double Calculate(",
+			"      const int rates_total, const int prev_calculated, const int index,",
+			"      const int begin, const double &price[], const double &buffer[]) override",
+			"  {",
+			"    $5",
+			"  }\n",
+			"  int DrawBegin(const int begin) override { return $6; }\n",
+			"  int InitData(const int rates_total, const int begin, const double &price[],",
+			"               int &init_index, double &init_value) override",
+			"  {",
+			"    $0int draw_begin = DrawBegin(begin);",
+			"    init_index = draw_begin;",
+			"    init_value = ;",
+			"    return draw_begin + 1;",
+			"  }",
+			"};",
+		]
+	},
+	"indicator impl 2": {
+		"scope": "cpp",
+		"prefix": [
+			"indicator_impl_2",
+			"ii2"
+		],
+		"body": [
+			"#include <../Libraries/IndicatorImpl.mqh>\n",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}} : public IndicatorImpl2",
+			"{",
+			"private:",
+			"  $2\n",
+			"public:",
+			"  $1($3)$4 {}\n",
+			"  double Calculate(",
+			"      const int rates_total, const int prev_calculated, const int index,",
+			"      const datetime &time[], const double &open[], const double &high[],",
+			"      const double &low[], const double &close[], const long &tick_volume[],",
+			"      const long &volume[], const int &spread[], const double &buffer[]) override",
+			"  {",
+			"    $5",
+			"  }\n",
+			"  int DrawBegin() override { return $6; }\n",
+			"  int InitData(",
+			"      const int rates_total, const datetime &time[], const double &open[],",
+			"      const double &high[], const double &low[], const double &close[],",
+			"      const long &tick_volume[], const long &volume[], const int &spread[],",
+			"      int &init_index, double &init_value) override",
+			"  {",
+			"    $0int draw_begin = DrawBegin();",
+			"    init_index = draw_begin;",
+			"    init_value = ;",
+			"    return draw_begin + 1;",
+			"  }",
+			"};",
+		]
+	},
+	/////////////////////////////////////////////////////////
 	// CustomIndicator implementation
 	/////////////////////////////////////////////////////////
 	"custom indicator 1": {
