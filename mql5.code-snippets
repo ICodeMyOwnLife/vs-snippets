@@ -290,6 +290,23 @@
 			"break;\n"
 		]
 	},
+	"class": {
+		"scope": "cpp",
+		"prefix": [
+			"class",
+			"cls"
+		],
+		"body": [
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}",
+			"{",
+			"private:",
+			"  $2",
+			"public:",
+			"  RangeLine($3)$4 {}",
+			"  $0",
+			"};",
+		]
+	},
 	"define": {
 		"scope": "cpp",
 		"prefix": [
@@ -786,6 +803,16 @@
 	/////////////////////////////////////////////////////////
 	// Custom indicator functions
 	/////////////////////////////////////////////////////////
+	"PlotIndexGetInteger": {
+		"scope": "cpp",
+		"prefix": [
+			"plotindexgetinteger",
+			"pigi"
+		],
+		"body": [
+			"PlotIndexGetInteger(${1:0}, ${2|PLOT_ARROW,PLOT_ARROW_SHIFT,PLOT_DRAW_BEGIN,PLOT_DRAW_TYPE,PLOT_SHOW_DATA,PLOT_SHIFT,PLOT_LINE_STYLE,PLOT_LINE_WIDTH,PLOT_COLOR_INDEXES,PLOT_LINE_COLOR|}$3)$0"
+		]
+	},
 	"IndicatorSetDouble": {
 		"scope": "cpp",
 		"prefix": [
