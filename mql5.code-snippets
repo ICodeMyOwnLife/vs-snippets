@@ -297,12 +297,12 @@
 			"cls"
 		],
 		"body": [
-			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}",
+			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}$2",
 			"{",
 			"private:",
-			"  $2",
+			"  $3",
 			"public:",
-			"  $1($3)$4 {}",
+			"  $1($4)$5 {}",
 			"  $0",
 			"};",
 		]
