@@ -299,7 +299,7 @@
 		"body": [
 			"class ${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}}$2",
 			"{",
-			"private:",
+			"protected:",
 			"  $3",
 			"public:",
 			"  $1($4)$5 {}",
