@@ -360,7 +360,7 @@
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "for",
     "body": [
-      "for (let ${1:i} = ${2:0}; $1 < ${3:count}; ${4:++$1}) {",
+      "for (let ${1:i} = ${2:0}; $1 ${3:<} ${4:count}; ${5:++$1}) {",
       "\t$0",
       "}"
     ]
@@ -644,6 +644,13 @@
     ],
     "body": "const ${1:timeoutId} = setTimeout(() => {$0}, ${2:ms});"
   },
+  "clearTimeout": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "cleartimeout"
+    ],
+    "body": "clearTimeout(${1:timeoutId});"
+  },
   "setInterval": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": [
@@ -657,6 +664,13 @@
       "setinterval"
     ],
     "body": "const ${1:intervalId} = setInterval(() => {$0}, ${2:ms});"
+  },
+  "clearInterval": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": [
+      "clearinterval"
+    ],
+    "body": "clearInterval(${1:intervalId});"
   },
   "setImmediate": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",

@@ -74,6 +74,18 @@
       ");\n",
     ]
   },
+  "React FC container Impl": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "rfcc_",
+      "reactFCContainerImpl"
+    ],
+    "body": [
+      "const ${1:$TM_FILENAME_BASE}: FC = () => (",
+      "\t$0",
+      ");\n",
+    ]
+  },
   "React page (ts)": {
     "scope": "typescriptreact",
     "prefix": [
