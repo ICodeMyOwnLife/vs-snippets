@@ -25,13 +25,30 @@
       "reactFC"
     ],
     "body": [
-      "import { FC } from 'react';\n",
+      "import { type FC } from 'react';\n",
       "export interface $1Props {",
       "  $2",
       "}\n",
       "export const ${1:$TM_FILENAME_BASE}: FC<$1Props> = ({$3}) => (",
       "\t$0",
       ");\n"
+    ]
+  },
+  "Memo FC File (ts)": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "mfc",
+      "memoFC"
+    ],
+    "body": [
+      "import { memo, type FC } from 'react';\n",
+      "export interface $1Props {",
+      "  $2",
+      "}\n",
+      "const ${1:$TM_FILENAME_BASE}Comp: FC<$1Props> = ({$3}) => (",
+      "\t$0",
+      ");\n",
+      "export const $1 = memo($1Comp);\n"
     ]
   },
   "React FC Impl (ts)": {
@@ -49,6 +66,22 @@
       ");\n"
     ]
   },
+  "Memo FC Impl (ts)": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "mfc_",
+      "memoFC_"
+    ],
+    "body": [
+      "interface $1Props {",
+      "  $2",
+      "}\n",
+      "const ${1:$TM_FILENAME_BASE}Comp: FC<$1Props> = ({$3}) => (",
+      "\t$0",
+      ");\n",
+      "const $1 = memo($1Comp);\n"
+    ]
+  },
   "React FC File (js)": {
     "scope": "javascript,javascriptreact",
     "prefix": [
@@ -61,6 +94,19 @@
       ");\n",
     ]
   },
+  "Memo FC File (js)": {
+    "scope": "javascript,javascriptreact",
+    "prefix": [
+      "mfc",
+      "memoFC"
+    ],
+    "body": [
+      "const ${1:$TM_FILENAME_BASE}Comp = ({$2}) => (",
+      "\t$0",
+      ");\n",
+      "export const $1 = memo($1Comp);\n"
+    ]
+  },
   "React FC container": {
     "scope": "typescriptreact",
     "prefix": [
@@ -68,10 +114,24 @@
       "reactFCContainer"
     ],
     "body": [
-      "import { FC } from 'react';\n",
+      "import { type FC } from 'react';\n",
       "export const ${1:$TM_FILENAME_BASE}: FC = () => (",
       "\t$0",
       ");\n",
+    ]
+  },
+  "Memo FC container": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "mfcc",
+      "memoFCContainer"
+    ],
+    "body": [
+      "import { memo, type FC } from 'react';\n",
+      "const ${1:$TM_FILENAME_BASE}Comp: FC = () => (",
+      "\t$0",
+      ");\n",
+      "export const $1 = memo($1Comp);\n"
     ]
   },
   "React FC container Impl": {
@@ -84,6 +144,19 @@
       "const ${1:$TM_FILENAME_BASE}: FC = () => (",
       "\t$0",
       ");\n",
+    ]
+  },
+  "Memo FC container Impl": {
+    "scope": "typescriptreact",
+    "prefix": [
+      "mfcc_",
+      "memoFCContainerImpl"
+    ],
+    "body": [
+      "const ${1:$TM_FILENAME_BASE}Comp: FC = () => (",
+      "\t$0",
+      ");\n",
+      "const $1 = memo($1Comp);\n"
     ]
   },
   "React page (ts)": {
